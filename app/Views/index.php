@@ -14,9 +14,8 @@ License: For each use you must have a valid license purchased only from above li
 <!--begin::Head-->
 
 <head>
-	<base href="">
-	<title>Metronic - the world's #1 selling Bootstrap Admin Theme Ecosystem for HTML, Vue, React, Angular &amp; Laravel
-		by Keenthemes</title>
+	<base href="<?= base_url() ?>">
+	<title>Dashboard</title>
 	<meta name="description"
 		content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
 	<meta name="keywords"
@@ -30,16 +29,16 @@ License: For each use you must have a valid license purchased only from above li
 	<meta property="og:url" content="https://keenthemes.com/metronic" />
 	<meta property="og:site_name" content="Keenthemes | Metronic" />
 	<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-	<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+	<link rel="shortcut icon" href="<?= base_url('/assets/media/logos/favicon') ?>" />
 	<!--begin::Fonts-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 	<!--end::Fonts-->
 	<!--begin::Page Vendor Stylesheets(used by this page)-->
-	<link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url('assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') ?>" rel="stylesheet" type="text/css" />
 	<!--end::Page Vendor Stylesheets-->
 	<!--begin::Global Stylesheets Bundle(used by all pages)-->
-	<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-	<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url('assets/plugins/global/plugins.bundle.css') ?>" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url('assets/css/style.bundle.css') ?>" rel="stylesheet" type="text/css" />
 	<!--end::Global Stylesheets Bundle-->
 </head>
 <!--end::Head-->
@@ -809,7 +808,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="d-flex justify-content-end">
 												<button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2"
 													data-kt-menu-dismiss="true">Reset</button>
-												<button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
+												<button type="submit" class="btn btn-sm btn-custom" data-kt-menu-dismiss="true">Apply</button>
 											</div>
 											<!--end::Actions-->
 										</div>
@@ -820,7 +819,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::Wrapper-->
 								<!--begin::Button-->
-								<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app"
+								<a href="#" class="btn btn-sm btn-custom" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app"
 									id="kt_toolbar_primary_button">Create</a>
 								<!--end::Button-->
 							</div>
@@ -1151,7 +1150,7 @@ License: For each use you must have a valid license purchased only from above li
 														<div class="d-flex justify-content-end">
 															<button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2"
 																data-kt-menu-dismiss="true">Reset</button>
-															<button type="submit" class="btn btn-sm btn-primary"
+															<button type="submit" class="btn btn-sm btn-custom"
 																data-kt-menu-dismiss="true">Apply</button>
 														</div>
 														<!--end::Actions-->
@@ -2167,7 +2166,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin::Menu item-->
 													<div class="menu-item px-3">
 														<div class="menu-content px-3 py-3">
-															<a class="btn btn-primary btn-sm px-4" href="#">Generate Reports</a>
+															<a class="btn btn-custom btn-sm px-4" href="#">Generate Reports</a>
 														</div>
 													</div>
 													<!--end::Menu item-->
@@ -3470,7 +3469,7 @@ License: For each use you must have a valid license purchased only from above li
 											<span class="text-muted mt-1 fw-bold fs-7">Preview monthly events</span>
 										</h3>
 										<div class="card-toolbar">
-											<a href="../../demo1/dist/apps/calendar.html" class="btn btn-primary">Manage Calendar</a>
+											<a href="../../demo1/dist/apps/calendar.html" class="btn btn-custom">Manage Calendar</a>
 										</div>
 									</div>
 									<!--end::Card header-->
@@ -3620,7 +3619,7 @@ License: For each use you must have a valid license purchased only from above li
 													<button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3">Cancel</button>
 													<!--end::Button-->
 													<!--begin::Button-->
-													<button type="button" id="kt_modal_add_event_submit" class="btn btn-primary">
+													<button type="button" id="kt_modal_add_event_submit" class="btn btn-custom">
 														<span class="indicator-label">Submit</span>
 														<span class="indicator-progress">Please wait...
 															<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -4274,7 +4273,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Image-->
 											<!--begin::Link-->
 											<div class="overlay-layer bg-dark bg-opacity-10 rounded">
-												<a href="#" class="btn btn-sm btn-primary btn-shadow">Explore</a>
+												<a href="#" class="btn btn-sm btn-custom btn-shadow">Explore</a>
 											</div>
 											<!--end::Link-->
 										</div>
@@ -4288,7 +4287,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Image-->
 											<!--begin::Link-->
 											<div class="overlay-layer bg-dark bg-opacity-10 rounded">
-												<a href="#" class="btn btn-sm btn-primary btn-shadow">Explore</a>
+												<a href="#" class="btn btn-sm btn-custom btn-shadow">Explore</a>
 											</div>
 											<!--end::Link-->
 										</div>
@@ -4302,7 +4301,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Image-->
 											<!--begin::Link-->
 											<div class="overlay-layer bg-dark bg-opacity-10 rounded">
-												<a href="#" class="btn btn-sm btn-primary btn-shadow">Explore</a>
+												<a href="#" class="btn btn-sm btn-custom btn-shadow">Explore</a>
 											</div>
 											<!--end::Link-->
 										</div>
@@ -4441,7 +4440,7 @@ License: For each use you must have a valid license purchased only from above li
 											</div>
 											<!--end::Content-->
 											<!--begin::Action-->
-											<a href="#" class="btn btn-primary px-6 align-self-center text-nowrap">Proceed</a>
+											<a href="#" class="btn btn-custom px-6 align-self-center text-nowrap">Proceed</a>
 											<!--end::Action-->
 										</div>
 										<!--end::Wrapper-->
@@ -4918,7 +4917,7 @@ License: For each use you must have a valid license purchased only from above li
 					</div>
 					<!--end::Actions-->
 					<!--begin::Send-->
-					<button class="btn btn-primary" type="button" data-kt-element="send">Send</button>
+					<button class="btn btn-custom" type="button" data-kt-element="send">Send</button>
 					<!--end::Send-->
 				</div>
 				<!--end::Toolbar-->
@@ -6206,7 +6205,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Wrapper-->
 									<!--begin::Wrapper-->
 									<div>
-										<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="submit">
+										<button type="button" class="btn btn-lg btn-custom" data-kt-stepper-action="submit">
 											<span class="indicator-label">Submit
 												<!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
 												<span class="svg-icon svg-icon-3 ms-2 me-0">
@@ -6223,7 +6222,7 @@ License: For each use you must have a valid license purchased only from above li
 											<span class="indicator-progress">Please wait...
 												<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 										</button>
-										<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Continue
+										<button type="button" class="btn btn-lg btn-custom" data-kt-stepper-action="next">Continue
 											<!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
 											<span class="svg-icon svg-icon-3 ms-1 me-0">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -6414,7 +6413,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--end::Description-->
 										<!--begin::Price-->
 										<div class="ms-5">
-											<a href="#" class="btn btn-sm btn-primary">Contact Us</a>
+											<a href="#" class="btn btn-sm btn-custom">Contact Us</a>
 										</div>
 										<!--end::Price-->
 									</div>
@@ -6822,7 +6821,7 @@ License: For each use you must have a valid license purchased only from above li
 					<!--begin::Actions-->
 					<div class="d-flex flex-center flex-row-fluid pt-12">
 						<button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
-						<button type="submit" class="btn btn-primary">Upgrade Plan</button>
+						<button type="submit" class="btn btn-custom">Upgrade Plan</button>
 					</div>
 					<!--end::Actions-->
 				</div>
@@ -6852,17 +6851,17 @@ License: For each use you must have a valid license purchased only from above li
 	<script>var hostUrl = "assets/";</script>
 	<!--begin::Javascript-->
 	<!--begin::Global Javascript Bundle(used by all pages)-->
-	<script src="assets/plugins/global/plugins.bundle.js"></script>
-	<script src="assets/js/scripts.bundle.js"></script>
+	<script src="<?= base_url('assets/plugins/global/plugins.bundle.js') ?>"></script>
+	<script src="<?= base_url('assets/js/scripts.bundle.js') ?>"></script>
 	<!--end::Global Javascript Bundle-->
 	<!--begin::Page Vendors Javascript(used by this page)-->
-	<script src="assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+	<script src="<?= base_url('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js')?>"></script>
 	<!--end::Page Vendors Javascript-->
 	<!--begin::Page Custom Javascript(used by this page)-->
-	<script src="assets/js/custom/widgets.js"></script>
-	<script src="assets/js/custom/apps/chat/chat.js"></script>
-	<script src="assets/js/custom/modals/create-app.js"></script>
-	<script src="assets/js/custom/modals/upgrade-plan.js"></script>
+	<script src="<?= base_url('assets/js/custom/widgets.js')?>"></script>
+	<script src="<?= base_url('assets/js/custom/apps/chat/chat.js')?>"></script>
+	<script src="<?= base_url('assets/js/custom/modals/create-app.js')?>"></script>
+	<script src="<?= base_url('assets/js/custom/modals/upgrade-plan.js')?>"></script>
 	<!--end::Page Custom Javascript-->
 	<!--end::Javascript-->
 </body>
