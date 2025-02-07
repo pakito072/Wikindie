@@ -49,7 +49,7 @@ License: For each use you must have a valid license purchased only from above li
 		<!--begin::Authentication - Sign-in -->
 		<div class="d-flex flex-column flex-lg-row flex-column-fluid">
 			<!--begin::Aside-->
-			<?php include(APPPATH . 'Views/templates/aside.php'); ?>
+			<?php include APPPATH . 'Views/templates/aside.php'; ?>
 			<!--end::Aside-->
 			<!--begin::Body-->
 			<div class="d-flex flex-column flex-lg-row-fluid py-10">
@@ -58,7 +58,7 @@ License: For each use you must have a valid license purchased only from above li
 					<!--begin::Wrapper-->
 					<div class="w-lg-500px p-10 p-lg-15 mx-auto">
 						<!--begin::Form-->
-						<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="#">
+						<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" method="POST" action="<? base_url('attemptSign-in') ?>">
 							<!--begin::Heading-->
 							<div class="text-center mb-10">
 								<!--begin::Title-->
