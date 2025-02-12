@@ -18,3 +18,5 @@ $routes->get('new-password', 'Auth::forgotPassword');
 $routes->post('new-password', 'Auth::attemptForgotPassword');
 $routes->get('sing-out', 'Auth::sing-out');
 
+$routes->get('overview', 'UserController::overview');
+$routes->get('users','UserController::user');
