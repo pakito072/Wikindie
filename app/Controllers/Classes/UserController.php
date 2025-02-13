@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Controllers;
-use App\Models\UserModel;
+namespace App\Controllers\Classes;
 use CodeIgniter\Controller;
 
 class UserController extends Controller
 {
-    public function overview(): string
+    public function viewProfile(): string
     {
-        return view('pages/profile/overview');
+        return view('pages/profile/view');
     }
 
     public function user () {

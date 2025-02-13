@@ -6,17 +6,25 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-
+//Rutas principales
 $routes->get('/', 'Home::index');
 $routes->get('home', 'Home::index');
 
-$routes->get('sign-in', 'Auth::login');
-$routes->post('sign-in', 'Auth::attemptSign-in');
-$routes->get('sign-up', 'Auth::register');
-$routes->post('sign-up', 'Auth::attemptSign-up');
-$routes->get('new-password', 'Auth::forgotPassword');
-$routes->post('new-password', 'Auth::attemptForgotPassword');
-$routes->get('sing-out', 'Auth::sing-out');
+//Rutas de autenticación
+$routes->get('signIn', 'AuthController::signIn');
+$routes->post('signIn', 'AuthController::attemptSign-in');
+$routes->get('signUp', 'AuthController::signUp');
+$routes->post('signUp', 'AuthController::attemptSign-up');
+$routes->get('forgotPassword', 'AuthController::forgotPassword');
+$routes->post('forgotPassword', 'AuthController::attemptForgotPassword');
+$routes->get('signOut', 'AuthController::signOut');
 
-$routes->get('overview', 'UserController::overview');
+//Rutas de usuario
+$routes->get('viewProfile', 'UserController::viewProfile');
 $routes->get('users','UserController::user');
+
+//Rutas de creador
+
+//Rutas de administrador
+$routes->get('userList', 'Classes\AdminController::userList');
+$routes->get('rolesList', 'Classes\AdminController::rolesList');
