@@ -56,8 +56,8 @@ License: For each use you must have a valid license purchased only from above li
 					<!--begin::Wrapper-->
 					<div class="w-lg-600px p-10 p-lg-15 mx-auto">
 						<!--begin::Form-->
-						<form class="form w-100" novalidate="novalidate" id="kt_sign_up_form" action="<?= base_url('sign-up') ?>"
-							method="POST">
+						<form class="form w-100" novalidate="novalidate" id="kt_sign_up_form" action="<?= base_url('signUp') ?>"
+							method="post">
 							<!--begin::Heading-->
 							<div class="mb-10 text-center">
 								<!--begin::Title-->
@@ -65,7 +65,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Title-->
 								<!--begin::Link-->
 								<div class="text-gray-400 fw-bold fs-4">Already have an account?
-									<a href="<?= base_url('sign-in') ?>" class="link-primary fw-bolder ">Sign
+									<a href="<?= base_url('signIn') ?>" class="link-primary fw-bolder ">Sign
 										in here</a>
 								</div>
 								<!--end::Link-->
@@ -85,14 +85,14 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="col-xl-6">
 									<label class="form-label fw-bolder text-dark fs-6">First Name</label>
 									<input class="form-control form-control-lg form-control-solid" type="text" placeholder=""
-										name="first-name" autocomplete="off" />
+										name="first_name" autocomplete="off" />
 								</div>
 								<!--end::Col-->
 								<!--begin::Col-->
 								<div class="col-xl-6">
 									<label class="form-label fw-bolder text-dark fs-6">Last Name</label>
 									<input class="form-control form-control-lg form-control-solid" type="text" placeholder=""
-										name="last-name" autocomplete="off" />
+										name="last_name" autocomplete="off" />
 								</div>
 								<!--end::Col-->
 							</div>
@@ -106,7 +106,7 @@ License: For each use you must have a valid license purchased only from above li
 							<!--end::Input group-->
 							<!--begin::Input group-->
 							<div class="fv-row mb-7">
-								<label class="form-label fw-bolder text-dark fs-6">Phone Number</label>
+								<label class="form-label fw-bolder text-dark fs-6">Phone Number<span class="text-muted fs-7">(optional)</span></label>
 								<input class="form-control form-control-lg form-control-solid" type="text" placeholder=""
 									name="phone_number" autocomplete="off" />
 							</div>
@@ -148,7 +148,7 @@ License: For each use you must have a valid license purchased only from above li
 							<div class="fv-row mb-5">
 								<label class="form-label fw-bolder text-dark fs-6">Confirm Password</label>
 								<input class="form-control form-control-lg form-control-solid" type="password" placeholder=""
-									name="confirm-password" autocomplete="off" />
+									name="confirm_password" autocomplete="off" />
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
@@ -199,7 +199,7 @@ License: For each use you must have a valid license purchased only from above li
 	<script src="<?= base_url('assets/js/scripts.bundle.js') ?>"></script>
 	<!--end::Global Javascript Bundle-->
 	<!--begin::Page Custom Javascript(used by this page)-->
-	<script src="<?= base_url('assets/js/custom/authentication/sign-in/general.js') ?>"></script>
+	<script src="<?= base_url('assets/js/custom/authentication/sign-up/general.js') ?>"></script>
 	<!--end::Page Custom Javascript-->
 	<!--end::Javascript-->
 </body>

@@ -4,7 +4,7 @@
     <!--begin::Content-->
     <div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20 justify-content-center">
       <!--begin::Logo-->
-      <a class="py-9 mb-5" href="<?= base_url('home') ?>">
+      <a class="py-9 mb-5" href="<?= base_url('/') ?>">
         <img alt="Logo" src="<?= base_url('assets/media/logos/logoPrin') ?>" />
       </a>
       <!--end::Logo-->

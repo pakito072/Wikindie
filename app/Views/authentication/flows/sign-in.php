@@ -58,7 +58,7 @@ License: For each use you must have a valid license purchased only from above li
 					<!--begin::Wrapper-->
 					<div class="w-lg-500px p-10 p-lg-15 mx-auto">
 						<!--begin::Form-->
-						<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" method="POST" action="<? base_url('attemptSign-in') ?>">
+						<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" method="post" action="<?= base_url('signIn') ?>">
 							<!--begin::Heading-->
 							<div class="text-center mb-10">
 								<!--begin::Title-->
@@ -66,7 +66,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Title-->
 								<!--begin::Link-->
 								<div class="text-gray-400 fw-bold fs-4">New Here?
-									<a href="<?= base_url('sign-up') ?>" class="link-primary fw-bolder ">Create an
+									<a href="<?= base_url('signUp') ?>" class="link-primary fw-bolder ">Create an
 										Account</a>
 								</div>
 								<!--end::Link-->
@@ -91,7 +91,7 @@ License: For each use you must have a valid license purchased only from above li
 									<label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
 									<!--end::Label-->
 									<!--begin::Link-->
-									<a href="<?= base_url('new-password') ?>" class="link-primary fs-6 fw-bolder ">Forgot
+									<a href="<?= base_url('forgotPassword') ?>" class="link-primary fs-6 fw-bolder ">Forgot
 										Password ?</a>
 									<!--end::Link-->
 								</div>

@@ -8,23 +8,27 @@ use CodeIgniter\Router\RouteCollection;
 
 //Rutas principales
 $routes->get('/', 'Home::index');
-$routes->get('home', 'Home::index');
 
 //Rutas de autenticación
-$routes->get('signIn', 'AuthController::signIn');
-$routes->post('signIn', 'AuthController::attemptSign-in');
+$routes->get('signIn', 'AuthController::signInLoad');
+  $routes->post('signIn', 'AuthController::signIn');
+
 $routes->get('signUp', 'AuthController::signUp');
-$routes->post('signUp', 'AuthController::attemptSign-up');
+  $routes->post('signUp', 'AuthController::signUp');
+
 $routes->get('forgotPassword', 'AuthController::forgotPassword');
-$routes->post('forgotPassword', 'AuthController::attemptForgotPassword');
+  $routes->post('forgotPassword', 'AuthController::forgotPassword');
+
 $routes->get('signOut', 'AuthController::signOut');
 
 //Rutas de usuario
 $routes->get('viewProfile', 'UserController::viewProfile');
 $routes->get('users','UserController::user');
 
-//Rutas de creador
+//Rutas de autor
+$routes->get('viewArticles', 'Articles\ViewArticles::viewArticles');
 
 //Rutas de administrador
-$routes->get('userList', 'Classes\AdminController::userList');
+$routes->get('userList', 'Users::userList');
 $routes->get('rolesList', 'Classes\AdminController::rolesList');
+

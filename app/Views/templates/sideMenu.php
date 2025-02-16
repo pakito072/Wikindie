@@ -42,7 +42,7 @@
         class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
         id="#kt_aside_menu" data-kt-menu="true">
         <div class="menu-item">
-          <a class="menu-link active" href="../../demo1/dist/index.html">
+          <a class="menu-link active" href="<?= base_url('/') ?>">
             <span class="menu-icon">
               <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
               <span class="svg-icon svg-icon-2">
@@ -55,7 +55,7 @@
               </span>
               <!--end::Svg Icon-->
             </span>
-            <span class="menu-title">Default</span>
+            <span class="menu-title">Dashboard</span>
           </a>
         </div>
 
@@ -185,44 +185,68 @@
 
         <div class="menu-item">
           <div class="menu-content pt-8 pb-2">
-            <span class="menu-section text-muted text-uppercase fs-8 ls-1">Creator</span>
+            <span class="menu-section text-muted text-uppercase fs-8 ls-1">Author</span>
           </div>
           <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-          <span class="menu-link">
-            <span class="menu-icon">
-              <!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
-              <span class="svg-icon svg-icon-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z"
-                    fill="black" />
-                  <rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4" fill="black" />
-                </svg>
+            <span class="menu-link">
+              <span class="menu-icon">
+                <!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
+                <span class="svg-icon svg-icon-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z"
+                      fill="black" />
+                    <rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4" fill="black" />
+                  </svg>
+                </span>
+                <!--end::Svg Icon-->
               </span>
-              <!--end::Svg Icon-->
-            </span>
-            <span class="menu-title">Account</span>
-            <span class="menu-arrow"></span>
-          </span>
-          <div class="menu-sub menu-sub-accordion menu-active-bg">
-            <div class="menu-item">
-              <a class="menu-link" href="<?= base_url('viewProfile') ?>">
+              <span class="menu-title">Articles</span>
+        <span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion menu-active-bg">
+        <div class="menu-item">
+            <a class="menu-link" href="<?= base_url('viewArticles') ?>">
                 <span class="menu-bullet">
-                  <span class="bullet bullet-dot"></span>
+                    <span class="bullet bullet-dot"></span>
                 </span>
                 <span class="menu-title">View</span>
-              </a>
-            </div>
-            <div class="menu-item">
-              <a class="menu-link" href="<?= base_url('settingsProfile') ?>">
+            </a>
+        </div>
+        <div class="menu-item">
+            <a class="menu-link" href="<?= base_url('guides') ?>">
                 <span class="menu-bullet">
-                  <span class="bullet bullet-dot"></span>
+                    <span class="bullet bullet-dot"></span>
                 </span>
-                <span class="menu-title">Settings</span>
-              </a>
+                <span class="menu-title">Guides</span>
+            </a>
+        </div>
+        <div class="menu-item">
+            <a class="menu-link" href="<?= base_url('news') ?>">
+                <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">News</span>
+            </a>
+        </div>
+        <div class="menu-item">
+            <a class="menu-link" href="<?= base_url('reviews') ?>">
+                <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">Reviews</span>
+            </a>
+        </div>
+        <div class="menu-item">
+            <a class="menu-link" href="<?= base_url('recommendations') ?>">
+                <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">Recommendations</span>
+            </a>
+              </div>
             </div>
           </div>
-        </div>
         </div>
 
         <div class="menu-item">
@@ -373,7 +397,8 @@
     <!--begin::User-->
     <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
       <!--begin::Menu wrapper-->
-      <div class="symbol symbol-30px symbol-md-40px" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-trigger="click">
+      <div class="symbol symbol-30px symbol-md-40px" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end"
+        data-kt-menu-trigger="click">
         <img src="assets/media/avatars/150-26.jpg" alt="user" />
       </div>
       <div class="d-flex flex-column ms-5">
@@ -381,9 +406,9 @@
       </div>
       <!--begin::Menu-->
       <div
-      class="menu menu-sub menu-sub-dropdown menu-rounded menu-white menu-state-bg menu-state-primary fw-bold py-1 fs-6 me-5 w-150px"
-      data-kt-menu="true">
-      <!--begin::Menu item-->
+        class="menu menu-sub menu-sub-dropdown menu-rounded menu-white menu-state-bg menu-state-primary fw-bold py-1 fs-6 me-5 w-150px"
+        data-kt-menu="true">
+        <!--begin::Menu item-->
         <div class="menu-item px-1">
           <a href="<?= base_url('signOut') ?>" class="menu-link">Sign Out</a>
         </div>
