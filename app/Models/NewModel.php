@@ -4,14 +4,13 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class GuideModel extends Model
+class NewModel extends Model
 {
-    protected $table = 'guides';
+    protected $table = 'news';
     protected $primaryKey = 'id';
     protected $allowedFields = [
         'article_id', 
-        'guide_details'
+        'news_details'
     ];
     protected $useTimestamps = true;
 }
-

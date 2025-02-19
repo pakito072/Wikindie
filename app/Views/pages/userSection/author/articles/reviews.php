@@ -774,7 +774,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--begin::Card body-->
 								<div class="card-body pt-0">
 									<!--begin::Table-->
-									<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
+									<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_reviews">
 										<!--begin::Table head-->
 										<thead>
 											<!--begin::Table row-->
@@ -782,14 +782,11 @@ License: For each use you must have a valid license purchased only from above li
 												<th class="w-10px pe-2">
 													<div class="form-check form-check-sm form-check-custom form-check-solid me-3">
 														<input class="form-check-input" type="checkbox" data-kt-check="true"
-															data-kt-check-target="#kt_table_users .form-check-input" value="1" />
+															data-kt-check-target="#kt_table_reviews .form-check-input" value="1" />
 													</div>
 												</th>
-												<th class="min-w-125px">Role</th>
-												<th class="min-w-125px">First Name</th>
-												<th class="min-w-125px">Last Name</th>
-												<th class="min-w-125px">Email</th>
-												<th class="min-w-125px">Phone Number</th>
+												<th class="min-w-125px">Score</th>
+												<th class="min-w-125px">Review details</th>
 												<th class="min-w-125px">Created at</th>
 												<th class="min-w-125px">Updated at</th>
 												<th class="text-end min-w-100px">Actions</th>
@@ -799,7 +796,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--end::Table head-->
 										<!--begin::Table body-->
 										<tbody class="text-gray-600 fw-bold">
-											<?php foreach ($users as $user): ?>
+											<?php foreach ($reviews as $review): ?>
 												<!--begin::Table row-->
 												<tr>
 													<!--begin::Checkbox-->
@@ -809,45 +806,28 @@ License: For each use you must have a valid license purchased only from above li
 														</div>
 													</td>
 													<!--end::Checkbox-->
-													<!--begin::Role-->
-													<td>
-														<div class="badge badge-light fw-bolder">
-															<?php echo $user['role_id'] == 2 ? 'Author' : ($user['role_id'] == 1 ? 'Admin' : 'Reader'); ?>
-														</div>
-													</td>
-													<!--end::Role-->
-													<!--begin::First Name-->
+													<!--begin::Title-->
 													<td>
 														<div>
-															<?php echo $user['first_name']; ?>
+															<?php echo $review['review_score']; ?>
 														</div>
 													</td>
-													<!--end::First Name-->
-													<!--begin::Last Name-->
+													<!--end::Title-->
+													<!--begin::Author Name-->
 													<td>
 														<div>
-															<?php echo $user['last_name']; ?>
+															<?php echo $review['review_details']; ?>
 														</div>
 													</td>
-													<!--end::Last Name-->
-													<!--begin::Email-->
-													<td>
-														<div><?php echo $user['email']; ?></div>
-													</td>
-													<!--end::Email-->
-													<!--begin::Phone Number-->
-													<td>
-														<div><?php echo $user['phone_number']; ?></div>
-													</td>
-													<!--end::Phone Number-->
+													<!--end::Author Name-->
 													<!--begin::Created at-->
 													<td>
-														<div><?php echo $user['created_at']; ?></div>
+														<div><?php echo $review['created_at']; ?></div>
 													</td>
 													<!--begin::Created at-->
 													<!--begin::Updated at-->
 													<td>
-														<div><?php echo $user['updated_at']; ?></div>
+														<div><?php echo $review['updated_at']; ?></div>
 													</td>
 													<!--begin::Updated at-->
 													<!--begin::Action-->
@@ -867,11 +847,10 @@ License: For each use you must have a valid license purchased only from above li
 															class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
 															data-kt-menu="true">
 															<div class="menu-item px-3">
-																<a href="../../demo1/dist/apps/user-management/users/view.html"
-																	class="menu-link px-3">Edit</a>
+																<a href="<?= base_url('reviews/view/' . $review['id']) ?>" class="menu-link px-3">View</a>
 															</div>
 															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
+																<a href="#" class="menu-link px-3" data-kt-reviews-table-filter="delete_row">Delete</a>
 															</div>
 														</div>
 													</td>
@@ -884,6 +863,7 @@ License: For each use you must have a valid license purchased only from above li
 									</table>
 									<!--end::Table-->
 								</div>
+
 
 
 								<!--end::Card body-->

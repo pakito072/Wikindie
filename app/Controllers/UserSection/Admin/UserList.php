@@ -2,10 +2,10 @@
 
 namespace App\Controllers\UserSection\Admin;
 
+use App\Controllers\BaseController;
 use App\Models\UserModel;
-use CodeIgniter\Controller;
 
-class UserList extends Controller
+class UserList extends BaseController
 {
     public function userList()
     {

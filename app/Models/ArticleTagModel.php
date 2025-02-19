@@ -4,21 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ArticleModel extends Model
+class ArticleTagModel extends Model
 {
-    protected $table = 'articles';
-    protected $primaryKey = 'id';
+    protected $table = 'article_tags';
+    protected $primaryKey = 'article_id';
     protected $allowedFields = [
-        'title', 
-        'content', 
-        'author_id', 
-        'article_type',
-        'tags',
-        'created_at', 
+        'article_id',
+        'tag_id',
+        'created_at',
         'updated_at'
     ];
     protected $useTimestamps = true;
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
 }
-?>

@@ -4,7 +4,7 @@ namespace App\Controllers\Auth;
 use App\Controllers\BaseController;
 use App\Models\UserModel;
 
-use Exception;
+
 class AuthController extends BaseController
 {
 

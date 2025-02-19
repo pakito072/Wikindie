@@ -1,24 +1,17 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\UserSection\Author\Articles;
 
+use App\Controllers\BaseController;
 use App\Models\GuideModel;
-use CodeIgniter\Controller;
 
-class Guides extends Controller
+class Guides extends BaseController
 {
-    public function index()
+    public function guides()
     {
         $guideModel = new GuideModel();
         $data['guides'] = $guideModel->findAll();
-        return view('guides/view', $data);
-    }
-
-    public function view($id)
-    {
-        $guideModel = new GuideModel();
-        $data['guide'] = $guideModel->find($id);
-        return view('guides/view_single', $data);
+        return view('pages/userSection/author/articles/guides', $data);
     }
 }
-?>
+

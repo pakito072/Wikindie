@@ -15,7 +15,7 @@ License: For each use you must have a valid license purchased only from above li
 
 <head>
 	<base href="<?= base_url('') ?>">
-	<title>News</title>
+	<title>Tags</title>
 	<meta name="description"
 		content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
 	<meta name="keywords"
@@ -774,7 +774,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--begin::Card body-->
 								<div class="card-body pt-0">
 									<!--begin::Table-->
-									<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_news">
+									<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_tags">
 										<!--begin::Table head-->
 										<thead>
 											<!--begin::Table row-->
@@ -782,10 +782,11 @@ License: For each use you must have a valid license purchased only from above li
 												<th class="w-10px pe-2">
 													<div class="form-check form-check-sm form-check-custom form-check-solid me-3">
 														<input class="form-check-input" type="checkbox" data-kt-check="true"
-															data-kt-check-target="#kt_table_news .form-check-input" value="1" />
+															data-kt-check-target="#kt_table_tags .form-check-input" value="1" />
 													</div>
 												</th>
-												<th class="min-w-125px">News details</th>
+												<th class="min-w-125px">Tag ID</th>
+												<th class="min-w-125px">Name</th>
 												<th class="min-w-125px">Created at</th>
 												<th class="min-w-125px">Updated at</th>
 												<th class="text-end min-w-100px">Actions</th>
@@ -795,7 +796,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--end::Table head-->
 										<!--begin::Table body-->
 										<tbody class="text-gray-600 fw-bold">
-											<?php foreach ($news as $news_item): ?>
+											<?php foreach ($tags as $tag): ?>
 												<!--begin::Table row-->
 												<tr>
 													<!--begin::Checkbox-->
@@ -805,21 +806,28 @@ License: For each use you must have a valid license purchased only from above li
 														</div>
 													</td>
 													<!--end::Checkbox-->
-													<!--begin::Author Name-->
+													<!--begin::Tag ID-->
 													<td>
 														<div>
-															<?php echo $news_item['news_details']; ?>
+															<?php echo $tag['id']; ?>
 														</div>
 													</td>
-													<!--end::Author Name-->
+													<!--end::Tag ID-->
+													<!--begin::Name-->
+													<td>
+														<div>
+															<?php echo $tag['name']; ?>
+														</div>
+													</td>
+													<!--end::Name-->
 													<!--begin::Created at-->
 													<td>
-														<div><?php echo $news_item['created_at']; ?></div>
+														<div><?php echo $tag['created_at']; ?></div>
 													</td>
 													<!--begin::Created at-->
 													<!--begin::Updated at-->
 													<td>
-														<div><?php echo $news_item['updated_at']; ?></div>
+														<div><?php echo $tag['updated_at']; ?></div>
 													</td>
 													<!--begin::Updated at-->
 													<!--begin::Action-->
@@ -839,10 +847,10 @@ License: For each use you must have a valid license purchased only from above li
 															class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
 															data-kt-menu="true">
 															<div class="menu-item px-3">
-																<a href="<?= base_url('news/view/' . $news_item['id']) ?>" class="menu-link px-3">View</a>
+																<a href="<?= base_url('tags/view/' . $tag['id']) ?>" class="menu-link px-3">View</a>
 															</div>
 															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3" data-kt-news-table-filter="delete_row">Delete</a>
+																<a href="#" class="menu-link px-3" data-kt-tags-table-filter="delete_row">Delete</a>
 															</div>
 														</div>
 													</td>
@@ -855,8 +863,6 @@ License: For each use you must have a valid license purchased only from above li
 									</table>
 									<!--end::Table-->
 								</div>
-
-
 
 								<!--end::Card body-->
 							</div>

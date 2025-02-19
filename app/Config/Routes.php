@@ -26,7 +26,12 @@ $routes->get('viewProfile', 'UserController::viewProfile');
 $routes->get('users','UserController::user');
 
 //Rutas de autor UserSection\Author
-$routes->get('viewArticles', 'Articles\ViewArticles::viewArticles');
+$routes->get('viewArticles', 'UserSection\Author\Articles\ViewArticles::viewArticles');
+$routes->get('guides', 'UserSection\Author\Articles\Guides::guides');
+$routes->get('news', 'UserSection\Author\Articles\News::news');
+$routes->get('reviews', 'UserSection\Author\Articles\Reviews::reviews');
+$routes->get('recommendations', 'UserSection\Author\Articles\Recommendations::recommendations');
+$routes->get('tags', 'UserSection\Author\Articles\Tags::tags');
 
 //Rutas de administrador UserSection\Admin
 $routes->get('userList', 'UserSection\Admin\UserList::userList');

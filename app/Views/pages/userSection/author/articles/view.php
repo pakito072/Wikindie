@@ -785,9 +785,10 @@ License: For each use you must have a valid license purchased only from above li
 															data-kt-check-target="#kt_table_articles .form-check-input" value="1" />
 													</div>
 												</th>
-												<th class="min-w-125px">Article ID</th>
 												<th class="min-w-125px">Title</th>
-												<th class="min-w-125px">Author ID</th>
+												<th class="min-w-125px">Article Type</th>
+												<th class="min-w-125px">Tags</th>
+												<th class="min-w-125px">Author Name</th>
 												<th class="min-w-125px">Created at</th>
 												<th class="min-w-125px">Updated at</th>
 												<th class="text-end min-w-100px">Actions</th>
@@ -807,13 +808,6 @@ License: For each use you must have a valid license purchased only from above li
 														</div>
 													</td>
 													<!--end::Checkbox-->
-													<!--begin::Article ID-->
-													<td>
-														<div>
-															<?php echo $article['id']; ?>
-														</div>
-													</td>
-													<!--end::Article ID-->
 													<!--begin::Title-->
 													<td>
 														<div>
@@ -824,7 +818,24 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin::Author ID-->
 													<td>
 														<div>
-															<?php echo $article['author_id']; ?>
+															<?php echo $article['article_type']; ?>
+														</div>
+													</td>
+													<!--end::Author ID-->
+													<!--begin::Tags-->
+													<td>
+														<div>
+															<?php foreach ($article['tags'] as $tag): ?>
+																<span class="badge badge-light"><?php echo $tag['name']; ?></span>
+															<?php endforeach; ?>
+														</div>
+													</td>
+													<!--end::Tags-->
+													<!--begin::Author ID-->
+													<td>
+														<div>
+															<?php echo $article['author_name']; ?><br>
+															<?php echo $article['author_surname']; ?>
 														</div>
 													</td>
 													<!--end::Author ID-->

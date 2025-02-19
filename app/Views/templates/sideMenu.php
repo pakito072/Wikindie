@@ -202,49 +202,57 @@
                 <!--end::Svg Icon-->
               </span>
               <span class="menu-title">Articles</span>
-        <span class="menu-arrow"></span>
-    </span>
-    <div class="menu-sub menu-sub-accordion menu-active-bg">
-        <div class="menu-item">
-            <a class="menu-link" href="<?= base_url('viewArticles') ?>">
-                <span class="menu-bullet">
+              <span class="menu-arrow"></span>
+            </span>
+            <div class="menu-sub menu-sub-accordion menu-active-bg">
+              <div class="menu-item">
+                <a class="menu-link" href="<?= base_url('viewArticles') ?>">
+                  <span class="menu-bullet">
                     <span class="bullet bullet-dot"></span>
-                </span>
-                <span class="menu-title">View</span>
-            </a>
-        </div>
-        <div class="menu-item">
-            <a class="menu-link" href="<?= base_url('guides') ?>">
-                <span class="menu-bullet">
-                    <span class="bullet bullet-dot"></span>
-                </span>
-                <span class="menu-title">Guides</span>
-            </a>
-        </div>
-        <div class="menu-item">
-            <a class="menu-link" href="<?= base_url('news') ?>">
-                <span class="menu-bullet">
-                    <span class="bullet bullet-dot"></span>
-                </span>
-                <span class="menu-title">News</span>
-            </a>
-        </div>
-        <div class="menu-item">
-            <a class="menu-link" href="<?= base_url('reviews') ?>">
-                <span class="menu-bullet">
-                    <span class="bullet bullet-dot"></span>
-                </span>
-                <span class="menu-title">Reviews</span>
-            </a>
-        </div>
-        <div class="menu-item">
-            <a class="menu-link" href="<?= base_url('recommendations') ?>">
-                <span class="menu-bullet">
-                    <span class="bullet bullet-dot"></span>
-                </span>
-                <span class="menu-title">Recommendations</span>
-            </a>
+                  </span>
+                  <span class="menu-title">View</span>
+                </a>
               </div>
+              <div class="menu-item">
+                <a class="menu-link" href="<?= base_url('guides') ?>">
+                  <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                  </span>
+                  <span class="menu-title">Guides</span>
+                </a>
+              </div>
+              <div class="menu-item">
+                <a class="menu-link" href="<?= base_url('news') ?>">
+                  <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                  </span>
+                  <span class="menu-title">News</span>
+                </a>
+              </div>
+              <div class="menu-item">
+                <a class="menu-link" href="<?= base_url('reviews') ?>">
+                  <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                  </span>
+                  <span class="menu-title">Reviews</span>
+                </a>
+              </div>
+              <div class="menu-item">
+                <a class="menu-link" href="<?= base_url('recommendations') ?>">
+                  <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                  </span>
+                  <span class="menu-title">Recommendations(Under Maintenance)</span>
+                </a>
+              </div>
+              <div class="menu-item">
+            <a class="menu-link" href="<?= base_url('tags') ?>">
+                <span class="menu-bullet">
+                    <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">Tags</span>
+            </a>
+        </div>
             </div>
           </div>
         </div>
