@@ -56,7 +56,7 @@ License: For each use you must have a valid license purchased only from above li
 					<!--begin::Wrapper-->
 					<div class="w-lg-600px p-10 p-lg-15 mx-auto">
 						<!--begin::Form-->
-						<form class="form w-100" novalidate="novalidate" id="kt_sign_up_form" action="<?= base_url('signUp') ?>"
+						<form class="form w-100" novalidate="novalidate" id="kt_sign_up_form" action="<?= base_url('processSignUp') ?>"
 							method="post">
 							<!--begin::Heading-->
 							<div class="mb-10 text-center">
@@ -71,7 +71,10 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Link-->
 							</div>
 							<!--end::Heading-->
-							
+							<?php if (isset($validation)): ?>
+								<div class="alert alert-danger"><?= $validation->listErrors() ?></div>
+							<?php endif; ?>
+
 							<!--begin::Separator-->
 							<div class="d-flex align-items-center mb-10">
 								<div class="border-bottom border-gray-300 mw-50 w-100"></div>
@@ -106,7 +109,8 @@ License: For each use you must have a valid license purchased only from above li
 							<!--end::Input group-->
 							<!--begin::Input group-->
 							<div class="fv-row mb-7">
-								<label class="form-label fw-bolder text-dark fs-6">Phone Number<span class="text-muted fs-7">(optional)</span></label>
+								<label class="form-label fw-bolder text-dark fs-6">Phone Number<span
+										class="text-muted fs-7">(optional)</span></label>
 								<input class="form-control form-control-lg form-control-solid" type="text" placeholder=""
 									name="phone_number" autocomplete="off" />
 							</div>
@@ -162,7 +166,7 @@ License: For each use you must have a valid license purchased only from above li
 							<!--end::Input group-->
 							<!--begin::Actions-->
 							<div class="text-center">
-								<button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-custom">
+								<button type="submit" id="kt_sign_up_submit" class="btn btn-lg btn-custom">
 									<span class="indicator-label purple">Submit</span>
 									<span class="indicator-progress">Please wait...
 										<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -192,7 +196,6 @@ License: For each use you must have a valid license purchased only from above li
 		<!--end::Authentication - Sign-up-->
 	</div>
 	<!--end::Main-->
-	<script>var hostUrl = "assets/";</script>
 	<!--begin::Javascript-->
 	<!--begin::Global Javascript Bundle(used by all pages)-->
 	<script src="<?= base_url('assets/plugins/global/plugins.bundle.js') ?>"></script>
