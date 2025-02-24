@@ -2693,7 +2693,7 @@ License: For each use you must have a valid license purchased only from above li
 											<span class="text-muted mt-1 fw-bold fs-7">Preview monthly events</span>
 										</h3>
 										<div class="card-toolbar">
-											<a href="../../demo1/dist/apps/calendar.html" class="btn btn-custom">Manage Calendar</a>
+											<a href="<?= base_url('fetchEvents')?>" class="btn btn-custom">Manage Calendar</a>
 										</div>
 									</div>
 									<!--end::Card header-->
