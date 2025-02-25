@@ -8,6 +8,39 @@ use App\Models\UserModel;
 class AuthController extends BaseController
 {
 
+  public function signUp()
+  {
+    return view('pages/auth/signUp');
+  }
+
+  public function processSignUp()
+  {
+
+    $rules = [
+      'first_name' => 'required|min_length[3]|max_length[50]',
+      'last_name' => 'required|min_length[3]|max_length[50]',
+      'email' => 'required|valid_email|is_unique[users.email]',
+      'phone_number' => 'required|min_length[9]|max_length[15]',
+      'password' => 'required|min_length[8]',
+      'password_confirm' => 'required|matches[password]'
+    ];
+
+    if (!$this->validate($rules)) {
+      return redirect()->to(base_url('signUp'))->withInput()->with('validation', $this->validator);
+    }
+
+    $userModel = new UserModel();
+
+    $userModel->save([
+      'first_name' => $this->request->getPost('first_name'),
+      'last_name' => $this->request->getPost('last_name'),
+      'email' => $this->request->getPost('email'),
+      'phone_number' => $this->request->getPost('phone_number'),
+      'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT)
+    ]);
+
+    return redirect()->to(base_url('signIn'))->with('success', 'Usuario registrado correctamente.');
+  }
   public function signIn()
   {
     return view('pages/auth/signIn');
@@ -15,7 +48,6 @@ class AuthController extends BaseController
 
   public function processSignIn()
   {
-    helper(['form', 'url']);
     $userModel = new UserModel();
 
     $rules = [
@@ -24,7 +56,7 @@ class AuthController extends BaseController
     ];
 
     if (!$this->validate($rules)) {
-      return redirect()->to(base_url('signIn'))->withInput()->with('validation', $this->validator);
+      return redirect()->to(base_url('dashboard'))->withInput()->with('validation', $this->validator);
     }
 
     $email = $this->request->getPost('email');
@@ -46,45 +78,6 @@ class AuthController extends BaseController
     ]);
 
     return redirect()->to(base_url('dashboard'));
-  }
-
-  public function signUp()
-  {
-    return view('pages/auth/signUp');
-  }
-
-
-  public function processSignUp()
-  {
-    helper(['form', 'url']);
-    $userModel = new UserModel();
-
-    $rules = [
-      'first_name' => 'required|min_length[3]|max_length[50]',
-      'last_name' => 'required|min_length[3]|max_length[50]',
-      'email' => 'required|valid_email|is_unique[users.email]',
-      'phone_number' => 'required|min_length[10]|max_length[15]',
-      'password' => 'required|min_length[6]',
-      'password_confirm' => 'required|matches[password]'
-    ];
-
-    if (!$this->validate($rules)) {
-      return redirect()->to(base_url('signUp'))->withInput()->with('validation', $this->validator);
-    }
-
-    $data = [
-      'first_name' => $this->request->getPost('first_name'),
-      'last_name' => $this->request->getPost('last_name'),
-      'email' => $this->request->getPost('email'),
-      'phone_number' => $this->request->getPost('phone_number'),
-      'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT)
-    ];
-
-    if (!$userModel->save($data)) {
-      return error_log('Error al registrar el usuario: ' . json_encode($userModel->errors()));
-    } else {
-      return redirect()->to(base_url('signIn'));
-    }
   }
 
   public function forgotPassword()

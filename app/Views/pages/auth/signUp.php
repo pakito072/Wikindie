@@ -88,14 +88,14 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="col-xl-6">
 									<label class="form-label fw-bolder text-dark fs-6">First Name</label>
 									<input class="form-control form-control-lg form-control-solid" type="text" placeholder=""
-										name="first_name" autocomplete="off" />
+										name="first_name" autocomplete="off" value="<?= set_value('first_name', isset($user) ? $user['first_name'] : '') ?>"/>
 								</div>
 								<!--end::Col-->
 								<!--begin::Col-->
 								<div class="col-xl-6">
 									<label class="form-label fw-bolder text-dark fs-6">Last Name</label>
 									<input class="form-control form-control-lg form-control-solid" type="text" placeholder=""
-										name="last_name" autocomplete="off" />
+										name="last_name" autocomplete="off" value="<?= set_value('last_name', isset($user) ? $user['last_name'] : '') ?>"/>
 								</div>
 								<!--end::Col-->
 							</div>
@@ -104,7 +104,7 @@ License: For each use you must have a valid license purchased only from above li
 							<div class="fv-row mb-7">
 								<label class="form-label fw-bolder text-dark fs-6">Email</label>
 								<input class="form-control form-control-lg form-control-solid" type="email" placeholder="" name="email"
-									autocomplete="off" />
+									autocomplete="off" value="<?= set_value('email', isset($user) ? $user['email'] : '') ?>"/>
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
@@ -112,7 +112,7 @@ License: For each use you must have a valid license purchased only from above li
 								<label class="form-label fw-bolder text-dark fs-6">Phone Number<span
 										class="text-muted fs-7">(optional)</span></label>
 								<input class="form-control form-control-lg form-control-solid" type="text" placeholder=""
-									name="phone_number" autocomplete="off" />
+									name="phone_number" autocomplete="off" value="<?= set_value('phone_number', isset($user) ? $user['phone_number'] : '') ?>"/>
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
