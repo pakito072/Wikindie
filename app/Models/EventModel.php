@@ -19,4 +19,5 @@ class EventModel extends Model
     ];
     protected $useTimestamps = false;
 
+
 }

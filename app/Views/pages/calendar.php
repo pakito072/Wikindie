@@ -140,41 +140,30 @@ License: For each use you must have a valid license purchased only from above li
 													<!--end::Label-->
 													<!--begin::Input-->
 													<input type="text" class="form-control form-control-solid" placeholder=""
-														name="calendar_event_name" />
+														name="calendar_event_name" id="eventTitle"/>
 													<!--end::Input-->
 												</div>
 												<!--end::Input group-->
 												<!--begin::Input group-->
 												<div class="fv-row mb-9">
 													<!--begin::Label-->
-													<label class="fs-6 fw-bold mb-2">Event Description</label>
+													<label class="fs-6 fw-bold mb-2">Event Description(Esp)</label>
 													<!--end::Label-->
 													<!--begin::Input-->
 													<input type="text" class="form-control form-control-solid" placeholder=""
-														name="calendar_event_description" />
+														name="calendar_event_description" id="eventDescriptionEs"/>
 													<!--end::Input-->
 												</div>
 												<!--end::Input group-->
 												<!--begin::Input group-->
 												<div class="fv-row mb-9">
 													<!--begin::Label-->
-													<label class="fs-6 fw-bold mb-2">Event Location</label>
+													<label class="fs-6 fw-bold mb-2">Event Description(Eng)</label>
 													<!--end::Label-->
 													<!--begin::Input-->
 													<input type="text" class="form-control form-control-solid" placeholder=""
-														name="calendar_event_location" />
+														name="calendar_event_description" id="eventDescriptionEng"/>
 													<!--end::Input-->
-												</div>
-												<!--end::Input group-->
-												<!--begin::Input group-->
-												<div class="fv-row mb-9">
-													<!--begin::Checkbox-->
-													<label class="form-check form-check-custom form-check-solid">
-														<input class="form-check-input" type="checkbox" value=""
-															id="kt_calendar_datepicker_allday" />
-														<span class="form-check-label fw-bold" for="kt_calendar_datepicker_allday">All Day</span>
-													</label>
-													<!--end::Checkbox-->
 												</div>
 												<!--end::Input group-->
 												<!--begin::Input group-->
@@ -237,7 +226,7 @@ License: For each use you must have a valid license purchased only from above li
 												<button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3">Cancel</button>
 												<!--end::Button-->
 												<!--begin::Button-->
-												<button type="button" id="kt_modal_add_event_submit" class="btn btn-primary">
+												<button type="submit" id="kt_modal_add_event_submit" class="btn btn-primary">
 													<span class="indicator-label">Submit</span>
 													<span class="indicator-progress">Please wait...
 														<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -3439,44 +3428,17 @@ License: For each use you must have a valid license purchased only from above li
 	<script src="<?= base_url('assets/js/custom/modals/create-app.js') ?>"></script>
 	<script src="<?= base_url('assets/js/custom/modals/upgrade-plan.js') ?>"></script>
 	<!--end::Page Custom Javascript-->
+	<script src="<?= base_url('assets/js/ownJs/calendar.js') ?>"></script>
 	<!--end::Javascript-->
 
+	<!-- Pasar los datos de eventos desde PHP a JavaScript -->
 	<script>
-        $(document).ready(function () {
-            const calendarEl = document.getElementById('kt_calendar_app');
- 
-            // Inicializar FullCalendar
-            const calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                selectable: true,
-                editable: true,
- 
-                // Cargar eventos desde el servidor
-                events: function(fetchInfo, successCallback, failureCallback) {
-                 
-                },
- 
-                // Añadir evento
-                select: function (info) {
-                    const title = prompt('Título del evento:');
-                    if (title) {
-                    
-                    }
-                },
- 
-                // Eliminar evento
-                eventClick: function (info) {
-                    if (confirm('¿Deseas eliminar este evento?')) {
-                      
-                    }
-                }
-            });
- 
-            calendar.render();
-        });
-    </script>
+		var base_url = '<?php echo base_url(); ?>';
+		var calendarEvents = <?php echo json_encode($events); ?>;
+	</script>
+
 
 </body>
 <!--end::Body-->
 
-</html>
+</html> 
