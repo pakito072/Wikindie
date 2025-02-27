@@ -413,16 +413,6 @@
         <span class="fw-bold text-gray-700 fs-6 text-hover-primary" id="user-name">Nombre de Usuario</span>
       </div>
       <!--begin::Menu-->
-      <div
-        class="menu menu-sub menu-sub-dropdown menu-rounded menu-white menu-state-bg menu-state-primary fw-bold py-1 fs-6 me-5 w-150px"
-        data-kt-menu="true">
-        <!--begin::Menu item-->
-        <div class="menu-item px-1">
-          <a href="<?= base_url('signOut') ?>" class="menu-link">Sign Out</a>
-        </div>
-        <!--end::Menu item-->
-        <!--begin::Menu separator-->
-      </div>
       <!--end::Menu-->
       <!--end::Menu wrapper-->
     </div>

@@ -17,6 +17,11 @@ class ViewArticles extends BaseController
         $articleTagModel = new ArticleTagModel();
         $tagModel = new TagModel();
 
+        helper('breadcrumbs');
+        $segments = ['Articles', 'View'];
+        $data['breadcrumbs'] = generate_breadcrumbs($segments);
+        $data['view_name'] = 'View Articles';
+
         $data['articles'] = $articleModel
             ->select('articles.*, first_name as author_name, last_name as author_surname')
             ->join('users', 'articles.author_id = users.id')
