@@ -31,11 +31,13 @@
 			</a>
 		</div>
 		<!--end::Mobile logo-->
-		<div class="justify-content-end align-items-center py-1 pe-5" style="height: 5px;">
-			<button type="button" class="btn btn-danger btn-sm ">
-				<a href="<?= base_url('signOut') ?>" class="fw-bold" style="color: black;">Sign Out</a>
+
+		<a href="<?= base_url('signOut') ?>" class="d-flex align-items-center">
+			<button type="button" class="btn btn-danger text-dark  text-hover-primary">
+				SignOut
 			</button>
-		</div>
+		</a>
+
 
 	</div>
 </div>
