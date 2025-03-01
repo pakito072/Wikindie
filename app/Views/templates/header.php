@@ -33,7 +33,7 @@
 		<!--end::Mobile logo-->
 
 		<a href="<?= base_url('signOut') ?>" class="d-flex align-items-center">
-			<button type="button" class="btn btn-danger text-dark  text-hover-primary">
+			<button type="button" class="btn btn-danger text-dark">
 				SignOut
 			</button>
 		</a>
