@@ -42,7 +42,7 @@
         class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
         id="#kt_aside_menu" data-kt-menu="true">
         <div class="menu-item">
-          <a class="menu-link active" href="<?= base_url('/') ?>">
+          <a class="menu-link" href="<?= base_url('/') ?>">
             <span class="menu-icon">
               <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
               <span class="svg-icon svg-icon-2">
@@ -421,3 +421,5 @@
   <!--end::Footer-->
 </div>
 <!--end::Aside-->
+
+
