@@ -56,7 +56,7 @@ License: For each use you must have a valid license purchased only from above li
 					<!--begin::Wrapper-->
 					<div class="w-lg-600px p-10 p-lg-15 mx-auto">
 						<!--begin::Form-->
-						<form class="form w-100" novalidate="novalidate" id="kt_sign_up_form" action="<?= base_url('processSignUp') ?>"
+						<form class="form w-100" novalidate="novalidate" id="kt_sign_up_form" action="<?= base_url('signUp') ?>"
 							method="post">
 							<!--begin::Heading-->
 							<div class="mb-10 text-center">
@@ -108,14 +108,6 @@ License: For each use you must have a valid license purchased only from above li
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
-							<div class="fv-row mb-7">
-								<label class="form-label fw-bolder text-dark fs-6">Phone Number<span
-										class="text-muted fs-7">(optional)</span></label>
-								<input class="form-control form-control-lg form-control-solid" type="text" placeholder=""
-									name="phone_number" autocomplete="off" value="<?= set_value('phone_number', isset($user) ? $user['phone_number'] : '') ?>"/>
-							</div>
-							<!--end::Input group-->
-							<!--begin::Input group-->
 							<div class="mb-10 fv-row" data-kt-password-meter="true">
 								<!--begin::Wrapper-->
 								<div class="mb-1">
@@ -160,7 +152,7 @@ License: For each use you must have a valid license purchased only from above li
 								<label class="form-check form-check-custom form-check-solid form-check-inline">
 									<input class="form-check-input" type="checkbox" name="toc" value="1" />
 									<span class="form-check-label fw-bold text-gray-700 fs-6">I Agree
-										<a href="#" class="ms-1 link-primary ">Terms and conditions</a>.</span>
+										<a href="https://c.tenor.com/Ngb9u3HnHcIAAAAd/tenor.gif" class="ms-1 link-primary ">Terms and conditions</a>.</span>
 								</label>
 							</div>
 							<!--end::Input group-->
@@ -202,7 +194,6 @@ License: For each use you must have a valid license purchased only from above li
 	<script src="<?= base_url('assets/js/scripts.bundle.js') ?>"></script>
 	<!--end::Global Javascript Bundle-->
 	<!--begin::Page Custom Javascript(used by this page)-->
-	<script src="<?= base_url('assets/js/custom/authentication/sign-up/general.js') ?>"></script>
 	<!--end::Page Custom Javascript-->
 	<!--end::Javascript-->
 </body>

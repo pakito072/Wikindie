@@ -12,10 +12,7 @@ class UserModel extends Model
     'first_name',
     'last_name',
     'email',
-    'phone_number',
     'password',
-    'created_at',
-    'updated_at',
     'role_id'
   ];
   protected $useTimestamps = true;
