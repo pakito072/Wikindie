@@ -38,3 +38,7 @@ $routes->get('tags', 'UserSection\Author\Articles\Tags::tags');
 $routes->get('userList', 'UserSection\Admin\UserList::userList');
 $routes->get('rolesList', 'Classes\AdminController::rolesList');
 
+//Rutas de eventos
+$routes->get('fetchEvents', 'EventController::fetchEvents');
+$routes->post('addEvent', 'EventController::addEvent');
+$routes->delete('deleteEvent/(:num)', 'EventController::deleteEvent/$1');
