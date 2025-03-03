@@ -15,7 +15,7 @@ License: For each use you must have a valid license purchased only from above li
 
 <head>
 	<base href="<?= base_url('') ?>">
-	<title>View Articles</title>
+	<title>Calendar</title>
 	<meta name="description"
 		content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
 	<meta name="keywords"
@@ -29,17 +29,17 @@ License: For each use you must have a valid license purchased only from above li
 	<meta property="og:url" content="https://keenthemes.com/metronic" />
 	<meta property="og:site_name" content="Keenthemes | Metronic" />
 	<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-	<link rel="shortcut icon" href="<?= base_url('/assets/media/logos/favicon') ?>" />
+	<link rel="shortcut icon" href="<?= base_url('assets/media/logos/favicon.ico') ?>" />
 	<!--begin::Fonts-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 	<!--end::Fonts-->
-	<!--begin::Page Vendors Stylesheets(used by this page)-->
-	<link href="<?= base_url('assets/plugins/custom/datatables/datatables.bundle.css'); ?>" rel="stylesheet"
+	<!--begin::Page Vendor Stylesheets(used by this page)-->
+	<link href="<?= base_url('assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') ?>" rel="stylesheet"
 		type="text/css" />
-	<!--end::Page Vendors Stylesheets-->
+	<!--end::Page Vendor Stylesheets-->
 	<!--begin::Global Stylesheets Bundle(used by all pages)-->
-	<link href="<?= base_url('assets/plugins/global/plugins.bundle.css'); ?>" rel="stylesheet" type="text/css" />
-	<link href="<?= base_url('assets/css/style.bundle.css'); ?>" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url('assets/plugins/global/plugins.bundle.css') ?>" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url('assets/css/style.bundle.css') ?>" rel="stylesheet" type="text/css" />
 	<!--end::Global Stylesheets Bundle-->
 </head>
 <!--end::Head-->
@@ -67,6 +67,7 @@ License: For each use you must have a valid license purchased only from above li
 				<!--end::Header-->
 				<!--begin::Content-->
 				<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+
 					<!--begin::Post-->
 					<div class="post d-flex flex-column-fluid" id="kt_post">
 						<!--begin::Container-->
@@ -74,659 +75,341 @@ License: For each use you must have a valid license purchased only from above li
 							<!--begin::Card-->
 							<div class="card">
 								<!--begin::Card header-->
-								<div class="card-header border-0 pt-6">
-									<!--begin::Card title-->
-									<div class="card-title">
-									</div>
-									<!--begin::Card title-->
-									<!--begin::Card toolbar-->
+								<div class="card-header">
+									<h2 class="card-title fw-bolder">Calendar</h2>
 									<div class="card-toolbar">
-										<!--begin::Toolbar-->
-										<div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-											<!--begin::Filter-->
-											<button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click"
-												data-kt-menu-placement="bottom-end">
-												<!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
-												<span class="svg-icon svg-icon-2">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-														fill="none">
-														<path
-															d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z"
-															fill="black" />
-													</svg>
-												</span>
-												<!--end::Svg Icon-->Filter</button>
-											<!--begin::Menu 1-->
-											<div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true">
-												<!--begin::Header-->
-												<div class="px-7 py-5">
-													<div class="fs-5 text-dark fw-bolder">Filter Options</div>
-												</div>
-												<!--end::Header-->
-												<!--begin::Separator-->
-												<div class="separator border-gray-200"></div>
-												<!--end::Separator-->
-												<!--begin::Content-->
-												<div class="px-7 py-5" data-kt-user-table-filter="form">
-													<!--begin::Input group-->
-													<!--begin::Search-->
-													<div class="d-flex align-items-center position-relative my-1">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-														<span class="svg-icon svg-icon-1 position-absolute ms-6">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																fill="none">
-																<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
-																	transform="rotate(45 17.0365 15.1223)" fill="black" />
-																<path
-																	d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-																	fill="black" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-														<input type="text" data-kt-user-table-filter="search"
-															class="form-control form-control-solid w-250px ps-14" placeholder="Roles" />
-													</div>
-													<div class="d-flex align-items-center position-relative my-1">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-														<span class="svg-icon svg-icon-1 position-absolute ms-6">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																fill="none">
-																<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
-																	transform="rotate(45 17.0365 15.1223)" fill="black" />
-																<path
-																	d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-																	fill="black" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-														<input type="text" data-kt-user-table-filter="search"
-															class="form-control form-control-solid w-250px ps-14" placeholder="First Name" />
-													</div>
-													<div class="d-flex align-items-center position-relative my-1">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-														<span class="svg-icon svg-icon-1 position-absolute ms-6">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																fill="none">
-																<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
-																	transform="rotate(45 17.0365 15.1223)" fill="black" />
-																<path
-																	d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-																	fill="black" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-														<input type="text" data-kt-user-table-filter="search"
-															class="form-control form-control-solid w-250px ps-14" placeholder="Last name" />
-													</div>
-													<div class="d-flex align-items-center position-relative my-1">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-														<span class="svg-icon svg-icon-1 position-absolute ms-6">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																fill="none">
-																<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
-																	transform="rotate(45 17.0365 15.1223)" fill="black" />
-																<path
-																	d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-																	fill="black" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-														<input type="text" data-kt-user-table-filter="search"
-															class="form-control form-control-solid w-250px ps-14" placeholder="Email" />
-													</div>
-													<div class="d-flex align-items-center position-relative my-1">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-														<span class="svg-icon svg-icon-1 position-absolute ms-6">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																fill="none">
-																<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
-																	transform="rotate(45 17.0365 15.1223)" fill="black" />
-																<path
-																	d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-																	fill="black" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-														<input type="text" data-kt-user-table-filter="search"
-															class="form-control form-control-solid w-250px ps-14" placeholder="Phone number" />
-													</div>
-													<div class="d-flex align-items-center position-relative my-1">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-														<span class="svg-icon svg-icon-1 position-absolute ms-6">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																fill="none">
-																<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
-																	transform="rotate(45 17.0365 15.1223)" fill="black" />
-																<path
-																	d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-																	fill="black" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-														<input type="text" data-kt-user-table-filter="search"
-															class="form-control form-control-solid w-250px ps-14" placeholder="Created at" />
-													</div>
-													<div class="d-flex align-items-center position-relative my-1">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-														<span class="svg-icon svg-icon-1 position-absolute ms-6">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																fill="none">
-																<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
-																	transform="rotate(45 17.0365 15.1223)" fill="black" />
-																<path
-																	d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-																	fill="black" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-														<input type="text" data-kt-user-table-filter="search"
-															class="form-control form-control-solid w-250px ps-14" placeholder="Updated at" />
-													</div>
-													<!--end::Search-->
-													<!--begin::Actions-->
-													<div class="d-flex justify-content-end mt-5">
-														<button type="reset" class="btn btn-light btn-active-light-primary fw-bold me-2 px-6"
-															data-kt-menu-dismiss="true" data-kt-user-table-filter="reset">Reset</button>
-														<button type="submit" class="btn btn-primary fw-bold px-6" data-kt-menu-dismiss="true"
-															data-kt-user-table-filter="filter">Apply</button>
-													</div>
-													<!--end::Actions-->
-												</div>
-												<!--end::Content-->
-											</div>
-											<!--end::Menu 1-->
-											<!--end::Filter-->
-											<!--begin::Export-->
-											<button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal"
-												data-bs-target="#kt_modal_export_users">
-												<!--begin::Svg Icon | path: icons/duotune/arrows/arr078.svg-->
-												<span class="svg-icon svg-icon-2">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-														fill="none">
-														<rect opacity="0.3" x="12.75" y="4.25" width="12" height="2" rx="1"
-															transform="rotate(90 12.75 4.25)" fill="black" />
-														<path
-															d="M12.0573 6.11875L13.5203 7.87435C13.9121 8.34457 14.6232 8.37683 15.056 7.94401C15.4457 7.5543 15.4641 6.92836 15.0979 6.51643L12.4974 3.59084C12.0996 3.14332 11.4004 3.14332 11.0026 3.59084L8.40206 6.51643C8.0359 6.92836 8.0543 7.5543 8.44401 7.94401C8.87683 8.37683 9.58785 8.34458 9.9797 7.87435L11.4427 6.11875C11.6026 5.92684 11.8974 5.92684 12.0573 6.11875Z"
-															fill="black" />
-														<path
-															d="M18.75 8.25H17.75C17.1977 8.25 16.75 8.69772 16.75 9.25C16.75 9.80228 17.1977 10.25 17.75 10.25C18.3023 10.25 18.75 10.6977 18.75 11.25V18.25C18.75 18.8023 18.3023 19.25 17.75 19.25H5.75C5.19772 19.25 4.75 18.8023 4.75 18.25V11.25C4.75 10.6977 5.19771 10.25 5.75 10.25C6.30229 10.25 6.75 9.80228 6.75 9.25C6.75 8.69772 6.30229 8.25 5.75 8.25H4.75C3.64543 8.25 2.75 9.14543 2.75 10.25V19.25C2.75 20.3546 3.64543 21.25 4.75 21.25H18.75C19.8546 21.25 20.75 20.3546 20.75 19.25V10.25C20.75 9.14543 19.8546 8.25 18.75 8.25Z"
-															fill="#C4C4C4" />
-													</svg>
-												</span>
-												<!--end::Svg Icon-->Export</button>
-											<!--end::Export-->
-											<!--begin::Add user-->
-											<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-												data-bs-target="#kt_modal_add_user">
-												<!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
-												<span class="svg-icon svg-icon-2">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-														fill="none">
-														<rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1"
-															transform="rotate(-90 11.364 20.364)" fill="black" />
-														<rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
-													</svg>
-												</span>
-												<!--end::Svg Icon-->Add User</button>
-											<!--end::Add user-->
-										</div>
-										<!--end::Toolbar-->
-										<!--begin::Group actions-->
-										<div class="d-flex justify-content-end align-items-center d-none"
-											data-kt-user-table-toolbar="selected">
-											<div class="fw-bolder me-5">
-												<span class="me-2" data-kt-user-table-select="selected_count"></span>Selected
-											</div>
-											<button type="button" class="btn btn-danger" data-kt-user-table-select="delete_selected">Delete
-												Selected</button>
-										</div>
-										<!--end::Group actions-->
-										<!--begin::Modal - Adjust Balance-->
-										<div class="modal fade" id="kt_modal_export_users" tabindex="-1" aria-hidden="true">
-											<!--begin::Modal dialog-->
-											<div class="modal-dialog modal-dialog-centered mw-650px">
-												<!--begin::Modal content-->
-												<div class="modal-content">
-													<!--begin::Modal header-->
-													<div class="modal-header">
-														<!--begin::Modal title-->
-														<h2 class="fw-bolder">Export Users</h2>
-														<!--end::Modal title-->
-														<!--begin::Close-->
-														<div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
-															<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
-															<span class="svg-icon svg-icon-1">
-																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																	fill="none">
-																	<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
-																		transform="rotate(-45 6 17.3137)" fill="black" />
-																	<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
-																		fill="black" />
-																</svg>
-															</span>
-															<!--end::Svg Icon-->
-														</div>
-														<!--end::Close-->
-													</div>
-													<!--end::Modal header-->
-													<!--begin::Modal body-->
-													<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-														<!--begin::Form-->
-														<form id="kt_modal_export_users_form" class="form" action="#">
-															<!--begin::Input group-->
-															<div class="fv-row mb-10">
-																<!--begin::Label-->
-																<label class="fs-6 fw-bold form-label mb-2">Select Roles:</label>
-																<!--end::Label-->
-																<!--begin::Input-->
-																<select name="role" data-control="select2" data-placeholder="Select a role"
-																	data-hide-search="true" class="form-select form-select-solid fw-bolder">
-																	<option></option>
-																	<option value="Administrator">Administrator</option>
-																	<option value="Analyst">Analyst</option>
-																	<option value="Developer">Developer</option>
-																	<option value="Support">Support</option>
-																	<option value="Trial">Trial</option>
-																</select>
-																<!--end::Input-->
-															</div>
-															<!--end::Input group-->
-															<!--begin::Input group-->
-															<div class="fv-row mb-10">
-																<!--begin::Label-->
-																<label class="required fs-6 fw-bold form-label mb-2">Select Export Format:</label>
-																<!--end::Label-->
-																<!--begin::Input-->
-																<select name="format" data-control="select2" data-placeholder="Select a format"
-																	data-hide-search="true" class="form-select form-select-solid fw-bolder">
-																	<option></option>
-																	<option value="excel">Excel</option>
-																	<option value="pdf">PDF</option>
-																	<option value="cvs">CVS</option>
-																	<option value="zip">ZIP</option>
-																</select>
-																<!--end::Input-->
-															</div>
-															<!--end::Input group-->
-															<!--begin::Actions-->
-															<div class="text-center">
-																<button type="reset" class="btn btn-light me-3"
-																	data-kt-users-modal-action="cancel">Discard</button>
-																<button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
-																	<span class="indicator-label">Submit</span>
-																	<span class="indicator-progress">Please wait...
-																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-																</button>
-															</div>
-															<!--end::Actions-->
-														</form>
-														<!--end::Form-->
-													</div>
-													<!--end::Modal body-->
-												</div>
-												<!--end::Modal content-->
-											</div>
-											<!--end::Modal dialog-->
-										</div>
-										<!--end::Modal - New Card-->
-										<!--begin::Modal - Add task-->
-										<div class="modal fade" id="kt_modal_add_user" tabindex="-1" aria-hidden="true">
-											<!--begin::Modal dialog-->
-											<div class="modal-dialog modal-dialog-centered mw-650px">
-												<!--begin::Modal content-->
-												<div class="modal-content">
-													<!--begin::Modal header-->
-													<div class="modal-header" id="kt_modal_add_user_header">
-														<!--begin::Modal title-->
-														<h2 class="fw-bolder">Add User</h2>
-														<!--end::Modal title-->
-														<!--begin::Close-->
-														<div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
-															<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
-															<span class="svg-icon svg-icon-1">
-																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																	fill="none">
-																	<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
-																		transform="rotate(-45 6 17.3137)" fill="black" />
-																	<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
-																		fill="black" />
-																</svg>
-															</span>
-															<!--end::Svg Icon-->
-														</div>
-														<!--end::Close-->
-													</div>
-													<!--end::Modal header-->
-													<!--begin::Modal body-->
-													<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-														<!--begin::Form-->
-														<form id="kt_modal_add_user_form" class="form" action="#">
-															<!--begin::Scroll-->
-															<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll"
-																data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}"
-																data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header"
-																data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
-																<!--begin::Input group-->
-																<div class="fv-row mb-7">
-																	<!--begin::Label-->
-																	<label class="d-block fw-bold fs-6 mb-5">Avatar</label>
-																	<!--end::Label-->
-																	<!--begin::Image input-->
-																	<div class="image-input image-input-outline" data-kt-image-input="true"
-																		style="background-image: url(assets/media/avatars/blank.png)">
-																		<!--begin::Preview existing avatar-->
-																		<div class="image-input-wrapper w-125px h-125px"
-																			style="background-image: url(assets/media/avatars/150-1.jpg);"></div>
-																		<!--end::Preview existing avatar-->
-																		<!--begin::Label-->
-																		<label
-																			class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-																			data-kt-image-input-action="change" data-bs-toggle="tooltip"
-																			title="Change avatar">
-																			<i class="bi bi-pencil-fill fs-7"></i>
-																			<!--begin::Inputs-->
-																			<input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
-																			<input type="hidden" name="avatar_remove" />
-																			<!--end::Inputs-->
-																		</label>
-																		<!--end::Label-->
-																		<!--begin::Cancel-->
-																		<span
-																			class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-																			data-kt-image-input-action="cancel" data-bs-toggle="tooltip"
-																			title="Cancel avatar">
-																			<i class="bi bi-x fs-2"></i>
-																		</span>
-																		<!--end::Cancel-->
-																		<!--begin::Remove-->
-																		<span
-																			class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
-																			data-kt-image-input-action="remove" data-bs-toggle="tooltip"
-																			title="Remove avatar">
-																			<i class="bi bi-x fs-2"></i>
-																		</span>
-																		<!--end::Remove-->
-																	</div>
-																	<!--end::Image input-->
-																	<!--begin::Hint-->
-																	<div class="form-text">Allowed file types: png, jpg, jpeg.</div>
-																	<!--end::Hint-->
-																</div>
-																<!--end::Input group-->
-																<!--begin::Input group-->
-																<div class="fv-row mb-7">
-																	<!--begin::Label-->
-																	<label class="required fw-bold fs-6 mb-2">Full Name</label>
-																	<!--end::Label-->
-																	<!--begin::Input-->
-																	<input type="text" name="user_name"
-																		class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Full name"
-																		value="Emma Smith" />
-																	<!--end::Input-->
-																</div>
-																<!--end::Input group-->
-																<!--begin::Input group-->
-																<div class="fv-row mb-7">
-																	<!--begin::Label-->
-																	<label class="required fw-bold fs-6 mb-2">Email</label>
-																	<!--end::Label-->
-																	<!--begin::Input-->
-																	<input type="email" name="user_email"
-																		class="form-control form-control-solid mb-3 mb-lg-0"
-																		placeholder="example@domain.com" value="e.smith@kpmg.com.au" />
-																	<!--end::Input-->
-																</div>
-																<!--end::Input group-->
-																<!--begin::Input group-->
-																<div class="mb-7">
-																	<!--begin::Label-->
-																	<label class="required fw-bold fs-6 mb-5">Role</label>
-																	<!--end::Label-->
-																	<!--begin::Roles-->
-																	<!--begin::Input row-->
-																	<div class="d-flex fv-row">
-																		<!--begin::Radio-->
-																		<div class="form-check form-check-custom form-check-solid">
-																			<!--begin::Input-->
-																			<input class="form-check-input me-3" name="user_role" type="radio" value="0"
-																				id="kt_modal_update_role_option_0" checked='checked' />
-																			<!--end::Input-->
-																			<!--begin::Label-->
-																			<label class="form-check-label" for="kt_modal_update_role_option_0">
-																				<div class="fw-bolder text-gray-800">Administrator</div>
-																				<div class="text-gray-600">Best for business owners and company administrators
-																				</div>
-																			</label>
-																			<!--end::Label-->
-																		</div>
-																		<!--end::Radio-->
-																	</div>
-																	<!--end::Input row-->
-																	<div class='separator separator-dashed my-5'></div>
-																	<!--begin::Input row-->
-																	<div class="d-flex fv-row">
-																		<!--begin::Radio-->
-																		<div class="form-check form-check-custom form-check-solid">
-																			<!--begin::Input-->
-																			<input class="form-check-input me-3" name="user_role" type="radio" value="1"
-																				id="kt_modal_update_role_option_1" />
-																			<!--end::Input-->
-																			<!--begin::Label-->
-																			<label class="form-check-label" for="kt_modal_update_role_option_1">
-																				<div class="fw-bolder text-gray-800">Developer</div>
-																				<div class="text-gray-600">Best for developers or people primarily using the API
-																				</div>
-																			</label>
-																			<!--end::Label-->
-																		</div>
-																		<!--end::Radio-->
-																	</div>
-																	<!--end::Input row-->
-																	<div class='separator separator-dashed my-5'></div>
-																	<!--begin::Input row-->
-																	<div class="d-flex fv-row">
-																		<!--begin::Radio-->
-																		<div class="form-check form-check-custom form-check-solid">
-																			<!--begin::Input-->
-																			<input class="form-check-input me-3" name="user_role" type="radio" value="2"
-																				id="kt_modal_update_role_option_2" />
-																			<!--end::Input-->
-																			<!--begin::Label-->
-																			<label class="form-check-label" for="kt_modal_update_role_option_2">
-																				<div class="fw-bolder text-gray-800">Analyst</div>
-																				<div class="text-gray-600">Best for people who need full access to analytics
-																					data, but don't need to update business settings</div>
-																			</label>
-																			<!--end::Label-->
-																		</div>
-																		<!--end::Radio-->
-																	</div>
-																	<!--end::Input row-->
-																	<div class='separator separator-dashed my-5'></div>
-																	<!--begin::Input row-->
-																	<div class="d-flex fv-row">
-																		<!--begin::Radio-->
-																		<div class="form-check form-check-custom form-check-solid">
-																			<!--begin::Input-->
-																			<input class="form-check-input me-3" name="user_role" type="radio" value="3"
-																				id="kt_modal_update_role_option_3" />
-																			<!--end::Input-->
-																			<!--begin::Label-->
-																			<label class="form-check-label" for="kt_modal_update_role_option_3">
-																				<div class="fw-bolder text-gray-800">Support</div>
-																				<div class="text-gray-600">Best for employees who regularly refund payments and
-																					respond to disputes</div>
-																			</label>
-																			<!--end::Label-->
-																		</div>
-																		<!--end::Radio-->
-																	</div>
-																	<!--end::Input row-->
-																	<div class='separator separator-dashed my-5'></div>
-																	<!--begin::Input row-->
-																	<div class="d-flex fv-row">
-																		<!--begin::Radio-->
-																		<div class="form-check form-check-custom form-check-solid">
-																			<!--begin::Input-->
-																			<input class="form-check-input me-3" name="user_role" type="radio" value="4"
-																				id="kt_modal_update_role_option_4" />
-																			<!--end::Input-->
-																			<!--begin::Label-->
-																			<label class="form-check-label" for="kt_modal_update_role_option_4">
-																				<div class="fw-bolder text-gray-800">Trial</div>
-																				<div class="text-gray-600">Best for people who need to preview content data, but
-																					don't need to make any updates</div>
-																			</label>
-																			<!--end::Label-->
-																		</div>
-																		<!--end::Radio-->
-																	</div>
-																	<!--end::Input row-->
-																	<!--end::Roles-->
-																</div>
-																<!--end::Input group-->
-															</div>
-															<!--end::Scroll-->
-															<!--begin::Actions-->
-															<div class="text-center pt-15">
-																<button type="reset" class="btn btn-light me-3"
-																	data-kt-users-modal-action="cancel">Discard</button>
-																<button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
-																	<span class="indicator-label">Submit</span>
-																	<span class="indicator-progress">Please wait...
-																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-																</button>
-															</div>
-															<!--end::Actions-->
-														</form>
-														<!--end::Form-->
-													</div>
-													<!--end::Modal body-->
-												</div>
-												<!--end::Modal content-->
-											</div>
-											<!--end::Modal dialog-->
-										</div>
-										<!--end::Modal - Add task-->
+										<button class="btn btn-flex btn-primary" data-kt-calendar="add">
+											<!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+											<span class="svg-icon svg-icon-2">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+													<rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1"
+														transform="rotate(-90 11.364 20.364)" fill="black" />
+													<rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
+												</svg>
+											</span>
+											<!--end::Svg Icon-->Add Event</button>
 									</div>
-									<!--end::Card toolbar-->
 								</div>
 								<!--end::Card header-->
 								<!--begin::Card body-->
-								<div class="card-body pt-0">
-									<!--begin::Table-->
-									<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_articles">
-										<!--begin::Table head-->
-										<thead>
-											<!--begin::Table row-->
-											<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-												<th class="w-10px pe-2">
-													<div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-														<input class="form-check-input" type="checkbox" data-kt-check="true"
-															data-kt-check-target="#kt_table_articles .form-check-input" value="1" />
-													</div>
-												</th>
-												<th class="min-w-125px">Title</th>
-												<th class="min-w-125px">Article Type</th>
-												<th class="min-w-125px">Tags</th>
-												<th class="min-w-125px">Author Name</th>
-												<th class="min-w-125px">Created at</th>
-												<th class="min-w-125px">Updated at</th>
-												<th class="text-end min-w-100px">Actions</th>
-											</tr>
-											<!--end::Table row-->
-										</thead>
-										<!--end::Table head-->
-										<!--begin::Table body-->
-										<tbody class="text-gray-600 fw-bold">
-											<?php foreach ($articles as $article): ?>
-												<!--begin::Table row-->
-												<tr>
-													<!--begin::Checkbox-->
-													<td>
-														<div class="form-check form-check-sm form-check-custom form-check-solid">
-															<input class="form-check-input" type="checkbox" value="1" />
-														</div>
-													</td>
-													<!--end::Checkbox-->
-													<!--begin::Title-->
-													<td>
-														<div>
-															<?php echo $article['title']; ?>
-														</div>
-													</td>
-													<!--end::Title-->
-													<!--begin::Author ID-->
-													<td>
-														<div>
-															<?php echo $article['article_type']; ?>
-														</div>
-													</td>
-													<!--end::Author ID-->
-													<!--begin::Tags-->
-													<td>
-														<div>
-															<?php foreach ($article['tags'] as $tag): ?>
-																<span class="badge badge-light"><?php echo $tag['name']; ?></span>
-															<?php endforeach; ?>
-														</div>
-													</td>
-													<!--end::Tags-->
-													<!--begin::Author ID-->
-													<td>
-														<div>
-															<?php echo $article['author_name']; ?><br>
-															<?php echo $article['author_surname']; ?>
-														</div>
-													</td>
-													<!--end::Author ID-->
-													<!--begin::Created at-->
-													<td>
-														<div><?php echo $article['created_at']; ?></div>
-													</td>
-													<!--begin::Created at-->
-													<!--begin::Updated at-->
-													<td>
-														<div><?php echo $article['updated_at']; ?></div>
-													</td>
-													<!--begin::Updated at-->
-													<!--begin::Action-->
-													<td class="text-end">
-														<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click"
-															data-kt-menu-placement="bottom-end">Actions
-															<span class="svg-icon svg-icon-5 m-0">
-																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																	fill="none">
-																	<path
-																		d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z"
-																		fill="black" />
-																</svg>
-															</span>
-														</a>
-														<div
-															class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
-															data-kt-menu="true">
-															<div class="menu-item px-3">
-																<a href="../../demo1/dist/apps/user-management/articles/view.html"
-																	class="menu-link px-3">View</a>
-															</div>
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3" data-kt-articles-table-filter="delete_row">Delete</a>
-															</div>
-														</div>
-													</td>
-													<!--end::Action-->
-												</tr>
-												<!--end::Table row-->
-											<?php endforeach; ?>
-										</tbody>
-										<!--end::Table body-->
-									</table>
-									<!--end::Table-->
+								<div class="card-body">
+									<!--begin::Calendar-->
+									<div id="kt_calendar_app"></div>
+									<!--end::Calendar-->
 								</div>
 								<!--end::Card body-->
 							</div>
 							<!--end::Card-->
+							<!--begin::Modals-->
+							<!--begin::Modal - New Product-->
+							<div class="modal fade" id="kt_modal_add_event" tabindex="-1" aria-hidden="true">
+								<!--begin::Modal dialog-->
+								<div class="modal-dialog modal-dialog-centered mw-650px">
+									<!--begin::Modal content-->
+									<div class="modal-content">
+										<!--begin::Form-->
+										<form class="form" action="#" id="kt_modal_add_event_form">
+											<!--begin::Modal header-->
+											<div class="modal-header">
+												<!--begin::Modal title-->
+												<h2 class="fw-bolder" data-kt-calendar="title">Add Event</h2>
+												<!--end::Modal title-->
+												<!--begin::Close-->
+												<div class="btn btn-icon btn-sm btn-active-icon-primary" id="kt_modal_add_event_close">
+													<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+													<span class="svg-icon svg-icon-1">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+															fill="none">
+															<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+																transform="rotate(-45 6 17.3137)" fill="black" />
+															<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+																fill="black" />
+														</svg>
+													</span>
+													<!--end::Svg Icon-->
+												</div>
+												<!--end::Close-->
+											</div>
+											<!--end::Modal header-->
+											<!--begin::Modal body-->
+											<div class="modal-body py-10 px-lg-17">
+												<!--begin::Input group-->
+												<div class="fv-row mb-9">
+													<!--begin::Label-->
+													<label class="fs-6 fw-bold required mb-2">Event Name</label>
+													<!--end::Label-->
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-solid" placeholder=""
+														name="calendar_event_name" id="eventTitle"/>
+													<!--end::Input-->
+												</div>
+												<!--end::Input group-->
+												<!--begin::Input group-->
+												<div class="fv-row mb-9">
+													<!--begin::Label-->
+													<label class="fs-6 fw-bold mb-2">Event Description(Esp)</label>
+													<!--end::Label-->
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-solid" placeholder=""
+														name="calendar_event_description" id="eventDescriptionEs"/>
+													<!--end::Input-->
+												</div>
+												<!--end::Input group-->
+												<!--begin::Input group-->
+												<div class="fv-row mb-9">
+													<!--begin::Label-->
+													<label class="fs-6 fw-bold mb-2">Event Description(Eng)</label>
+													<!--end::Label-->
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-solid" placeholder=""
+														name="calendar_event_description" id="eventDescriptionEng"/>
+													<!--end::Input-->
+												</div>
+												<!--end::Input group-->
+												<!--begin::Input group-->
+												<div class="row row-cols-lg-2 g-10">
+													<div class="col">
+														<div class="fv-row mb-9">
+															<!--begin::Label-->
+															<label class="fs-6 fw-bold mb-2 required">Event Start Date</label>
+															<!--end::Label-->
+															<!--begin::Input-->
+															<input class="form-control form-control-solid" name="calendar_event_start_date"
+																placeholder="Pick a start date" id="kt_calendar_datepicker_start_date" />
+															<!--end::Input-->
+														</div>
+													</div>
+													<div class="col" data-kt-calendar="datepicker">
+														<div class="fv-row mb-9">
+															<!--begin::Label-->
+															<label class="fs-6 fw-bold mb-2">Event Start Time</label>
+															<!--end::Label-->
+															<!--begin::Input-->
+															<input class="form-control form-control-solid" name="calendar_event_start_time"
+																placeholder="Pick a start time" id="kt_calendar_datepicker_start_time" />
+															<!--end::Input-->
+														</div>
+													</div>
+												</div>
+												<!--end::Input group-->
+												<!--begin::Input group-->
+												<div class="row row-cols-lg-2 g-10">
+													<div class="col">
+														<div class="fv-row mb-9">
+															<!--begin::Label-->
+															<label class="fs-6 fw-bold mb-2 required">Event End Date</label>
+															<!--end::Label-->
+															<!--begin::Input-->
+															<input class="form-control form-control-solid" name="calendar_event_end_date"
+																placeholder="Pick a end date" id="kt_calendar_datepicker_end_date" />
+															<!--end::Input-->
+														</div>
+													</div>
+													<div class="col" data-kt-calendar="datepicker">
+														<div class="fv-row mb-9">
+															<!--begin::Label-->
+															<label class="fs-6 fw-bold mb-2">Event End Time</label>
+															<!--end::Label-->
+															<!--begin::Input-->
+															<input class="form-control form-control-solid" name="calendar_event_end_time"
+																placeholder="Pick a end time" id="kt_calendar_datepicker_end_time" />
+															<!--end::Input-->
+														</div>
+													</div>
+												</div>
+												<!--end::Input group-->
+											</div>
+											<!--end::Modal body-->
+											<!--begin::Modal footer-->
+											<div class="modal-footer flex-center">
+												<!--begin::Button-->
+												<button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3">Cancel</button>
+												<!--end::Button-->
+												<!--begin::Button-->
+												<button type="submit" id="kt_modal_add_event_submit" class="btn btn-primary">
+													<span class="indicator-label">Submit</span>
+													<span class="indicator-progress">Please wait...
+														<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+												</button>
+												<!--end::Button-->
+											</div>
+											<!--end::Modal footer-->
+										</form>
+										<!--end::Form-->
+									</div>
+								</div>
+							</div>
+							<!--end::Modal - New Product-->
+							<!--begin::Modal - New Product-->
+							<div class="modal fade" id="kt_modal_view_event" tabindex="-1" aria-hidden="true">
+								<!--begin::Modal dialog-->
+								<div class="modal-dialog modal-dialog-centered mw-650px">
+									<!--begin::Modal content-->
+									<div class="modal-content">
+										<!--begin::Modal header-->
+										<div class="modal-header border-0 justify-content-end">
+											<!--begin::Edit-->
+											<div class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-primary me-2"
+												data-bs-toggle="tooltip" data-bs-dismiss="click" title="Edit Event"
+												id="kt_modal_view_event_edit">
+												<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
+												<span class="svg-icon svg-icon-2">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+														fill="none">
+														<path opacity="0.3"
+															d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z"
+															fill="black" />
+														<path
+															d="M5.574 21.3L3.692 21.928C3.46591 22.0032 3.22334 22.0141 2.99144 21.9594C2.75954 21.9046 2.54744 21.7864 2.3789 21.6179C2.21036 21.4495 2.09202 21.2375 2.03711 21.0056C1.9822 20.7737 1.99289 20.5312 2.06799 20.3051L2.696 18.422L5.574 21.3ZM4.13499 14.105L9.891 19.861L19.245 10.507L13.489 4.75098L4.13499 14.105Z"
+															fill="black" />
+													</svg>
+												</span>
+												<!--end::Svg Icon-->
+											</div>
+											<!--end::Edit-->
+											<!--begin::Edit-->
+											<div class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-danger me-2"
+												data-bs-toggle="tooltip" data-bs-dismiss="click" title="Delete Event"
+												id="kt_modal_view_event_delete">
+												<!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+												<span class="svg-icon svg-icon-2">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+														fill="none">
+														<path
+															d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z"
+															fill="black" />
+														<path opacity="0.5"
+															d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z"
+															fill="black" />
+														<path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z"
+															fill="black" />
+													</svg>
+												</span>
+												<!--end::Svg Icon-->
+											</div>
+											<!--end::Edit-->
+											<!--begin::Close-->
+											<div class="btn btn-icon btn-sm btn-color-gray-500 btn-active-icon-primary"
+												data-bs-toggle="tooltip" title="Hide Event" data-bs-dismiss="modal">
+												<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+												<span class="svg-icon svg-icon-1">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+														fill="none">
+														<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+															transform="rotate(-45 6 17.3137)" fill="black" />
+														<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+															fill="black" />
+													</svg>
+												</span>
+												<!--end::Svg Icon-->
+											</div>
+											<!--end::Close-->
+										</div>
+										<!--end::Modal header-->
+										<!--begin::Modal body-->
+										<div class="modal-body pt-0 pb-20 px-lg-17">
+											<!--begin::Row-->
+											<div class="d-flex">
+												<!--begin::Icon-->
+												<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
+												<span class="svg-icon svg-icon-1 svg-icon-muted me-5">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+														fill="none">
+														<path opacity="0.3"
+															d="M21 22H3C2.4 22 2 21.6 2 21V5C2 4.4 2.4 4 3 4H21C21.6 4 22 4.4 22 5V21C22 21.6 21.6 22 21 22Z"
+															fill="black" />
+														<path
+															d="M6 6C5.4 6 5 5.6 5 5V3C5 2.4 5.4 2 6 2C6.6 2 7 2.4 7 3V5C7 5.6 6.6 6 6 6ZM11 5V3C11 2.4 10.6 2 10 2C9.4 2 9 2.4 9 3V5C9 5.6 9.4 6 10 6C10.6 6 11 5.6 11 5ZM15 5V3C15 2.4 14.6 2 14 2C13.4 2 13 2.4 13 3V5C13 5.6 13.4 6 14 6C14.6 6 15 5.6 15 5ZM19 5V3C19 2.4 18.6 2 18 2C17.4 2 17 2.4 17 3V5C17 5.6 17.4 6 18 6C18.6 6 19 5.6 19 5Z"
+															fill="black" />
+														<path
+															d="M8.8 13.1C9.2 13.1 9.5 13 9.7 12.8C9.9 12.6 10.1 12.3 10.1 11.9C10.1 11.6 10 11.3 9.8 11.1C9.6 10.9 9.3 10.8 9 10.8C8.8 10.8 8.59999 10.8 8.39999 10.9C8.19999 11 8.1 11.1 8 11.2C7.9 11.3 7.8 11.4 7.7 11.6C7.6 11.8 7.5 11.9 7.5 12.1C7.5 12.2 7.4 12.2 7.3 12.3C7.2 12.4 7.09999 12.4 6.89999 12.4C6.69999 12.4 6.6 12.3 6.5 12.2C6.4 12.1 6.3 11.9 6.3 11.7C6.3 11.5 6.4 11.3 6.5 11.1C6.6 10.9 6.8 10.7 7 10.5C7.2 10.3 7.49999 10.1 7.89999 10C8.29999 9.90003 8.60001 9.80003 9.10001 9.80003C9.50001 9.80003 9.80001 9.90003 10.1 10C10.4 10.1 10.7 10.3 10.9 10.4C11.1 10.5 11.3 10.8 11.4 11.1C11.5 11.4 11.6 11.6 11.6 11.9C11.6 12.3 11.5 12.6 11.3 12.9C11.1 13.2 10.9 13.5 10.6 13.7C10.9 13.9 11.2 14.1 11.4 14.3C11.6 14.5 11.8 14.7 11.9 15C12 15.3 12.1 15.5 12.1 15.8C12.1 16.2 12 16.5 11.9 16.8C11.8 17.1 11.5 17.4 11.3 17.7C11.1 18 10.7 18.2 10.3 18.3C9.9 18.4 9.5 18.5 9 18.5C8.5 18.5 8.1 18.4 7.7 18.2C7.3 18 7 17.8 6.8 17.6C6.6 17.4 6.4 17.1 6.3 16.8C6.2 16.5 6.10001 16.3 6.10001 16.1C6.10001 15.9 6.2 15.7 6.3 15.6C6.4 15.5 6.6 15.4 6.8 15.4C6.9 15.4 7.00001 15.4 7.10001 15.5C7.20001 15.6 7.3 15.6 7.3 15.7C7.5 16.2 7.7 16.6 8 16.9C8.3 17.2 8.6 17.3 9 17.3C9.2 17.3 9.5 17.2 9.7 17.1C9.9 17 10.1 16.8 10.3 16.6C10.5 16.4 10.5 16.1 10.5 15.8C10.5 15.3 10.4 15 10.1 14.7C9.80001 14.4 9.50001 14.3 9.10001 14.3C9.00001 14.3 8.9 14.3 8.7 14.3C8.5 14.3 8.39999 14.3 8.39999 14.3C8.19999 14.3 7.99999 14.2 7.89999 14.1C7.79999 14 7.7 13.8 7.7 13.7C7.7 13.5 7.79999 13.4 7.89999 13.2C7.99999 13 8.2 13 8.5 13H8.8V13.1ZM15.3 17.5V12.2C14.3 13 13.6 13.3 13.3 13.3C13.1 13.3 13 13.2 12.9 13.1C12.8 13 12.7 12.8 12.7 12.6C12.7 12.4 12.8 12.3 12.9 12.2C13 12.1 13.2 12 13.6 11.8C14.1 11.6 14.5 11.3 14.7 11.1C14.9 10.9 15.2 10.6 15.5 10.3C15.8 10 15.9 9.80003 15.9 9.70003C15.9 9.60003 16.1 9.60004 16.3 9.60004C16.5 9.60004 16.7 9.70003 16.8 9.80003C16.9 9.90003 17 10.2 17 10.5V17.2C17 18 16.7 18.4 16.2 18.4C16 18.4 15.8 18.3 15.6 18.2C15.4 18.1 15.3 17.8 15.3 17.5Z"
+															fill="black" />
+													</svg>
+												</span>
+												<!--end::Svg Icon-->
+												<!--end::Icon-->
+												<div class="mb-9">
+													<!--begin::Event name-->
+													<div class="d-flex align-items-center mb-2">
+														<span class="fs-3 fw-bolder me-3" data-kt-calendar="event_name"></span>
+														<span class="badge badge-light-success" data-kt-calendar="all_day"></span>
+													</div>
+													<!--end::Event name-->
+													<!--begin::Event description-->
+													<div class="fs-6" data-kt-calendar="event_description"></div>
+													<!--end::Event description-->
+												</div>
+											</div>
+											<!--end::Row-->
+											<!--begin::Row-->
+											<div class="d-flex align-items-center mb-2">
+												<!--begin::Icon-->
+												<!--begin::Svg Icon | path: icons/duotune/abstract/abs050.svg-->
+												<span class="svg-icon svg-icon-1 svg-icon-success me-5">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"
+														version="1.1">
+														<circle fill="#000000" cx="12" cy="12" r="8" />
+													</svg>
+												</span>
+												<!--end::Svg Icon-->
+												<!--end::Icon-->
+												<!--begin::Event start date/time-->
+												<div class="fs-6">
+													<span class="fw-bolder">Starts</span>
+													<span data-kt-calendar="event_start_date"></span>
+												</div>
+												<!--end::Event start date/time-->
+											</div>
+											<!--end::Row-->
+											<!--begin::Row-->
+											<div class="d-flex align-items-center mb-9">
+												<!--begin::Icon-->
+												<!--begin::Svg Icon | path: icons/duotune/abstract/abs050.svg-->
+												<span class="svg-icon svg-icon-1 svg-icon-danger me-5">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"
+														version="1.1">
+														<circle fill="#000000" cx="12" cy="12" r="8" />
+													</svg>
+												</span>
+												<!--end::Svg Icon-->
+												<!--end::Icon-->
+												<!--begin::Event end date/time-->
+												<div class="fs-6">
+													<span class="fw-bolder">Ends</span>
+													<span data-kt-calendar="event_end_date"></span>
+												</div>
+												<!--end::Event end date/time-->
+											</div>
+											<!--end::Row-->
+											<!--begin::Row-->
+											<div class="d-flex align-items-center">
+												<!--begin::Icon-->
+												<!--begin::Svg Icon | path: icons/duotune/general/gen018.svg-->
+												<span class="svg-icon svg-icon-1 svg-icon-muted me-5">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+														fill="none">
+														<path opacity="0.3"
+															d="M18.0624 15.3453L13.1624 20.7453C12.5624 21.4453 11.5624 21.4453 10.9624 20.7453L6.06242 15.3453C4.56242 13.6453 3.76242 11.4453 4.06242 8.94534C4.56242 5.34534 7.46242 2.44534 11.0624 2.04534C15.8624 1.54534 19.9624 5.24534 19.9624 9.94534C20.0624 12.0453 19.2624 13.9453 18.0624 15.3453Z"
+															fill="black" />
+														<path
+															d="M12.0624 13.0453C13.7193 13.0453 15.0624 11.7022 15.0624 10.0453C15.0624 8.38849 13.7193 7.04535 12.0624 7.04535C10.4056 7.04535 9.06241 8.38849 9.06241 10.0453C9.06241 11.7022 10.4056 13.0453 12.0624 13.0453Z"
+															fill="black" />
+													</svg>
+												</span>
+												<!--end::Svg Icon-->
+												<!--end::Icon-->
+												<!--begin::Event location-->
+												<div class="fs-6" data-kt-calendar="event_location"></div>
+												<!--end::Event location-->
+											</div>
+											<!--end::Row-->
+										</div>
+										<!--end::Modal body-->
+									</div>
+								</div>
+							</div>
+							<!--end::Modal - New Product-->
+							<!--end::Modals-->
 						</div>
 						<!--end::Container-->
 					</div>
@@ -734,9 +417,7 @@ License: For each use you must have a valid license purchased only from above li
 				</div>
 				<!--end::Content-->
 				<!--begin::Footer-->
-
 				<?php include(APPPATH . 'Views/templates/footer.php'); ?>
-
 				<!--end::Footer-->
 			</div>
 			<!--end::Wrapper-->
@@ -1410,22 +1091,6 @@ License: For each use you must have a valid license purchased only from above li
 				<!--end::Content-->
 			</div>
 			<!--end::Body-->
-			<!--begin::Footer-->
-			<div class="card-footer py-5 text-center" id="kt_activities_footer">
-				<a href="../../demo1/dist/pages/profile/activity.html" class="btn btn-bg-body text-primary">View All Activities
-					<!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
-					<span class="svg-icon svg-icon-3 svg-icon-primary">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-							<rect opacity="0.5" x="18" y="13" width="13" height="2" rx="1" transform="rotate(-180 18 13)"
-								fill="black" />
-							<path
-								d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z"
-								fill="black" />
-						</svg>
-					</span>
-					<!--end::Svg Icon--></a>
-			</div>
-			<!--end::Footer-->
 		</div>
 	</div>
 	<!--end::Activities drawer-->
@@ -1827,10 +1492,6 @@ License: For each use you must have a valid license purchased only from above li
 		<!--end::Messenger-->
 	</div>
 	<!--end::Chat drawer-->
-	<!--begin::Exolore drawer toggle-->
-	<!--end::Exolore drawer toggle-->
-	<!--begin::Exolore drawer-->
-	<!--end::Exolore drawer-->
 	<!--end::Drawers-->
 	<!--begin::Modals-->
 	<!--begin::Modal - Invite Friends-->
@@ -2362,13 +2023,13 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<span class="symbol-label bg-light-info text-info fw-bold">A</span>
+										<img alt="Pic" src="assets/media/avatars/150-7.jpg" />
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
 									<div class="ms-5">
-										<a href="#" class="fs-5 fw-bolder text-gray-900 text-hover-primary mb-2">Robert Doe</a>
-										<div class="fw-bold text-muted">robert@benko.com</div>
+										<a href="#" class="fs-5 fw-bolder text-gray-900 text-hover-primary mb-2">Ana Crown</a>
+										<div class="fw-bold text-muted">ana.cf@limtel.com</div>
 									</div>
 									<!--end::Details-->
 								</div>
@@ -3752,26 +3413,32 @@ License: For each use you must have a valid license purchased only from above li
 	</div>
 	<!--end::Scrolltop-->
 	<!--end::Main-->
-	<script>var hostUrl = "assets/";</script>
 	<!--begin::Javascript-->
 	<!--begin::Global Javascript Bundle(used by all pages)-->
-	<script src="<?= base_url('assets/plugins/global/plugins.bundle.js'); ?>"></script>
-	<script src="<?= base_url('assets/js/scripts.bundle.js'); ?>"></script>
+	<script src="<?= base_url('assets/plugins/global/plugins.bundle.js') ?>"></script>
+	<script src="<?= base_url('assets/js/scripts.bundle.js') ?>"></script>
 	<!--end::Global Javascript Bundle-->
 	<!--begin::Page Vendors Javascript(used by this page)-->
-	<script src="<?= base_url('assets/plugins/custom/datatables/datatables.bundle.js'); ?>"></script>
+	<script src="<?= base_url('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js') ?>"></script>
 	<!--end::Page Vendors Javascript-->
 	<!--begin::Page Custom Javascript(used by this page)-->
-	<script src="<?= base_url('assets/js/custom/apps/user-management/users/list/table.js'); ?>"></script>
-	<script src="<?= base_url('assets/js/custom/apps/user-management/users/list/export-users.js'); ?>"></script>
-	<script src="<?= base_url('assets/js/custom/apps/user-management/users/list/add.js'); ?>"></script>
-	<script src="<?= base_url('assets/js/custom/widgets.js'); ?>"></script>
-	<script src="<?= base_url('assets/js/custom/apps/chat/chat.js'); ?>"></script>
-	<script src="<?= base_url('assets/js/custom/modals/create-app.js'); ?>"></script>
-	<script src="<?= base_url('assets/js/custom/modals/upgrade-plan.js'); ?>"></script>
+	<script src="<?= base_url('assets/js/custom/apps/calendar/calendar.js') ?>"></script>
+	<script src="<?= base_url('assets/js/custom/widgets.js') ?>"></script>
+	<script src="<?= base_url('assets/js/custom/apps/chat/chat.js') ?>"></script>
+	<script src="<?= base_url('assets/js/custom/modals/create-app.js') ?>"></script>
+	<script src="<?= base_url('assets/js/custom/modals/upgrade-plan.js') ?>"></script>
 	<!--end::Page Custom Javascript-->
+	<script src="<?= base_url('assets/js/ownJs/calendar.js') ?>"></script>
 	<!--end::Javascript-->
+
+	<!-- Pasar los datos de eventos desde PHP a JavaScript -->
+	<script>
+		var base_url = '<?php echo base_url(); ?>';
+		var calendarEvents = <?php echo json_encode($events); ?>;
+	</script>
+
+
 </body>
 <!--end::Body-->
 
-</html>
+</html> 

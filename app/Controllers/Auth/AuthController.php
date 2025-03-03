@@ -8,101 +8,72 @@ use App\Models\UserModel;
 class AuthController extends BaseController
 {
 
-    public function signInLoad()
-    {
-        $data['validation'] = session('validation');
-        return view('pages/auth/signIn', $data);
+  public function signUp()
+  {
+    return view('pages/auth/signUp');
+  }
+
+  public function processSignUp()
+  {
+
+    $userModel = new UserModel();
+
+    $data = [
+      'first_name' => $this->request->getPost('first_name'),
+      'last_name' => $this->request->getPost('last_name'),
+      'email' => $this->request->getPost('email'),
+      'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT)
+    ];
+
+    $userModel->insert($data);
+
+    return redirect()->to(base_url('signIn'))->with('success', 'Usuario registrado correctamente.');
+  }
+  public function signIn()
+  {
+    return view('pages/auth/signIn');
+  }
+
+  public function processSignIn()
+  {
+    $userModel = new UserModel();
+
+    $session = \config\Services::session();
+
+    $email = $this->request->getPost('email');
+    $password = $this->request->getPost('password');
+
+    $user = $userModel->where('email', $email)->first();
+
+    $data = [
+      'id' => $user['id'],
+      'first_name' => $user['first_name'],
+      'last_name' => $user['last_name'],
+      'email' => $user['email'],
+      'role_id' => $user['role_id']
+    ];
+
+
+    if (!$user || !password_verify($password, $user['password'])) {
+      return redirect()->to(base_url('signIn'))->with('error', 'Correo o contraseña incorrectos.');
+    } else {
+      $session->set($data);
+
+      return redirect()->to(base_url('/'));
     }
 
-    public function signIn()
-    {
-        helper(['form']);
-        $tokkenLog = session();
-        $userModel = new UserModel();
+  }
 
-        if ($this->request->getMethod() == 'post') {
-            $rules = [
-                'email' => 'required|valid_email',
-                'password' => 'required|min_length[6]|max_length[255]'
-            ];
+  public function forgotPassword()
+  {
+    // Cargar la vista de olvidar contraseña
+    return view('pages/auth/newPassword'); // Asegúrate de que la vista se llama 'forgot-password.php' y está en la carpeta 'views/auth'
+  }
 
-            if ($this->validate($rules)) {
-                $email = $this->request->getVar('email');
-                $password = $this->request->getVar('password');
-                $user = $userModel->verifyUser($email, $password);
-
-                if ($user) {
-                    $tokkenLog->set([
-                        'user_id' => $user['id'],
-                        'email' => $user['email'],
-                        'logged_in' => true
-                    ]);
-                    return redirect()->to(base_url('/'));
-                } else {
-                    $tokkenLog->setFlashdata('error', 'Invalid login credentials');
-                    return redirect()->to(base_url('signIn'));
-                }
-            } else {
-                $data['validation'] = $this->validator;
-            }
-        }
-
-        return view('pages/auth/signIn');
-    }
-
-    public function signUpLoad()
-    {
-        $data['validation'] = session('validation');
-        return view('pages/auth/signUp', $data);
-    }
-
-    
-    public function signUp()
-    {
-        helper(['form']);
-        $tokkenLog = session();
-        $userModel = new UserModel();
-
-        if ($this->request->getMethod() == 'post') {
-            $rules = [
-                'first_name' => 'required|min_length[3]|max_length[255]',
-                'last_name' => 'required|min_length[3]|max_length[255]',
-                'email' => 'required|valid_email',
-                'phone_number' => 'permit_empty|numeric|min_length[7]|max_length[15]',
-                'password' => 'required|min_length[6]|max_length[255]',
-                'confirm_password' => 'required|matches[password]'
-            ];
-
-            if ($this->validate($rules)) {
-                $data = [
-                    'first_name' => $this->request->getVar('first_name'),
-                    'last_name' => $this->request->getVar('last_name'),
-                    'email' => $this->request->getVar('email'),
-                    'phone_number' => $this->request->getVar('phone_number'),
-                    'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
-                ];
-
-                $userModel->save($data);
-                $tokkenLog->setFlashdata('success', 'Registration successful');
-                return redirect()->to(base_url('signIn'));
-            } else {
-                $data['validation'] = $this->validator;
-            }
-        }
-
-        return view('pages/auth/signUp');
-    }
-
-    public function forgotPassword()
-    {
-        // Cargar la vista de olvidar contraseña
-        return view('pages/auth/newPassword'); // Asegúrate de que la vista se llama 'forgot-password.php' y está en la carpeta 'views/auth'
-    }
-
-    public function signOut()
-    {
-        // Cerrar sesión
-        session()->destroy();
-        return redirect()->to(base_url('signIn'));
-    }
+  public function signOut()
+  {
+    // Cerrar sesión
+    session()->destroy();
+    return redirect()->to(base_url('signIn'));
+  }
 }

@@ -72,6 +72,9 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Link-->
 							</div>
 							<!--begin::Heading-->
+							<?php if (session()->get('error')): ?>
+								<p style="color: red;"><?= session()->get('error') ?></p>
+							<?php endif; ?>
 							<!--begin::Input group-->
 							<div class="fv-row mb-10">
 								<!--begin::Label-->
@@ -144,7 +147,6 @@ License: For each use you must have a valid license purchased only from above li
 	<script src="<?= base_url('assets/js/scripts.bundle.js') ?>"></script>
 	<!--end::Global Javascript Bundle-->
 	<!--begin::Page Custom Javascript(used by this page)-->
-	<script src="<?= base_url('assets/js/custom/authentication/sign-in/general.js') ?>"></script>
 	<!--end::Page Custom Javascript-->
 	<!--end::Javascript-->
 </body>

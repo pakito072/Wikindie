@@ -71,7 +71,10 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Link-->
 							</div>
 							<!--end::Heading-->
-							
+							<?php if (isset($validation)): ?>
+								<div class="alert alert-danger"><?= $validation->listErrors() ?></div>
+							<?php endif; ?>
+
 							<!--begin::Separator-->
 							<div class="d-flex align-items-center mb-10">
 								<div class="border-bottom border-gray-300 mw-50 w-100"></div>
@@ -85,14 +88,14 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="col-xl-6">
 									<label class="form-label fw-bolder text-dark fs-6">First Name</label>
 									<input class="form-control form-control-lg form-control-solid" type="text" placeholder=""
-										name="first_name" autocomplete="off" />
+										name="first_name" autocomplete="off" value="<?= set_value('first_name', isset($user) ? $user['first_name'] : '') ?>"/>
 								</div>
 								<!--end::Col-->
 								<!--begin::Col-->
 								<div class="col-xl-6">
 									<label class="form-label fw-bolder text-dark fs-6">Last Name</label>
 									<input class="form-control form-control-lg form-control-solid" type="text" placeholder=""
-										name="last_name" autocomplete="off" />
+										name="last_name" autocomplete="off" value="<?= set_value('last_name', isset($user) ? $user['last_name'] : '') ?>"/>
 								</div>
 								<!--end::Col-->
 							</div>
@@ -101,14 +104,7 @@ License: For each use you must have a valid license purchased only from above li
 							<div class="fv-row mb-7">
 								<label class="form-label fw-bolder text-dark fs-6">Email</label>
 								<input class="form-control form-control-lg form-control-solid" type="email" placeholder="" name="email"
-									autocomplete="off" />
-							</div>
-							<!--end::Input group-->
-							<!--begin::Input group-->
-							<div class="fv-row mb-7">
-								<label class="form-label fw-bolder text-dark fs-6">Phone Number<span class="text-muted fs-7">(optional)</span></label>
-								<input class="form-control form-control-lg form-control-solid" type="text" placeholder=""
-									name="phone_number" autocomplete="off" />
+									autocomplete="off" value="<?= set_value('email', isset($user) ? $user['email'] : '') ?>"/>
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
@@ -156,13 +152,13 @@ License: For each use you must have a valid license purchased only from above li
 								<label class="form-check form-check-custom form-check-solid form-check-inline">
 									<input class="form-check-input" type="checkbox" name="toc" value="1" />
 									<span class="form-check-label fw-bold text-gray-700 fs-6">I Agree
-										<a href="#" class="ms-1 link-primary ">Terms and conditions</a>.</span>
+										<a href="https://c.tenor.com/Ngb9u3HnHcIAAAAd/tenor.gif" class="ms-1 link-primary ">Terms and conditions</a>.</span>
 								</label>
 							</div>
 							<!--end::Input group-->
 							<!--begin::Actions-->
 							<div class="text-center">
-								<button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-custom">
+								<button type="submit" id="kt_sign_up_submit" class="btn btn-lg btn-custom">
 									<span class="indicator-label purple">Submit</span>
 									<span class="indicator-progress">Please wait...
 										<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -192,14 +188,12 @@ License: For each use you must have a valid license purchased only from above li
 		<!--end::Authentication - Sign-up-->
 	</div>
 	<!--end::Main-->
-	<script>var hostUrl = "assets/";</script>
 	<!--begin::Javascript-->
 	<!--begin::Global Javascript Bundle(used by all pages)-->
 	<script src="<?= base_url('assets/plugins/global/plugins.bundle.js') ?>"></script>
 	<script src="<?= base_url('assets/js/scripts.bundle.js') ?>"></script>
 	<!--end::Global Javascript Bundle-->
 	<!--begin::Page Custom Javascript(used by this page)-->
-	<script src="<?= base_url('assets/js/custom/authentication/sign-up/general.js') ?>"></script>
 	<!--end::Page Custom Javascript-->
 	<!--end::Javascript-->
 </body>

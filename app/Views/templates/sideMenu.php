@@ -367,7 +367,7 @@
           </div>
         </div>
         <div class="menu-item">
-          <a class="menu-link" href="../../demo1/dist/apps/calendar.html">
+          <a class="menu-link" href="<?= base_url('fetchEvents')?>">
             <span class="menu-icon">
               <!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
               <span class="svg-icon svg-icon-2">
@@ -385,7 +385,7 @@
               </span>
               <!--end::Svg Icon-->
             </span>
-            <span class="menu-title">Calendar(Comming Soon)</span>
+            <span class="menu-title">Calendar</span>
           </a>
         </div>
         <div class="menu-item">
