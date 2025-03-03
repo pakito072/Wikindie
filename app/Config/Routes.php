@@ -10,11 +10,12 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 //Rutas de autenticación Auth\
-$routes->get('signIn', 'Auth\AuthController::signInLoad');
-  $routes->post('signIn', 'Auth\AuthController::signIn');
+$routes->get('signUp', 'Auth\AuthController::signUp');
+  $routes->post('signUp', 'Auth\AuthController::processSignUp');
 
-$routes->get('signUp', 'Auth\AuthController::signUpLoad');
-  $routes->post('signUp', 'Auth\AuthController::signUp');
+$routes->get('signIn', 'Auth\AuthController::signIn');
+  $routes->post('signIn', 'Auth\AuthController::processSignIn');
+
 
 $routes->get('forgotPassword', 'Auth\AuthController::forgotPassword');
   $routes->post('forgotPassword', 'Auth\AuthController::forgotPassword');

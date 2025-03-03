@@ -6,15 +6,13 @@ use CodeIgniter\Model;
 
 class TagModel extends Model
 {
-    protected $table = 'tags';
-    protected $primaryKey = 'id';
-    protected $allowedFields = [
-        'name',
-        'created_at',
-        'updated_at'
-    ];
-    protected $useTimestamps = true;
-    protected $createdField = 'created_at';
-    protected $updatedField = 'updated_at';
+  protected $table = 'tags';
+  protected $primaryKey = 'id';
+  protected $allowedFields = [
+    'name',
+    'created_at',
+    'updated_at'
+  ];
+  protected $useTimestamps = true;
 }
 
