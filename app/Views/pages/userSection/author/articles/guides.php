@@ -626,7 +626,7 @@ License: For each use you must have a valid license purchased only from above li
 															data-kt-check-target="#kt_table_guides .form-check-input" value="1" />
 													</div>
 												</th>
-												<th class="min-w-125px">Guide Details</th>
+												<th class="min-w-125px"><a href="<?= current_url() . '?column=guide_details&order=' . (($order === 'asc') ? 'desc' : 'asc');?>">Guide Details<?= ($column === 'guide_details') ? (($order === 'asc') ? '↑' : '↓') : ''; ?></a></th>
 												<th class="min-w-125px">Created At</th>
 												<th class="min-w-125px">Updated At</th>
 												<th class="text-end min-w-100px">Actions</th>
@@ -698,7 +698,9 @@ License: For each use you must have a valid license purchased only from above li
 											<?php endforeach; ?>
 										</tbody>
 										<!--end::Table body-->
+										
 									</table>
+									<?php echo $paginator->links();?>
 									<!--end::Table-->
 								</div>
 								<!--end::Card body-->

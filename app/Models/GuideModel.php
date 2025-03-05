@@ -13,5 +13,10 @@ class GuideModel extends Model
     'guide_details'
   ];
   protected $useTimestamps = true;
+
+  public function orderedGuides($column, $order)
+  {
+    return $this->orderBy($column, $order)->findAll();
+  }
 }
 
