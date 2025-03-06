@@ -369,39 +369,51 @@ License: For each use you must have a valid license purchased only from above li
 									<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_cats">
 										<!--begin::Table head-->
 										<thead>
-											<!--begin::Table row-->
 											<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
 												<th class="min-w-125px">
-													<a href="<?= base_url('viewCats?column=name&order=asc') ?>">Name ↑</a>
-													<a href="<?= base_url('viewCats?column=name&order=desc') ?>">↓</a>
+													<a
+														href="<?= base_url('viewCats?column=name&order=' . ($column === 'name' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
+														Name <?= ($column === 'name') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
+													</a>
 												</th>
 												<th class="min-w-125px">
-													<a href="<?= base_url('viewCats?column=age&order=asc') ?>">Age ↑</a>
-													<a href="<?= base_url('viewCats?column=age&order=desc') ?>">↓</a>
+													<a
+														href="<?= base_url('viewCats?column=age&order=' . ($column === 'age' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
+														Age <?= ($column === 'age') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
+													</a>
 												</th>
 												<th class="min-w-125px">
-													<a href="<?= base_url('viewCats?column=breed&order=asc') ?>">Breed ↑</a>
-													<a href="<?= base_url('viewCats?column=breed&order=desc') ?>">↓</a>
+													<a
+														href="<?= base_url('viewCats?column=breed&order=' . ($column === 'breed' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
+														Breed <?= ($column === 'breed') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
+													</a>
 												</th>
 												<th class="min-w-125px">
-													<a href="<?= base_url('viewCats?column=gender&order=asc') ?>">Gender ↑</a>
-													<a href="<?= base_url('viewCats?column=gender&order=desc') ?>">↓</a>
+													<a
+														href="<?= base_url('viewCats?column=gender&order=' . ($column === 'gender' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
+														Gender <?= ($column === 'gender') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
+													</a>
 												</th>
 												<th class="min-w-125px">
-													<a href="<?= base_url('viewCats?column=color&order=asc') ?>">Color ↑</a>
-													<a href="<?= base_url('viewCats?column=color&order=desc') ?>">↓</a>
+													<a
+														href="<?= base_url('viewCats?column=color&order=' . ($column === 'color' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
+														Color <?= ($column === 'color') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
+													</a>
 												</th>
 												<th class="min-w-125px">
-													<a href="<?= base_url('viewCats?column=description&order=asc') ?>">Description ↑</a>
-													<a href="<?= base_url('viewCats?column=description&order=desc') ?>">↓</a>
+													<a
+														href="<?= base_url('viewCats?column=description&order=' . ($column === 'description' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
+														Description <?= ($column === 'description') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
+													</a>
 												</th>
 												<th class="min-w-125px">
-													<a href="<?= base_url('viewCats?column=status&order=asc') ?>">Status ↑</a>
-													<a href="<?= base_url('viewCats?column=status&order=desc') ?>">↓</a>
+													<a
+														href="<?= base_url('viewCats?column=status&order=' . ($column === 'status' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
+														Status <?= ($column === 'status') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
+													</a>
 												</th>
 												<th class="min-w-100px">Actions</th>
 											</tr>
-											<!--end::Table row-->
 										</thead>
 										<!--end::Table head-->
 										<!--begin::Table body-->
@@ -471,7 +483,7 @@ License: For each use you must have a valid license purchased only from above li
 																</svg>
 															</span>
 														</a>
-														<!-- Menú de Acciones -->
+
 														<div
 															class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
 															data-kt-menu="true">
@@ -495,16 +507,26 @@ License: For each use you must have a valid license purchased only from above li
 										<!--end::Table body-->
 									</table>
 									<!--end::Table-->
-									<form method="get" action="<?= base_url('viewCats') ?>" id="paginationForm">
-										<label for="perPage">Items per page:</label>
-										<select name="perPage" id="perPage" onchange="document.getElementById('paginationForm').submit();">
-											<option value="5" <?= ($perPage == 5) ? 'selected' : '' ?>>5</option>
-											<option value="10" <?= ($perPage == 10) ? 'selected' : '' ?>>10</option>
-											<option value="15" <?= ($perPage == 15) ? 'selected' : '' ?>>15</option>
-											<option value="20" <?= ($perPage == 20) ? 'selected' : '' ?>>20</option>
-										</select>
-									</form>
-									<?php echo $paginator->links(); ?>
+									<div class="card-footer">
+										<div class="d-flex justify-content-between align-items-center flex-wrap">
+
+											<form method="get" action="<?= base_url('viewCats') ?>" id="paginationForm"
+												class="d-flex align-items-center">
+												<label for="perPage" class="fw-bold me-3 mb-0">Items per page:</label>
+												<select name="perPage" id="perPage" class="form-select form-select-sm form-select-solid w-75px"
+													onchange="document.getElementById('paginationForm').submit();">
+													<option value="5" <?= ($perPage == 5) ? 'selected' : '' ?>>5</option>
+													<option value="10" <?= ($perPage == 10) ? 'selected' : '' ?>>10</option>
+													<option value="15" <?= ($perPage == 15) ? 'selected' : '' ?>>15</option>
+													<option value="20" <?= ($perPage == 20) ? 'selected' : '' ?>>20</option>
+												</select>
+											</form>
+
+											<div class="d-flex align-items-center py-3">
+												<?= $pager->links('default','myPagination') ?>
+											</div>
+										</div>
+									</div>
 								</div>
 								<!--end::Card body-->
 							</div>

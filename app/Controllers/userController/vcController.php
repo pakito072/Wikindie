@@ -4,6 +4,7 @@ namespace App\Controllers\userController;
 
 use App\Controllers\BaseController;
 use App\Models\CatsModel;
+use App\Config\Pager;
 
 class vcController extends BaseController
 {
@@ -14,18 +15,18 @@ class vcController extends BaseController
     $this->catsModel = new CatsModel();
   }
 
-  // Mostrar todos los gatos
+
   public function view()
   {
     helper('breadcrumbs');
     $segments = ['View Cats'];
     $title = 'View Cats';
 
-    // Obtener la cantidad de elementos por página desde la URL o establecer un valor por defecto
+
     $perPage = $this->request->getGet('perPage') ?? 5;
     $perPage = in_array($perPage, [5, 10, 15, 20]) ? $perPage : 10;
 
-    // Obtener parámetros de ordenación
+
     $column = $this->request->getGet('column') ?? 'id';
     $order = $this->request->getGet('order') ?? 'asc';
 
@@ -35,30 +36,31 @@ class vcController extends BaseController
       $column = 'id';
     }
 
-    // Validar orden asc/desc
+
     $order = ($order === 'desc') ? 'desc' : 'asc';
 
-    // Obtener gatos paginados y ordenados
+
     $cats = $this->catsModel->where('is_disabled', 0)
       ->orderBy($column, $order)
       ->paginate($perPage);
 
-    $paginator = $this->catsModel->pager;
+    $pager = $this->catsModel->pager;
+
 
     $data = [
       'breadcrumbs' => generate_breadcrumbs($segments),
       'view_name' => $title,
       'cats' => $cats,
-      'paginator' => $paginator,
-      'currentColumn' => $column,
-      'currentOrder' => $order,
+      'pager' => $pager,
+      'column' => $column,
+      'order' => $order,
       'perPage' => $perPage,
     ];
 
     return view('pages/userPage/viewCats', $data);
   }
 
-  // Crear un nuevo gato
+
   public function create()
   {
     if ($this->request->getMethod() === 'post') {

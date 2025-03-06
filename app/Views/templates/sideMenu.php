@@ -104,6 +104,7 @@
           </div>
         </div>
 
+        <?php if ($role_id == 1 || 2) : ?>
         <!-- Manage Cats (Managers & Admins) -->
         <div class="menu-item">
           <a class="menu-link" href="<?= base_url('manageCats') ?>">
@@ -129,7 +130,9 @@
             <span class="menu-section text-muted text-uppercase fs-8 ls-1">Admin Page</span>
           </div>
         </div>
+        <?php endif; ?>
 
+        <?php if ($role_id == 1) : ?>
         <!-- Manage Users (Only Admins) -->
         <div class="menu-item">
           <a class="menu-link" href="<?= base_url('manageUsers') ?>">
@@ -149,6 +152,7 @@
             <span class="menu-title">Manage Roles</span>
           </a>
         </div>
+        <?php endif; ?>    
 
         <div class="menu-item">
           <div class="menu-content">

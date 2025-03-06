@@ -19,10 +19,10 @@ class AuthController extends BaseController
     $userModel = new UserModel();
 
     $data = [
-      'first_name' => $this->request->getPost('first_name'),
-      'last_name' => $this->request->getPost('last_name'),
+      'username' => $this->request->getPost('username'),
       'email' => $this->request->getPost('email'),
-      'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT)
+      'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+      'role_id' => 3
     ];
 
     $userModel->insert($data);
@@ -45,29 +45,19 @@ class AuthController extends BaseController
 
     $user = $userModel->where('email', $email)->first();
 
-    $data = [
-      'id' => $user['id'],
-      'first_name' => $user['first_name'],
-      'last_name' => $user['last_name'],
-      'email' => $user['email'],
-      'role_id' => $user['role_id']
-    ];
-
-
-    if (!$user || !password_verify($password, $user['password'])) {
+    if (!$user && !password_verify($password, $user['password'])) {
       return redirect()->to(base_url('signIn'))->with('error', 'Correo o contraseña incorrectos.');
-    } else {
-      $session->set($data);
-
-      return redirect()->to(base_url('/'));
     }
 
-  }
+    $session->set([
+      'id' => $user['id'],
+      'username' => $user['username'],
+      'email' => $user['email'],
+      'role_id' => $user['role_id'],
+      'isLoggedIn' => true
+    ]);
 
-  public function forgotPassword()
-  {
-    // Cargar la vista de olvidar contraseña
-    return view('pages/auth/newPassword'); // Asegúrate de que la vista se llama 'forgot-password.php' y está en la carpeta 'views/auth'
+    return redirect()->to(base_url('/'))->with('success', 'Bienvenido de nuevo.');
   }
 
   public function signOut()

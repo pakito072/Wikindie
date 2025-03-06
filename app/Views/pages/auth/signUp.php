@@ -84,27 +84,16 @@ License: For each use you must have a valid license purchased only from above li
 							<!--end::Separator-->
 							<!--begin::Input group-->
 							<div class="row fv-row mb-7">
-								<!--begin::Col-->
-								<div class="col-xl-6">
-									<label class="form-label fw-bolder text-dark fs-6">First Name</label>
-									<input class="form-control form-control-lg form-control-solid" type="text" placeholder=""
-										name="first_name" autocomplete="off" value="<?= set_value('first_name', isset($user) ? $user['first_name'] : '') ?>"/>
-								</div>
-								<!--end::Col-->
-								<!--begin::Col-->
-								<div class="col-xl-6">
-									<label class="form-label fw-bolder text-dark fs-6">Last Name</label>
-									<input class="form-control form-control-lg form-control-solid" type="text" placeholder=""
-										name="last_name" autocomplete="off" value="<?= set_value('last_name', isset($user) ? $user['last_name'] : '') ?>"/>
-								</div>
-								<!--end::Col-->
+								<label class="form-label fw-bolder text-dark fs-6">Username</label>
+								<input class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="username"
+								autocomplete="off" value="<?= set_value('username', isset($user) ? $user['username'] : '') ?>" />
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
 							<div class="fv-row mb-7">
 								<label class="form-label fw-bolder text-dark fs-6">Email</label>
 								<input class="form-control form-control-lg form-control-solid" type="email" placeholder="" name="email"
-									autocomplete="off" value="<?= set_value('email', isset($user) ? $user['email'] : '') ?>"/>
+									autocomplete="off" value="<?= set_value('email', isset($user) ? $user['email'] : '') ?>" />
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
@@ -152,7 +141,8 @@ License: For each use you must have a valid license purchased only from above li
 								<label class="form-check form-check-custom form-check-solid form-check-inline">
 									<input class="form-check-input" type="checkbox" name="toc" value="1" />
 									<span class="form-check-label fw-bold text-gray-700 fs-6">I Agree
-										<a href="https://c.tenor.com/Ngb9u3HnHcIAAAAd/tenor.gif" class="ms-1 link-primary ">Terms and conditions</a>.</span>
+										<a href="https://c.tenor.com/Ngb9u3HnHcIAAAAd/tenor.gif" class="ms-1 link-primary ">Terms and
+											conditions</a>.</span>
 								</label>
 							</div>
 							<!--end::Input group-->
