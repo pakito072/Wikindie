@@ -5,11 +5,11 @@
     <div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20 justify-content-center">
       <!--begin::Logo-->
       <a class="py-9 mb-5" href="<?= base_url('/') ?>">
-        <img alt="Logo" src="<?= base_url('assets/media/logos/logoPrin') ?>" />
+        <img alt="Logo" src="<?= base_url('assets/media/logos/logo.png') ?>" />
       </a>
       <!--end::Logo-->
       <!--begin::Description-->
-      <p class="fw-bold fs-2 text-light">The best place to find indie games<br>and
+      <p class="fw-bold fs-2 text-light">Ready to adopt anyone?<br>and
         information bout them</p>
       </p>
       <!--end::Description-->

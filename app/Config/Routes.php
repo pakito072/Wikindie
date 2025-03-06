@@ -10,35 +10,33 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 //Rutas de autenticación Auth\
-$routes->get('signUp', 'Auth\AuthController::signUp');
-  $routes->post('signUp', 'Auth\AuthController::processSignUp');
+$routes->get('register', 'Auth\AuthController::signUp');
+  $routes->post('register', 'Auth\AuthController::processSignUp');
 
-$routes->get('signIn', 'Auth\AuthController::signIn');
-  $routes->post('signIn', 'Auth\AuthController::processSignIn');
-
-
-$routes->get('forgotPassword', 'Auth\AuthController::forgotPassword');
-  $routes->post('forgotPassword', 'Auth\AuthController::forgotPassword');
+$routes->get('login', 'Auth\AuthController::signIn');
+  $routes->post('login', 'Auth\AuthController::processSignIn');
 
 $routes->get('signOut', 'Auth\AuthController::signOut');
 
-//Rutas de lector UserSection\Reader
-$routes->get('viewProfile', 'UserController::viewProfile');
-$routes->get('users','UserController::user');
+//Rutas de usuario 
+$routes->get('viewCats','userController\vcController::view');
+$routes->post('cats/create', 'userController\vcController::create');
+$routes->post('cats/update/(:num)', 'userController\vcController::update/$1');
+$routes->get('cats/disable/(:num)', 'userController\vcController::disable/$1');
 
-//Rutas de autor UserSection\Author
-$routes->get('viewArticles', 'UserSection\Author\Articles\ViewArticles::viewArticles');
-$routes->get('guides', 'UserSection\Author\Articles\Guides::guides');
-$routes->get('news', 'UserSection\Author\Articles\News::news');
-$routes->get('reviews', 'UserSection\Author\Articles\Reviews::reviews');
-$routes->get('recommendations', 'UserSection\Author\Articles\Recommendations::recommendations');
-$routes->get('tags', 'UserSection\Author\Articles\Tags::tags');
+$routes->get('favorites','userController\fController::' );
+$routes->get('myAdoptions','userController\maController::' );
+$routes->get('profile','userController\pController::' );
 
-//Rutas de administrador UserSection\Admin
-$routes->get('userList', 'UserSection\Admin\UserList::userList');
-$routes->get('rolesList', 'Classes\AdminController::rolesList');
+//Rutas de catigo
+$routes->get('manageCats', 'catigoController\mcController::');
+$routes->get('manageAdoptions', 'catigoController\maController::');
+
+//Rutas de admin
+$routes->get('manageUsers', 'adminController\muController::');
+$routes->get('manageRoles', 'adminController\mrController::');
 
 //Rutas de eventos
-$routes->get('fetchEvents', 'EventController::fetchEvents');
+$routes->get('calendar', 'EventController::fetchEvents');
 $routes->post('addEvent', 'EventController::addEvent');
 $routes->delete('deleteEvent/(:num)', 'EventController::deleteEvent/$1');
