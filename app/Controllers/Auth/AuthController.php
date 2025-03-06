@@ -37,7 +37,6 @@ class AuthController extends BaseController
   public function processSignIn()
   {
     $userModel = new UserModel();
-
     $session = \config\Services::session();
 
     $email = $this->request->getPost('email');
@@ -45,7 +44,7 @@ class AuthController extends BaseController
 
     $user = $userModel->where('email', $email)->first();
 
-    if (!$user && !password_verify($password, $user['password'])) {
+    if (!$user || !password_verify($password, $user['password'])) {
       return redirect()->to(base_url('signIn'))->with('error', 'Correo o contraseña incorrectos.');
     }
 

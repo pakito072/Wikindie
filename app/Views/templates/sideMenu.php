@@ -31,6 +31,7 @@
   </div>
   <!--end::Brand-->
   <!--begin::Aside menu-->
+  <?php $role_id = session()->get('role_id'); ?>
   <div class="aside-menu flex-column-fluid">
     <!--begin::Aside Menu-->
     <div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true"
@@ -98,67 +99,61 @@
           </a>
         </div>
 
-        <div class="menu-item">
-          <div class="menu-content pt-8 pb-2">
-            <span class="menu-section text-muted text-uppercase fs-8 ls-1">CatiGo Page</span>
+        <?php if ($role_id == 1 || $role_id == 2): ?>
+          <div class="menu-item">
+            <div class="menu-content pt-8 pb-2">
+              <span class="menu-section text-muted text-uppercase fs-8 ls-1">CatiGo Page</span>
+            </div>
           </div>
-        </div>
 
-        <?php if ($role_id == 1 || 2) : ?>
-        <!-- Manage Cats (Managers & Admins) -->
-        <div class="menu-item">
-          <a class="menu-link" href="<?= base_url('manageCats') ?>">
-            <span class="menu-icon">
-              <i class="fas fa-edit"></i>
-            </span>
-            <span class="menu-title">Manage Cats</span>
-          </a>
-        </div>
-
-        <!-- Adoption Requests (Managers & Admins) -->
-        <div class="menu-item">
-          <a class="menu-link" href="<?= base_url('manageAdoptions') ?>">
-            <span class="menu-icon">
-              <i class="fas fa-clipboard-list"></i>
-            </span>
-            <span class="menu-title">Manage Adoption</span>
-          </a>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-content pt-8 pb-2">
-            <span class="menu-section text-muted text-uppercase fs-8 ls-1">Admin Page</span>
+          <!-- Manage Cats (Managers & Admins) -->
+          <div class="menu-item">
+            <a class="menu-link" href="<?= base_url('manageCats') ?>">
+              <span class="menu-icon">
+                <i class="fas fa-edit"></i>
+              </span>
+              <span class="menu-title">Manage Cats</span>
+            </a>
           </div>
-        </div>
+
+          <!-- Adoption Requests (Managers & Admins) -->
+          <div class="menu-item">
+            <a class="menu-link" href="<?= base_url('manageAdoptions') ?>">
+              <span class="menu-icon">
+                <i class="fas fa-clipboard-list"></i>
+              </span>
+              <span class="menu-title">Manage Adoption</span>
+            </a>
+          </div>
+
+          <?php if ($role_id == 1): ?>
+            <div class="menu-item">
+              <div class="menu-content pt-8 pb-2">
+                <span class="menu-section text-muted text-uppercase fs-8 ls-1">Admin Page</span>
+              </div>
+            </div>
+          <?php endif; ?>
+
+          <!-- Manage Users (Only Admins) -->
+          <div class="menu-item">
+            <a class="menu-link" href="<?= base_url('manageUsers') ?>">
+              <span class="menu-icon">
+                <i class="fas fa-users"></i>
+              </span>
+              <span class="menu-title">Manage Users</span>
+            </a>
+          </div>
+
+          <!-- Manage Roles (Only Admins) -->
+          <div class="menu-item">
+            <a class="menu-link" href="<?= base_url('manageRoles') ?>">
+              <span class="menu-icon">
+                <i class="fas fa-user-shield"></i>
+              </span>
+              <span class="menu-title">Manage Roles</span>
+            </a>
+          </div>
         <?php endif; ?>
-
-        <?php if ($role_id == 1) : ?>
-        <!-- Manage Users (Only Admins) -->
-        <div class="menu-item">
-          <a class="menu-link" href="<?= base_url('manageUsers') ?>">
-            <span class="menu-icon">
-              <i class="fas fa-users"></i>
-            </span>
-            <span class="menu-title">Manage Users</span>
-          </a>
-        </div>
-
-        <!-- Manage Roles (Only Admins) -->
-        <div class="menu-item">
-          <a class="menu-link" href="<?= base_url('manageRoles') ?>">
-            <span class="menu-icon">
-              <i class="fas fa-user-shield"></i>
-            </span>
-            <span class="menu-title">Manage Roles</span>
-          </a>
-        </div>
-        <?php endif; ?>    
-
-        <div class="menu-item">
-          <div class="menu-content">
-            <div class="separator mx-1 my-4"></div>
-          </div>
-        </div>
 
         <!-- Events -->
         <div class="menu-item">
@@ -186,7 +181,7 @@
         <img src="assets/media/avatars/150-26.jpg" alt="user" />
       </div>
       <div class="d-flex flex-column ms-5">
-        <span class="fw-bold text-gray-700 fs-6 text-hover-primary" id="user-name">Insertar Nombre</span>
+        <span class="fw-bold text-gray-700 fs-6 text-hover-primary" id="user-name"><?= esc(session('username') ?? 'Invitado') ?></span>
       </div>
       <!--begin::Menu-->
       <!--end::Menu-->

@@ -28,13 +28,17 @@ $routes->get('favorites','userController\fController::' );
 $routes->get('myAdoptions','userController\maController::' );
 $routes->get('profile','userController\pController::' );
 
-//Rutas de catigo
-$routes->get('manageCats', 'catigoController\mcController::');
-$routes->get('manageAdoptions', 'catigoController\maController::');
+$routes->group('', ['filter' => 'auth:1,2'], function ($routes) {
+    // Rutas accesibles solo para roles 1 (Admin) y 2 (Manager)
+    $routes->get('manageCats', 'CatigoController\mcController::index');
+    $routes->get('manageAdoptions', 'CatigoController\maController::index');
+});
 
-//Rutas de admin
-$routes->get('manageUsers', 'adminController\muController::');
-$routes->get('manageRoles', 'adminController\mrController::');
+$routes->group('', ['filter' => 'auth:1'], function ($routes) {
+    // Rutas accesibles solo para el rol 1 (Admin)
+    $routes->get('manageUsers', 'AdminController\muController::index');
+    $routes->get('manageRoles', 'AdminController\mrController::index');
+});
 
 //Rutas de eventos
 $routes->get('calendar', 'EventController::fetchEvents');

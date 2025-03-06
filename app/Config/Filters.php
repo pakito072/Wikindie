@@ -107,9 +107,10 @@ class Filters extends BaseFilters
     public array $filters = [
         'auth' => [
             'before' => [
-                '/dashboard', // Proteger la ruta del dashboard
                 '/manageCats', // Proteger la ruta de gestión de gatos
-                '/manageUsers', // Proteger la ruta de gestión de usuarios
+                '/manageAdoptions', 
+                '/manageUsers', 
+                '/manageRoles', 
             ],
         ],
     ];
