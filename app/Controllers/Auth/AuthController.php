@@ -57,7 +57,7 @@ class AuthController extends BaseController
       'email' => $user['email'],
       'role_id' => $user['role_id'],
       'avatar' => $user['avatar'],
-      'isLoggedIn' => true
+      'is_logged_in' => true
     ]);
 
     return redirect()->to(base_url('/'))->with('success', 'Bienvenido de nuevo.');

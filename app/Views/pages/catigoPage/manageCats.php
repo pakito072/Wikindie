@@ -285,7 +285,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin::Modal body-->
 													<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
 														<!--begin::Form-->
-														<form id="kt_modal_add_user_form" class="form" action="<?= base_url('viewCats') ?>"
+														<form id="kt_modal_add_user_form" class="form" action="<?= base_url('cats/create') ?>"
 															method="post">
 															<!--begin::Scroll-->
 															<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll"
@@ -308,9 +308,9 @@ License: For each use you must have a valid license purchased only from above li
 																<!--end::Input group-->
 																<!--begin::Input group-->
 																<div class="fv-row mb-7">
-																	<label class="required fw-bold fs-6 mb-2">cat_type_id</label>
-																	<input type="text" name="cat_type_id" class="form-control form-control-solid mb-3 mb-lg-0"
-																		placeholder="cat_type_id" required />
+																	<label class="required fw-bold fs-6 mb-2">Breed</label>
+																	<input type="text" name="breed" class="form-control form-control-solid mb-3 mb-lg-0"
+																		placeholder="Breed" required />
 																</div>
 																<!--end::Input group-->
 																<!--begin::Input group-->
@@ -368,7 +368,6 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Table-->
 									<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_cats">
 										<!--begin::Table head-->
-
 										<thead>
 											<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
 												<th class="min-w-125px">
@@ -385,8 +384,8 @@ License: For each use you must have a valid license purchased only from above li
 												</th>
 												<th class="min-w-125px">
 													<a
-														href="<?= base_url('viewCats?column=cat_type_id&order=' . ($column === 'cat_type_id' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
-														cat_type_id <?= ($column === 'cat_type_id') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
+														href="<?= base_url('viewCats?column=breed&order=' . ($column === 'breed' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
+														Breed <?= ($column === 'breed') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
 													</a>
 												</th>
 												<th class="min-w-125px">
@@ -439,7 +438,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin::Tags-->
 													<td>
 														<div>
-															<?= esc($cat['cat_type_id']); ?>
+															<?= esc($cat['breed']); ?>
 														</div>
 													</td>
 													<!--end::Tags-->
@@ -491,7 +490,7 @@ License: For each use you must have a valid license purchased only from above li
 															<div class="menu-item px-3">
 																<a href="#" class="menu-link px-3" data-bs-toggle="modal"
 																	data-bs-target="#kt_modal_edit_user"
-																	onclick="fillEditForm(<?= $cat['id'] ?>, '<?= $cat['name'] ?>', <?= $cat['age'] ?>, '<?= $cat['cat_type_id'] ?>', '<?= $cat['gender'] ?>', '<?= $cat['color'] ?>', '<?= $cat['description'] ?>', '<?= $cat['status'] ?>')">
+																	onclick="fillEditForm(<?= $cat['id'] ?>, '<?= $cat['name'] ?>', <?= $cat['age'] ?>, '<?= $cat['breed'] ?>', '<?= $cat['gender'] ?>', '<?= $cat['color'] ?>', '<?= $cat['description'] ?>', '<?= $cat['status'] ?>')">
 																	Edit
 																</a>
 															</div>
@@ -562,18 +561,18 @@ License: For each use you must have a valid license purchased only from above li
 	</div>
 	<!--end::Scrolltop-->
 	<!--end::Main-->
+	<script>var hostUrl = "assets/";</script>
 	<!--begin::Javascript-->
 	<!--begin::Global Javascript Bundle(used by all pages)-->
 	<script src="<?= base_url('assets/plugins/global/plugins.bundle.js'); ?>"></script>
 	<script src="<?= base_url('assets/js/scripts.bundle.js'); ?>"></script>
 	<!--end::Global Javascript Bundle-->
 	<!--begin::Page Vendors Javascript(used by this page)-->
-
+	<script src="<?= base_url('assets/plugins/custom/datatables/datatables.bundle.js'); ?>"></script>
 	<!--end::Page Vendors Javascript-->
 	<!--begin::Page Custom Javascript(used by this page)-->
 	<!--end::Page Custom Javascript-->
 	<!--end::Javascript-->
-
 </body>
 <!--end::Body-->
 

@@ -15,7 +15,7 @@ License: For each use you must have a valid license purchased only from above li
 
 <head>
 	<base href="<?= base_url('') ?>">
-	<title>View Cats</title>
+	<title>User List</title>
 	<meta name="description"
 		content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
 	<meta name="keywords"
@@ -267,11 +267,11 @@ License: For each use you must have a valid license purchased only from above li
 														<rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
 													</svg>
 												</span>
-												<!--end::Svg Icon-->Add cat</button>
+												<!--end::Svg Icon-->Add User</button>
 											<!--end::Add user-->
 										</div>
 										<!--end::Toolbar-->
-										<!-- Modal de Creación -->
+										<!--begin::Modal - Add task-->
 										<div class="modal fade" id="kt_modal_add_user" tabindex="-1" aria-hidden="true">
 											<!--begin::Modal dialog-->
 											<div class="modal-dialog modal-dialog-centered mw-650px">
@@ -279,65 +279,57 @@ License: For each use you must have a valid license purchased only from above li
 												<div class="modal-content">
 													<!--begin::Modal header-->
 													<div class="modal-header" id="kt_modal_add_user_header">
-														<h2 class="fw-bolder">Add Cat</h2>
+														<h2 class="fw-bolder">Add User</h2>
 													</div>
 													<!--end::Modal header-->
 													<!--begin::Modal body-->
 													<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
 														<!--begin::Form-->
-														<form id="kt_modal_add_user_form" class="form" action="<?= base_url('viewCats') ?>"
+														<form id="kt_modal_add_user_form" class="form" action="<?= base_url('manageUsers') ?>"
 															method="post">
+															<?= csrf_field() ?>
 															<!--begin::Scroll-->
 															<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll"
 																data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}"
 																data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header"
 																data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
-																<!--begin::Input group-->
+
+																<!-- Username -->
 																<div class="fv-row mb-7">
-																	<label class="required fw-bold fs-6 mb-2">Name</label>
-																	<input type="text" name="name" class="form-control form-control-solid mb-3 mb-lg-0"
-																		placeholder="Name" required />
+																	<label class="required fw-bold fs-6 mb-2">Username</label>
+																	<input type="text" name="username"
+																		class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Enter username"
+																		required />
 																</div>
-																<!--end::Input group-->
-																<!--begin::Input group-->
+
+																<!-- Email -->
 																<div class="fv-row mb-7">
-																	<label class="required fw-bold fs-6 mb-2">Age</label>
-																	<input type="number" name="age" class="form-control form-control-solid mb-3 mb-lg-0"
-																		placeholder="Age" required />
+																	<label class="required fw-bold fs-6 mb-2">Email</label>
+																	<input type="email" name="email" class="form-control form-control-solid mb-3 mb-lg-0"
+																		placeholder="Enter email" required />
 																</div>
-																<!--end::Input group-->
-																<!--begin::Input group-->
+
+																<!-- Password -->
 																<div class="fv-row mb-7">
-																	<label class="required fw-bold fs-6 mb-2">cat_type_id</label>
-																	<input type="text" name="cat_type_id" class="form-control form-control-solid mb-3 mb-lg-0"
-																		placeholder="cat_type_id" required />
+																	<label class="required fw-bold fs-6 mb-2">Password</label>
+																	<input type="password" name="password"
+																		class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Enter password"
+																		required />
 																</div>
-																<!--end::Input group-->
-																<!--begin::Input group-->
+
+																<!-- Role -->
 																<div class="fv-row mb-7">
-																	<label class="required fw-bold fs-6 mb-2">Gender</label>
-																	<select name="gender" class="form-control form-control-solid mb-3 mb-lg-0" required>
-																		<option value="male">Male</option>
-																		<option value="female">Female</option>
+																	<label class="required fw-bold fs-6 mb-2">Role</label>
+																	<select name="role_id" class="form-control form-control-solid mb-3 mb-lg-0" required>
+																		<?php foreach ($roles as $role): ?>
+																			<option value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
+																		<?php endforeach; ?>
 																	</select>
 																</div>
-																<!--end::Input group-->
-																<!--begin::Input group-->
-																<div class="fv-row mb-7">
-																	<label class="required fw-bold fs-6 mb-2">Color</label>
-																	<input type="text" name="color" class="form-control form-control-solid mb-3 mb-lg-0"
-																		placeholder="Color" required />
-																</div>
-																<!--end::Input group-->
-																<!--begin::Input group-->
-																<div class="fv-row mb-7">
-																	<label class="required fw-bold fs-6 mb-2">Description</label>
-																	<textarea name="description" class="form-control form-control-solid mb-3 mb-lg-0"
-																		placeholder="Description" required></textarea>
-																</div>
-																<!--end::Input group-->
+
 															</div>
 															<!--end::Scroll-->
+
 															<!--begin::Actions-->
 															<div class="text-center pt-15">
 																<button type="reset" class="btn btn-light me-3"
@@ -358,116 +350,160 @@ License: For each use you must have a valid license purchased only from above li
 											</div>
 											<!--end::Modal dialog-->
 										</div>
-										<!--end::Modal - Add task-->
+										<!--begin::Modal para Crear/Editar-->
+										<div class="modal fade" id="kt_modal_edit_user" tabindex="-1" aria-hidden="true">
+											<!--begin::Modal dialog-->
+											<div class="modal-dialog modal-dialog-centered mw-650px">
+												<!--begin::Modal content-->
+												<div class="modal-content">
+													<!--begin::Modal header-->
+													<div class="modal-header" id="kt_modal_edit_user_header">
+														<h2 class="fw-bolder">Edit User</h2>
+													</div>
+													<!--end::Modal header-->
+
+													<!--begin::Modal body-->
+													<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+														<!--begin::Form-->
+														<form id="kt_modal_edit_user_form" class="form" method="post">
+															<?= csrf_field() ?>
+															<input type="hidden" name="id" id="edit_user_id">
+
+															<!-- Username -->
+															<div class="fv-row mb-7">
+																<label class="required fw-bold fs-6 mb-2">Username</label>
+																<input type="text" name="username" id="edit_username"
+																	class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Enter username"
+																	required />
+															</div>
+
+															<!-- Email -->
+															<div class="fv-row mb-7">
+																<label class="required fw-bold fs-6 mb-2">Email</label>
+																<input type="email" name="email" id="edit_email"
+																	class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Enter email"
+																	required />
+															</div>
+
+															<!-- Password -->
+															<div class="fv-row mb-7">
+																<label class="fw-bold fs-6 mb-2">Password</label>
+																<input type="password" name="password" id="edit_password"
+																	class="form-control form-control-solid mb-3 mb-lg-0"
+																	placeholder="Enter password (leave blank to keep current)" />
+															</div>
+
+															<!-- Role -->
+															<div class="fv-row mb-7">
+																<label class="required fw-bold fs-6 mb-2">Role</label>
+																<select name="role_id" id="edit_role_id"
+																	class="form-control form-control-solid mb-3 mb-lg-0" required>
+																	<?php foreach ($roles as $role): ?>
+																		<option value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
+																	<?php endforeach; ?>
+																</select>
+															</div>
+
+															<!--begin::Actions-->
+															<div class="text-center pt-15">
+																<button type="reset" class="btn btn-light me-3"
+																	data-kt-users-modal-action="cancel">Discard</button>
+																<button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
+																	<span class="indicator-label">Submit</span>
+																	<span class="indicator-progress">Please wait...
+																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+																</button>
+															</div>
+															<!--end::Actions-->
+														</form>
+														<!--end::Form-->
+													</div>
+													<!--end::Modal body-->
+												</div>
+												<!--end::Modal content-->
+											</div>
+											<!--end::Modal dialog-->
+										</div>
 									</div>
 									<!--end::Card toolbar-->
 								</div>
 								<!--end::Card header-->
-								<!--begin::Card body-->
+								<!--begin::Content-->
 								<div class="card-body pt-0">
 									<!--begin::Table-->
-									<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_cats">
+									<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
 										<!--begin::Table head-->
-
 										<thead>
-											<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-												<th class="min-w-125px">
-													<a
-														href="<?= base_url('viewCats?column=name&order=' . ($column === 'name' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
-														Name <?= ($column === 'name') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
-													</a>
-												</th>
-												<th class="min-w-125px">
-													<a
-														href="<?= base_url('viewCats?column=age&order=' . ($column === 'age' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
-														Age <?= ($column === 'age') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
-													</a>
-												</th>
-												<th class="min-w-125px">
-													<a
-														href="<?= base_url('viewCats?column=cat_type_id&order=' . ($column === 'cat_type_id' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
-														cat_type_id <?= ($column === 'cat_type_id') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
-													</a>
-												</th>
-												<th class="min-w-125px">
-													<a
-														href="<?= base_url('viewCats?column=gender&order=' . ($column === 'gender' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
-														Gender <?= ($column === 'gender') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
-													</a>
-												</th>
-												<th class="min-w-125px">
-													<a
-														href="<?= base_url('viewCats?column=color&order=' . ($column === 'color' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
-														Color <?= ($column === 'color') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
-													</a>
-												</th>
-												<th class="min-w-125px">
-													<a
-														href="<?= base_url('viewCats?column=description&order=' . ($column === 'description' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
-														Description <?= ($column === 'description') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
-													</a>
-												</th>
-												<th class="min-w-125px">
-													<a
-														href="<?= base_url('viewCats?column=status&order=' . ($column === 'status' && $order === 'asc' ? 'desc' : 'asc') . '&perPage=' . $perPage) ?>">
-														Status <?= ($column === 'status') ? ($order === 'asc' ? '↑' : '↓') : '' ?>
-													</a>
-												</th>
-												<th class="min-w-100px">Actions</th>
+											<th class="min-w-125px">
+												<a href="<?= base_url('users?column=username&order=' .
+													($column == 'username' && $order == 'asc' ? 'desc' : 'asc') .
+													'&perPage=' . $perPage) ?>">
+													Username <?= ($column == 'username') ? ($order == 'asc' ? '↑' : '↓') : '' ?>
+												</a>
+											</th>
+
+											<!-- Email -->
+											<th class="min-w-150px">
+												<a href="<?= base_url('users?column=email&order=' .
+													($column == 'email' && $order == 'asc' ? 'desc' : 'asc') .
+													'&perPage=' . $perPage) ?>">
+													Email <?= ($column == 'email') ? ($order == 'asc' ? '↑' : '↓') : '' ?>
+												</a>
+											</th>
+
+											<!-- Role -->
+											<th class="min-w-125px">
+												<a href="<?= base_url('users?column=role_id&order=' .
+													($column == 'role_id' && $order == 'asc' ? 'desc' : 'asc') .
+													'&perPage=' . $perPage) ?>">
+													Role <?= ($column == 'role_id') ? ($order == 'asc' ? '↑' : '↓') : '' ?>
+												</a>
+											</th>
+
+											<!-- Created At -->
+											<th class="min-w-125px">
+												<a href="<?= base_url('users?column=created_at&order=' .
+													($column == 'created_at' && $order == 'asc' ? 'desc' : 'asc') .
+													'&perPage=' . $perPage) ?>">
+													Created <?= ($column == 'created_at') ? ($order == 'asc' ? '↑' : '↓') : '' ?>
+												</a>
+											</th>
+
+											<!-- Actions -->
+											<th class="text-end min-w-100px">Actions</th>
 											</tr>
 										</thead>
 										<!--end::Table head-->
 										<!--begin::Table body-->
 										<tbody class="text-gray-600 fw-bold">
-											<?php foreach ($cats as $cat): ?>
+											<?php foreach ($users as $user): ?>
 												<!--begin::Table row-->
 												<tr>
 													<!--begin::Title-->
 													<td>
 														<div>
-															<?= esc($cat['name']); ?>
+															<?= esc($user['username']); ?>
 														</div>
 													</td>
 													<!--end::Title-->
 													<!--begin::Author ID-->
 													<td>
 														<div>
-															<?= esc($cat['age']); ?>
+															<?= esc($user['email']); ?>
 														</div>
 													</td>
 													<!--end::Author ID-->
 													<!--begin::Tags-->
 													<td>
 														<div>
-															<?= esc($cat['cat_type_id']); ?>
+															<?= esc($user['role_id']); ?>
 														</div>
 													</td>
 													<!--end::Tags-->
 													<!--begin::Author ID-->
 													<td>
 														<div>
-															<?= esc($cat['gender']); ?>
-														</div>
-													</td>
-													<!--end::Author ID-->
-													<!--begin::Author ID-->
-													<td>
-														<div>
-															<?= esc($cat['color']); ?>
-														</div>
-													</td>
-													<!--end::Author ID-->
-													<!--begin::Author ID-->
-													<td>
-														<div>
-															<?= esc($cat['description']); ?>
-														</div>
-													</td>
-													<!--end::Author ID-->
-													<!--begin::Author ID-->
-													<td>
-														<div>
-															<?= esc($cat['status']); ?>
+															<?= esc($user['created_at']); ?>
 														</div>
 													</td>
 													<!--end::Author ID-->
@@ -489,14 +525,13 @@ License: For each use you must have a valid license purchased only from above li
 															class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
 															data-kt-menu="true">
 															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3" data-bs-toggle="modal"
-																	data-bs-target="#kt_modal_edit_user"
-																	onclick="fillEditForm(<?= $cat['id'] ?>, '<?= $cat['name'] ?>', <?= $cat['age'] ?>, '<?= $cat['cat_type_id'] ?>', '<?= $cat['gender'] ?>', '<?= $cat['color'] ?>', '<?= $cat['description'] ?>', '<?= $cat['status'] ?>')">
+																<a href="<?= base_url('manageUsers/edit/' . $user['id']) ?>" class="menu-link px-3">
 																	Edit
 																</a>
+
 															</div>
 															<div class="menu-item px-3">
-																<a href="<?= base_url('cats/disable/' . $cat['id']) ?>" class="menu-link px-3">Delete</a>
+																<a href="<?= base_url('cats/disable/' . $user['id']) ?>" class="menu-link px-3">Delete</a>
 															</div>
 														</div>
 													</td>
@@ -511,7 +546,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="card-footer">
 										<div class="d-flex justify-content-between align-items-center flex-wrap">
 
-											<form method="get" action="<?= base_url('viewCats') ?>" id="paginationForm"
+											<form method="get" action="<?= base_url('users') ?>" id="paginationForm"
 												class="d-flex align-items-center">
 												<label for="perPage" class="fw-bold me-3 mb-0">Items per page:</label>
 												<select name="perPage" id="perPage" class="form-select form-select-sm form-select-solid w-75px"
@@ -524,12 +559,11 @@ License: For each use you must have a valid license purchased only from above li
 											</form>
 
 											<div class="d-flex align-items-center py-3">
-												<?= $pager->links('default','myPagination') ?>
+												<?= $pager->links('default', 'myPagination') ?>
 											</div>
 										</div>
 									</div>
 								</div>
-								<!--end::Card body-->
 							</div>
 							<!--end::Card-->
 						</div>
@@ -539,7 +573,9 @@ License: For each use you must have a valid license purchased only from above li
 				</div>
 				<!--end::Content-->
 				<!--begin::Footer-->
+
 				<?php include(APPPATH . 'Views/templates/footer.php'); ?>
+
 				<!--end::Footer-->
 			</div>
 			<!--end::Wrapper-->
@@ -562,18 +598,17 @@ License: For each use you must have a valid license purchased only from above li
 	</div>
 	<!--end::Scrolltop-->
 	<!--end::Main-->
+
 	<!--begin::Javascript-->
 	<!--begin::Global Javascript Bundle(used by all pages)-->
 	<script src="<?= base_url('assets/plugins/global/plugins.bundle.js'); ?>"></script>
 	<script src="<?= base_url('assets/js/scripts.bundle.js'); ?>"></script>
 	<!--end::Global Javascript Bundle-->
 	<!--begin::Page Vendors Javascript(used by this page)-->
-
 	<!--end::Page Vendors Javascript-->
 	<!--begin::Page Custom Javascript(used by this page)-->
 	<!--end::Page Custom Javascript-->
 	<!--end::Javascript-->
-
 </body>
 <!--end::Body-->
 

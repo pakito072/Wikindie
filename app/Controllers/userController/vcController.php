@@ -4,15 +4,18 @@ namespace App\Controllers\userController;
 
 use App\Controllers\BaseController;
 use App\Models\CatsModel;
+use App\Models\CatTypesModel;
 use App\Config\Pager;
 
 class vcController extends BaseController
 {
   protected $catsModel;
+  protected $catTypesModel;
 
   public function __construct()
   {
     $this->catsModel = new CatsModel();
+    $this->catTypesModel = new CatTypesModel;
   }
 
 
@@ -31,7 +34,7 @@ class vcController extends BaseController
     $order = $this->request->getGet('order') ?? 'asc';
 
     // Validar que la columna sea válida para evitar SQL Injection
-    $allowedColumns = ['id', 'name', 'age', 'breed', 'gender', 'color', 'status'];
+    $allowedColumns = ['id', 'name', 'age', 'cat_type_id', 'gender', 'color', 'status'];
     if (!in_array($column, $allowedColumns)) {
       $column = 'id';
     }
@@ -62,31 +65,43 @@ class vcController extends BaseController
 
 
   public function create()
-  {
+{
+    // Si es una solicitud POST (envío de formulario)
     if ($this->request->getMethod() === 'post') {
-      $validationRules = $this->catsModel->validationRules;
+        // Validar datos
+        $validationRules = [
+            'name'        => 'required|min_length[3]|max_length[50]',
+            'age'         => 'required|integer',
+            'cat_type_id' => 'required|integer',
+            'gender'      => 'required|in_list[male,female]',
+            'color'       => 'required|max_length[50]',
+            'description' => 'required|max_length[500]',
+            'status'      => 'required|in_list[available,adopted]'
+        ];
 
-      if (!$this->validate($validationRules)) {
-        return view('cats/create', ['validation' => $this->validator]);
-      }
+        if (!$this->validate($validationRules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
 
-      $data = [
-        'name' => $this->request->getPost('name'),
-        'gender' => $this->request->getPost('gender'),
-        'breed' => $this->request->getPost('breed'),
-        'status' => $this->request->getPost('status'),
-        'age' => $this->request->getPost('age'),
-        'color' => $this->request->getPost('color'),
-        'description' => $this->request->getPost('description'),
-        'is_disabled' => false,
-      ];
+        // Crear el gato
+        $data = [
+            'name'        => $this->request->getPost('name'),
+            'age'         => $this->request->getPost('age'),
+            'cat_type_id' => $this->request->getPost('cat_type_id'),
+            'gender'      => $this->request->getPost('gender'),
+            'color'       => $this->request->getPost('color'),
+            'description' => $this->request->getPost('description'),
+            'status'      => $this->request->getPost('status'),
+            'is_disabled' => false,
+        ];
 
-      $this->catsModel->createCat($data);
-      return redirect()->to('/viewCats')->with('success', 'Cat created successfully.');
+        $this->catsModel->createCat($data);
+        return redirect()->to('/viewCats')->with('success', 'Cat created successfully.');
     }
 
-    return view('pages/userPage/viewCats');
-  }
+    // Si es una solicitud GET (mostrar formulario)
+    return view('pages/userPage/viewCats'); // Creamos esta vista
+}
 
   // Actualizar la información de un gato
   public function update($id)
@@ -106,7 +121,7 @@ class vcController extends BaseController
       $data = [
         'name' => $this->request->getPost('name'),
         'gender' => $this->request->getPost('gender'),
-        'breed' => $this->request->getPost('breed'),
+        'cat_type_id' => $this->request->getPost('cat_type_id'),
         'status' => $this->request->getPost('status'),
         'age' => $this->request->getPost('age'),
         'color' => $this->request->getPost('color'),

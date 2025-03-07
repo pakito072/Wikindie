@@ -96,41 +96,6 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Title-->
 
 											<!--begin::Stats-->
-											<div class="d-flex flex-wrap flex-stack">
-												<!--begin::Wrapper-->
-												<div class="d-flex flex-column flex-grow-1 pe-8">
-													<!--begin::Stats-->
-													<div class="d-flex flex-wrap">
-														<!--begin::Stat (Favoritos)-->
-														<div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-															<div class="d-flex align-items-center">
-																<span class="svg-icon svg-icon-3 svg-icon-success me-2">
-																	<!-- SVG de favoritos -->
-																</span>
-																<div class="fs-2 fw-bolder" data-kt-countup="true"
-																	data-kt-countup-value="<?= $user['favorites_count'] ?>">0</div>
-															</div>
-															<div class="fw-bold fs-6 text-gray-400">Favorites</div>
-														</div>
-														<!--end::Stat-->
-
-														<!--begin::Stat (Adopciones)-->
-														<div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
-															<div class="d-flex align-items-center">
-																<span class="svg-icon svg-icon-3 svg-icon-danger me-2">
-																	<!-- SVG de adopciones -->
-																</span>
-																<div class="fs-2 fw-bolder" data-kt-countup="true"
-																	data-kt-countup-value="<?= $user['adoptions_count'] ?>">0</div>
-															</div>
-															<div class="fw-bold fs-6 text-gray-400">Adoptions</div>
-														</div>
-														<!--end::Stat-->
-													</div>
-													<!--end::Stats-->
-												</div>
-												<!--end::Wrapper-->
-											</div>
 											<!--end::Stats-->
 										</div>
 										<!--end::Info-->

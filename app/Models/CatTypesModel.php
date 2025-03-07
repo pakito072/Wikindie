@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class CatsModel extends Model
+class CatTypesModel extends Model
 {
   // Definir la tabla que usaremos
-  protected $table = 'cats';
+  protected $table = 'cat_types';
 
   // Clave primaria de la tabla
   protected $primaryKey = 'id';
@@ -15,11 +15,6 @@ class CatsModel extends Model
   // Columnas de la tabla que se pueden insertar o actualizar
   protected $allowedFields = [
     'name',
-    'gender',
-    'cat_type_id',
-    'status',
-    'age',
-    'color',
     'description',
     'created_at',
     'updated_at',
@@ -30,9 +25,4 @@ class CatsModel extends Model
   protected $useTimestamps = true;  // Para que se gestionen automáticamente los campos 'created_at' y 'updated_at'
   protected $createdField = 'created_at';
   protected $updatedField = 'updated_at';
-
-  public function createCat(array $data)
-{
-    return $this->insert($data);
-}
 }
