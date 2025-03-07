@@ -18,11 +18,14 @@ class AuthController extends BaseController
 
     $userModel = new UserModel();
 
+    $defaultAvatar = base_url('assets/media/cats/avatars/default.jpg');
+
     $data = [
       'username' => $this->request->getPost('username'),
       'email' => $this->request->getPost('email'),
       'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-      'role_id' => 3
+      'role_id' => 3,
+      'avatar' => $defaultAvatar
     ];
 
     $userModel->insert($data);
@@ -53,6 +56,7 @@ class AuthController extends BaseController
       'username' => $user['username'],
       'email' => $user['email'],
       'role_id' => $user['role_id'],
+      'avatar' => $user['avatar'],
       'isLoggedIn' => true
     ]);
 

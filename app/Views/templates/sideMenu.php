@@ -173,19 +173,16 @@
   <!--end::Aside menu-->
   <!--begin::Footer-->
   <div class="aside-footer flex-column-auto pt-5 pb-7 px-5 cursor-pointer" id="kt_aside_footer">
-    <!--begin::User-->
-    <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
-      <!--begin::Menu wrapper-->
-      <div class="symbol symbol-30px symbol-md-40px" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end"
-        data-kt-menu-trigger="click">
-        <img src="assets/media/avatars/150-26.jpg" alt="user" />
+  <!--begin::User-->
+  <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
+    <!-- Avatar dinámico -->
+    <div class="symbol symbol-30px symbol-md-40px" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-trigger="click">
+      <img src="<?= session('avatar') ?: base_url('assets/media/cats/avatars/default.jpg') ?>" alt="user" />
       </div>
+      <!-- Nombre de usuario -->
       <div class="d-flex flex-column ms-5">
-        <span class="fw-bold text-gray-700 fs-6 text-hover-primary" id="user-name"><?= esc(session('username') ?? 'Invitado') ?></span>
+        <span class="fw-bold text-gray-700 fs-6 text-hover-primary"><?= esc(session('username') ?? 'Guest') ?></span>
       </div>
-      <!--begin::Menu-->
-      <!--end::Menu-->
-      <!--end::Menu wrapper-->
     </div>
     <!--end::User -->
   </div>

@@ -18,13 +18,25 @@ class UserModel extends Model
     'email',
     'password',
     'role_id',
+    'avatar',
     'created_at',
     'updated_at',
     'is_disabled'
   ];
 
-  // Configuración de la base de datos
-  protected $useTimestamps = true;  // Para que se gestionen automáticamente los campos 'created_at' y 'updated_at'
+
+  protected $useTimestamps = true;
+  protected $defaults = [
+    'avatar' => 'assets/media/cats/avatars/default.jpg'
+  ];
   protected $createdField = 'created_at';
   protected $updatedField = 'updated_at';
+
+  public function getUserWithRole($userId)
+  {
+    return $this->select('users.*, roles.name as role_name')
+      ->join('roles', 'users.role_id = roles.id', 'left')
+      ->where('users.id', $userId)
+      ->first();
+  }
 }
