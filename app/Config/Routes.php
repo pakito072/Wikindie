@@ -18,6 +18,11 @@ $routes->post('signIn', 'Auth\AuthController::processSignIn');
 
 $routes->get('signOut', 'Auth\AuthController::signOut');
 
+//Rutas de eventos
+$routes->get('calendar', 'EventController::fetchEvents');
+$routes->post('addEvent', 'EventController::addEvent');
+$routes->delete('deleteEvent/(:num)', 'EventController::deleteEvent/$1');
+
 //Rutas de usuario 
 $routes->get('viewCats', 'userController\vcController::view');
 $routes->post('viewCats', 'userController\vcController::create');
@@ -30,9 +35,8 @@ $routes->get('myAdoptions', 'userController\maController::');
 $routes->get('profile', 'userController\PController::view');
 $routes->post('profile/update', 'userController\PController::update');
 
-
+//Rutas de catigo (Nivel 1 y 2 de seguridad)
 $routes->group('', ['filter' => 'auth:1,2'], function ($routes) {
-  // Rutas accesibles solo para roles 1 (Admin) y 2 (Manager)
   $routes->get('manageCats', 'CatigoController\McController::index');
   $routes->post('cats/create', 'CatigoController\McController::create');
   $routes->post('cats/update/(:num)', 'CatigoController\McController::update/$1');
@@ -42,19 +46,14 @@ $routes->group('', ['filter' => 'auth:1,2'], function ($routes) {
   $routes->get('manageAdoptions', 'CatigoController\MaController::index');
 });
 
+//Rutas de admin (Nivel 1 de seguridad)
 $routes->group('', ['filter' => 'auth:1'], function ($routes) {
-  // Rutas accesibles solo para el rol 1 (Admin)
-  $routes->get('manageUsers', 'adminController\muController::view'); // Lista de usuarios
-  $routes->get('manageUsers/edit(:num)', 'adminController\muController::edit/$1'); // Lista de usuarios
-    $routes->post('manageUsers', 'adminController\muController::create'); // Crear usuario
-    $routes->post('manageUsers/update/(:num)', 'adminController\muController::update/$1'); // Actualizar usuario
-    $routes->get('manageUsers/disable/(:num)', 'adminController\muController::disable/$1');
+  $routes->get('manageUsers', 'adminController\muController::view');
+  $routes->get('manageUsers/edit/(:num)', 'adminController\muController::edit/$1');
+  $routes->post('manageUsers', 'adminController\muController::create');
+  $routes->post('manageUsers/update/(:num)', 'adminController\muController::update/$1');
+  $routes->get('manageUsers/disable/(:num)', 'adminController\muController::disable/$1');
 
 
   $routes->get('manageRoles', 'AdminController\mrController::index');
 });
-
-//Rutas de eventos
-$routes->get('calendar', 'EventController::fetchEvents');
-$routes->post('addEvent', 'EventController::addEvent');
-$routes->delete('deleteEvent/(:num)', 'EventController::deleteEvent/$1');

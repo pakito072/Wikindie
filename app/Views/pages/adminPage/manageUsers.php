@@ -332,8 +332,8 @@ License: For each use you must have a valid license purchased only from above li
 
 															<!--begin::Actions-->
 															<div class="text-center pt-15">
-																<button type="reset" class="btn btn-light me-3"
-																	data-kt-users-modal-action="cancel">Discard</button>
+																<button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel"
+																	data-bs-dismiss="modal">Discard</button>
 																<button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
 																	<span class="indicator-label">Submit</span>
 																	<span class="indicator-progress">Please wait...
@@ -352,40 +352,33 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--begin::Modal para Crear/Editar-->
 										<div class="modal fade" id="kt_modal_edit_user" tabindex="-1" aria-hidden="true">
-											<!--begin::Modal dialog-->
 											<div class="modal-dialog modal-dialog-centered mw-650px">
-												<!--begin::Modal content-->
 												<div class="modal-content">
-													<!--begin::Modal header-->
 													<div class="modal-header" id="kt_modal_edit_user_header">
 														<h2 class="fw-bolder">Edit User</h2>
 													</div>
-													<!--end::Modal header-->
-
-													<!--begin::Modal body-->
 													<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-														<!--begin::Form-->
-														<form id="kt_modal_edit_user_form" class="form" method="post">
+														<form id="kt_modal_edit_user_form" class="form"
+															action="<?= isset($user) ? base_url('manageUsers/update/' . $user['id']) : '' ?>"
+															method="post">
 															<?= csrf_field() ?>
-															<input type="hidden" name="id" id="edit_user_id">
+															<input type="hidden" name="id" id="edit_user_id"
+																value="<?= isset($user) ? $user['id'] : '' ?>">
 
-															<!-- Username -->
 															<div class="fv-row mb-7">
 																<label class="required fw-bold fs-6 mb-2">Username</label>
 																<input type="text" name="username" id="edit_username"
 																	class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Enter username"
-																	required />
+																	value="<?= isset($user) ? esc($user['username']) : '' ?>" required />
 															</div>
 
-															<!-- Email -->
 															<div class="fv-row mb-7">
 																<label class="required fw-bold fs-6 mb-2">Email</label>
 																<input type="email" name="email" id="edit_email"
 																	class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Enter email"
-																	required />
+																	value="<?= isset($user) ? esc($user['email']) : '' ?>" required />
 															</div>
 
-															<!-- Password -->
 															<div class="fv-row mb-7">
 																<label class="fw-bold fs-6 mb-2">Password</label>
 																<input type="password" name="password" id="edit_password"
@@ -393,36 +386,31 @@ License: For each use you must have a valid license purchased only from above li
 																	placeholder="Enter password (leave blank to keep current)" />
 															</div>
 
-															<!-- Role -->
 															<div class="fv-row mb-7">
 																<label class="required fw-bold fs-6 mb-2">Role</label>
 																<select name="role_id" id="edit_role_id"
 																	class="form-control form-control-solid mb-3 mb-lg-0" required>
 																	<?php foreach ($roles as $role): ?>
-																		<option value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
+																		<option value="<?= $role['id'] ?>" <?= isset($user) && $role['id'] == $user['role_id'] ? 'selected' : '' ?>>
+																			<?= $role['name'] ?>
+																		</option>
 																	<?php endforeach; ?>
 																</select>
 															</div>
 
-															<!--begin::Actions-->
 															<div class="text-center pt-15">
-																<button type="reset" class="btn btn-light me-3"
-																	data-kt-users-modal-action="cancel">Discard</button>
+																<button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel"
+																	data-bs-dismiss="modal">Discard</button>
 																<button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
 																	<span class="indicator-label">Submit</span>
 																	<span class="indicator-progress">Please wait...
 																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 																</button>
 															</div>
-															<!--end::Actions-->
 														</form>
-														<!--end::Form-->
 													</div>
-													<!--end::Modal body-->
 												</div>
-												<!--end::Modal content-->
 											</div>
-											<!--end::Modal dialog-->
 										</div>
 									</div>
 									<!--end::Card toolbar-->
@@ -435,7 +423,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin::Table head-->
 										<thead>
 											<th class="min-w-125px">
-												<a href="<?= base_url('users?column=username&order=' .
+												<a href="<?= base_url('manageUsers?column=username&order=' .
 													($column == 'username' && $order == 'asc' ? 'desc' : 'asc') .
 													'&perPage=' . $perPage) ?>">
 													Username <?= ($column == 'username') ? ($order == 'asc' ? '↑' : '↓') : '' ?>
@@ -444,7 +432,7 @@ License: For each use you must have a valid license purchased only from above li
 
 											<!-- Email -->
 											<th class="min-w-150px">
-												<a href="<?= base_url('users?column=email&order=' .
+												<a href="<?= base_url('manageUsers?column=email&order=' .
 													($column == 'email' && $order == 'asc' ? 'desc' : 'asc') .
 													'&perPage=' . $perPage) ?>">
 													Email <?= ($column == 'email') ? ($order == 'asc' ? '↑' : '↓') : '' ?>
@@ -453,7 +441,7 @@ License: For each use you must have a valid license purchased only from above li
 
 											<!-- Role -->
 											<th class="min-w-125px">
-												<a href="<?= base_url('users?column=role_id&order=' .
+												<a href="<?= base_url('manageUsers?column=role_id&order=' .
 													($column == 'role_id' && $order == 'asc' ? 'desc' : 'asc') .
 													'&perPage=' . $perPage) ?>">
 													Role <?= ($column == 'role_id') ? ($order == 'asc' ? '↑' : '↓') : '' ?>
@@ -462,7 +450,7 @@ License: For each use you must have a valid license purchased only from above li
 
 											<!-- Created At -->
 											<th class="min-w-125px">
-												<a href="<?= base_url('users?column=created_at&order=' .
+												<a href="<?= base_url('manageUsers?column=created_at&order=' .
 													($column == 'created_at' && $order == 'asc' ? 'desc' : 'asc') .
 													'&perPage=' . $perPage) ?>">
 													Created <?= ($column == 'created_at') ? ($order == 'asc' ? '↑' : '↓') : '' ?>
@@ -476,69 +464,75 @@ License: For each use you must have a valid license purchased only from above li
 										<!--end::Table head-->
 										<!--begin::Table body-->
 										<tbody class="text-gray-600 fw-bold">
-											<?php foreach ($users as $user): ?>
-												<!--begin::Table row-->
-												<tr>
-													<!--begin::Title-->
-													<td>
-														<div>
-															<?= esc($user['username']); ?>
-														</div>
-													</td>
-													<!--end::Title-->
-													<!--begin::Author ID-->
-													<td>
-														<div>
-															<?= esc($user['email']); ?>
-														</div>
-													</td>
-													<!--end::Author ID-->
-													<!--begin::Tags-->
-													<td>
-														<div>
-															<?= esc($user['role_id']); ?>
-														</div>
-													</td>
-													<!--end::Tags-->
-													<!--begin::Author ID-->
-													<td>
-														<div>
-															<?= esc($user['created_at']); ?>
-														</div>
-													</td>
-													<!--end::Author ID-->
-													<!--begin::Action-->
-													<td class="text-end">
-														<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click"
-															data-kt-menu-placement="bottom-end">Actions
-															<span class="svg-icon svg-icon-5 m-0">
-																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																	fill="none">
-																	<path
-																		d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z"
-																		fill="black" />
-																</svg>
-															</span>
-														</a>
-
-														<div
-															class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
-															data-kt-menu="true">
-															<div class="menu-item px-3">
-																<a href="<?= base_url('manageUsers/edit/' . $user['id']) ?>" class="menu-link px-3">
-																	Edit
-																</a>
-
+											<?php if (isset($users)): ?>
+												<?php foreach ($users as $user): ?>
+													<!--begin::Table row-->
+													<tr>
+														<!--begin::Title-->
+														<td>
+															<div>
+																<?= esc($user['username']); ?>
 															</div>
-															<div class="menu-item px-3">
-																<a href="<?= base_url('cats/disable/' . $user['id']) ?>" class="menu-link px-3">Delete</a>
+														</td>
+														<!--end::Title-->
+														<!--begin::Author ID-->
+														<td>
+															<div>
+																<?= esc($user['email']); ?>
 															</div>
-														</div>
-													</td>
-													<!--end::Action-->
-												</tr>
-												<!--end::Table row-->
-											<?php endforeach; ?>
+														</td>
+														<!--end::Author ID-->
+														<!--begin::Tags-->
+														<td>
+															<div>
+																<?php foreach ($roles as $role): ?>
+																	<?php if ($role['id'] == $user['role_id']): ?>
+																		<?= esc($role['name']); ?>
+																	<?php endif; ?>
+																<?php endforeach; ?>
+															</div>
+														</td>
+														<!--end::Tags-->
+														<!--begin::Author ID-->
+														<td>
+															<div>
+																<?= esc($user['created_at']); ?>
+															</div>
+														</td>
+														<!--end::Author ID-->
+														<!--begin::Action-->
+														<td class="text-end">
+															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click"
+																data-kt-menu-placement="bottom-end">Actions
+																<span class="svg-icon svg-icon-5 m-0">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+																		fill="none">
+																		<path
+																			d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z"
+																			fill="black" />
+																	</svg>
+																</span>
+															</a>
+
+															<div
+																class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
+																data-kt-menu="true">
+																<div class="menu-item px-3">
+																	<a href="<?= base_url('manageUsers/edit/' . $user['id']) ?>" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_edit_user" data-id="<?= $user['id'] ?>" data-username="<?= esc($user['username']) ?>" data-email="<?= esc($user['email']) ?>" data-role_id="<?= $user['role_id'] ?>">
+																		Edit
+																	</a>
+
+																</div>
+																<div class="menu-item px-3">
+																	<a href="<?= base_url('cats/disable/' . $user['id']) ?>" class="menu-link px-3">Delete</a>
+																</div>
+															</div>
+														</td>
+														<!--end::Action-->
+													</tr>
+													<!--end::Table row-->
+												<?php endforeach; ?>
+											<?php endif; ?>
 										</tbody>
 										<!--end::Table body-->
 									</table>
@@ -546,7 +540,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="card-footer">
 										<div class="d-flex justify-content-between align-items-center flex-wrap">
 
-											<form method="get" action="<?= base_url('users') ?>" id="paginationForm"
+											<form method="get" action="<?= base_url('manageUsers') ?>" id="paginationForm"
 												class="d-flex align-items-center">
 												<label for="perPage" class="fw-bold me-3 mb-0">Items per page:</label>
 												<select name="perPage" id="perPage" class="form-select form-select-sm form-select-solid w-75px"
@@ -604,9 +598,9 @@ License: For each use you must have a valid license purchased only from above li
 	<script src="<?= base_url('assets/plugins/global/plugins.bundle.js'); ?>"></script>
 	<script src="<?= base_url('assets/js/scripts.bundle.js'); ?>"></script>
 	<!--end::Global Javascript Bundle-->
-	<!--begin::Page Vendors Javascript(used by this page)-->
-	<!--end::Page Vendors Javascript-->
+
 	<!--begin::Page Custom Javascript(used by this page)-->
+
 	<!--end::Page Custom Javascript-->
 	<!--end::Javascript-->
 </body>

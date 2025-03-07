@@ -1,20 +1,17 @@
 
-    // Función para llenar el formulario de edición
-    function fillEditForm(id, username, email, role_id) {
-        // Rellena los campos
-        $('#user_id').val(id);
-        $('#username').val(username);
-        $('#email').val(email);
-        $('#role_id').val(role_id);
-        $('#password').val(''); // Limpiar contraseña
-        $('#modal_title').text('Edit User'); // Cambiar título
-        $('#kt_modal_edit_user_form').attr('action', '<?= base_url("manageUsers/update/") ?>' + id);
-    }
+    document.addEventListener('DOMContentLoaded', function() {
+        var editButtons = document.querySelectorAll('[data-bs-target="#kt_modal_edit_user"]');
+        editButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var userId = this.getAttribute('data-id');
+                var username = this.getAttribute('data-username');
+                var email = this.getAttribute('data-email');
+                var roleId = this.getAttribute('data-role_id');
 
-    // Para crear usuarios, resetear el formulario
-    $('#kt_modal_add_user').on('shown.bs.modal', function () {
-        $('#kt_modal_edit_user_form')[0].reset();
-        $('#user_id').val('');
-        $('#modal_title').text('Create User');
-        $('#kt_modal_edit_user_form').attr('action', '<?= base_url("manageUsers/create") ?>');
+                document.getElementById('edit_user_id').value = userId;
+                document.getElementById('edit_username').value = username;
+                document.getElementById('edit_email').value = email;
+                document.getElementById('edit_role_id').value = roleId;
+            });
+        });
     });
