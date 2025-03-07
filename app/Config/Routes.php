@@ -26,7 +26,10 @@ $routes->get('cats/disable/(:num)', 'userController\vcController::disable/$1');
 
 $routes->get('favorites','userController\fController::' );
 $routes->get('myAdoptions','userController\maController::' );
-$routes->get('profile','userController\pController::' );
+
+$routes->get('profile','userController\PController::view' );
+$routes->get('profile/edit', 'userController\PController::view');
+$routes->get('profile/update', 'userController\PController::update');
 
 $routes->group('', ['filter' => 'auth:1,2'], function ($routes) {
     // Rutas accesibles solo para roles 1 (Admin) y 2 (Manager)
