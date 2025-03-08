@@ -45,7 +45,7 @@
 
         <!-- Dashboard -->
         <div class="menu-item">
-          <a class="menu-link" href="<?= base_url('/') ?>">
+          <a class="menu-link <?= current_url() == base_url('/') ? 'active' : '' ?>" href="<?= base_url('/') ?>">
             <span class="menu-icon">
               <i class="fas fa-home"></i>
             </span>
@@ -61,7 +61,8 @@
 
         <!-- View Cats -->
         <div class="menu-item">
-          <a class="menu-link" href="<?= base_url('viewCats') ?>">
+          <a class="menu-link <?= current_url() == base_url('viewCats') ? 'active' : '' ?>"
+            href="<?= base_url('viewCats') ?>">
             <span class="menu-icon">
               <i class="fas fa-cat"></i>
             </span>
@@ -71,7 +72,8 @@
 
         <!-- Favorites (Users) -->
         <div class="menu-item">
-          <a class="menu-link" href="<?= base_url('favorites') ?>">
+          <a class="menu-link <?= current_url() == base_url('favorites') ? 'active' : '' ?>"
+            href="<?= base_url('favorites') ?>">
             <span class="menu-icon">
               <i class="fas fa-heart"></i>
             </span>
@@ -81,7 +83,8 @@
 
         <!-- My Adoptions (Users) -->
         <div class="menu-item">
-          <a class="menu-link" href="<?= base_url('myAdoptions') ?>">
+          <a class="menu-link <?= current_url() == base_url('myAdoptions') ? 'active' : '' ?>"
+            href="<?= base_url('myAdoptions') ?>">
             <span class="menu-icon">
               <i class="fas fa-paw"></i>
             </span>
@@ -91,7 +94,8 @@
 
         <!-- Profile -->
         <div class="menu-item">
-          <a class="menu-link" href="<?= base_url('profile') ?>">
+          <a class="menu-link <?= current_url() == base_url('profile') ? 'active' : '' ?>"
+            href="<?= base_url('profile') ?>">
             <span class="menu-icon">
               <i class="fas fa-user"></i>
             </span>
@@ -108,7 +112,8 @@
 
           <!-- Manage Cats (Managers & Admins) -->
           <div class="menu-item">
-            <a class="menu-link" href="<?= base_url('manageCats') ?>">
+            <a class="menu-link <?= current_url() == base_url('manageCats') ? 'active' : '' ?>"
+              href="<?= base_url('manageCats') ?>">
               <span class="menu-icon">
                 <i class="fas fa-edit"></i>
               </span>
@@ -118,7 +123,8 @@
 
           <!-- Adoption Requests (Managers & Admins) -->
           <div class="menu-item">
-            <a class="menu-link" href="<?= base_url('manageAdoptions') ?>">
+            <a class="menu-link <?= current_url() == base_url('manageAdoptions') ? 'active' : '' ?>"
+              href="<?= base_url('manageAdoptions') ?>">
               <span class="menu-icon">
                 <i class="fas fa-clipboard-list"></i>
               </span>
@@ -136,7 +142,8 @@
 
           <!-- Manage Users (Only Admins) -->
           <div class="menu-item">
-            <a class="menu-link" href="<?= base_url('manageUsers') ?>">
+            <a class="menu-link <?= current_url() == base_url('manageUsers') ? 'active' : '' ?>"
+              href="<?= base_url('manageUsers') ?>">
               <span class="menu-icon">
                 <i class="fas fa-users"></i>
               </span>
@@ -146,7 +153,8 @@
 
           <!-- Manage Roles (Only Admins) -->
           <div class="menu-item">
-            <a class="menu-link" href="<?= base_url('manageRoles') ?>">
+            <a class="menu-link <?= current_url() == base_url('manageRoles') ? 'active' : '' ?>"
+              href="<?= base_url('manageRoles') ?>">
               <span class="menu-icon">
                 <i class="fas fa-user-shield"></i>
               </span>
@@ -157,7 +165,8 @@
 
         <!-- Events -->
         <div class="menu-item">
-          <a class="menu-link" href="<?= base_url('calendar') ?>">
+          <a class="menu-link <?= current_url() == base_url('calendar') ? 'active' : '' ?>"
+            href="<?= base_url('calendar') ?>">
             <span class="menu-icon">
               <i class="fas fa-calendar-alt"></i>
             </span>
@@ -172,16 +181,18 @@
   </div>
   <!--end::Aside menu-->
   <!--begin::Footer-->
-  <div class="aside-footer flex-column-auto pt-5 pb-7 px-5 cursor-pointer" id="kt_aside_footer">
-  <!--begin::User-->
-  <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
-    <!-- Avatar dinámico -->
-    <div class="symbol symbol-30px symbol-md-40px" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-trigger="click">
-      <img src="<?= session('avatar') ?: base_url('assets/media/cats/avatars/default.jpg') ?>" alt="user" />
+  <div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
+    <!--begin::User-->
+    <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
+      <!-- Avatar dinámico -->
+      <div class="symbol symbol-30px symbol-md-40px" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end"
+        data-kt-menu-trigger="click">
+        <img src="<?= session('avatar') ?: base_url('assets/media/cats/avatars/default.jpg') ?>" alt="user" />
       </div>
       <!-- Nombre de usuario -->
       <div class="d-flex flex-column ms-5">
-        <span class="fw-bold text-gray-700 fs-6 text-hover-primary"><?= esc(session('username') ?? 'Guest') ?></span>
+        <span class="fw-bold text-primary fs-6"><?= esc(session('username') ?? 'Guest') ?></span>
+        <span class="text-muted fs-7"><?= esc(session('role_name') ?? 'No role') ?></span>
       </div>
     </div>
     <!--end::User -->

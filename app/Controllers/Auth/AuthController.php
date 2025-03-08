@@ -3,6 +3,7 @@
 namespace App\Controllers\Auth;
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use App\Models\RoleModel;
 
 
 class AuthController extends BaseController
@@ -40,6 +41,7 @@ class AuthController extends BaseController
   public function processSignIn()
   {
     $userModel = new UserModel();
+    $roleModel = new RoleModel();
     $session = \config\Services::session();
 
     $email = $this->request->getPost('email');
@@ -51,12 +53,16 @@ class AuthController extends BaseController
       return redirect()->to(base_url('signIn'))->with('error', 'Correo o contraseña incorrectos.');
     }
 
+    $role = $roleModel->find($user['role_id']);
+    $roleName = $role ? $role['name'] : 'No role';
+
     $session->set([
       'id' => $user['id'],
       'username' => $user['username'],
       'email' => $user['email'],
       'role_id' => $user['role_id'],
       'avatar' => $user['avatar'],
+      'role_name' => $roleName,
       'is_logged_in' => true
     ]);
 

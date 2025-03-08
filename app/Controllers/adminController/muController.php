@@ -4,7 +4,10 @@ namespace App\Controllers\adminController;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
-use App\Models\RoleModel; // Asegúrate de tener este modelo
+use App\Models\RoleModel;
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class muController extends BaseController
 {
@@ -14,7 +17,7 @@ class muController extends BaseController
   public function __construct()
   {
     $this->userModel = new UserModel();
-    $this->roleModel = new RoleModel(); // Para cargar roles en formularios
+    $this->roleModel = new RoleModel();
   }
 
 
@@ -42,7 +45,7 @@ class muController extends BaseController
   {
     helper('breadcrumbs');
     $segments = ['Manage Users'];
-    $title= 'Manage Users';
+    $title = 'Manage Users';
 
     $this->setPaginationData($data);
 
@@ -201,5 +204,86 @@ class muController extends BaseController
 
     $this->userModel->update($id, ['is_disabled' => 0]);
     return redirect()->to(base_url('manageUsers') . '?' . $this->buildQueryString($this->request->getGet()))->with('success', 'User restored successfully.');
+  }
+
+  public function export()
+  {
+    $username = $this->request->getGet('username');
+    $email = $this->request->getGet('email');
+    $roleId = $this->request->getGet('role_id');
+    $createdAt = $this->request->getGet('created_at');
+    $showDisabled = $this->request->getGet('showDisabled') ?? '1';
+
+    // Filtrar usuarios
+    $query = $this->userModel;
+
+    if (!empty($username)) {
+      $query = $query->like('username', $username);
+    }
+
+    if (!empty($email)) {
+      $query = $query->like('email', $email);
+    }
+
+    if (!empty($roleId)) {
+      $query = $query->where('role_id', $roleId);
+    }
+
+    if (!empty($createdAt)) {
+      $query = $query->where('created_at', $createdAt);
+    }
+
+    if ($showDisabled === '0') {
+      $query = $query->where('is_disabled', 0);
+    } else {
+      $query = $query->whereIn('is_disabled', [0, 1]);
+    }
+
+    // Obtener usuarios con ordenación y sin paginación
+    $column = $this->request->getGet('column') ?? 'id';
+    $order = $this->request->getGet('order') ?? 'asc';
+    $perPage = $this->request->getGet('perPage') ?? 10;
+    $page = $this->request->getGet('page') ?? 1;
+
+    $users = $query
+      ->orderBy($column, $order)
+      ->paginate($perPage, '', $page); // Aplicar paginación para obtener la página actual
+
+    // Crear un nuevo archivo de Excel
+    $spreadsheet = new Spreadsheet();
+    $sheet = $spreadsheet->getActiveSheet();
+
+    // Añadir encabezados
+    $sheet->setCellValue('A1', 'Username');
+    $sheet->setCellValue('B1', 'Email');
+    $sheet->setCellValue('C1', 'Role');
+    $sheet->setCellValue('D1', 'Created At');
+
+    // Añadir datos
+    $row = 2;
+    foreach ($users as $user) {
+      $sheet->setCellValue('A' . $row, $user['username']);
+      $sheet->setCellValue('B' . $row, $user['email']);
+      $sheet->setCellValue('C' . $row, $this->roleModel->find($user['role_id'])['name']);
+      $sheet->setCellValue('D' . $row, $user['created_at']);
+
+      // Marcar en rojo si el usuario está deshabilitado
+      if ($user['is_disabled']) {
+        $sheet->getStyle('A' . $row . ':D' . $row)->getFont()->getColor()->setARGB(\PhpOffice\PhpSpreadsheet\Style\Color::COLOR_RED);
+      }
+
+      $row++;
+    }
+
+    // Crear el archivo Excel
+    $writer = new Xlsx($spreadsheet);
+    $filename = 'users_export_' . date('Y-m-d_H-i-s') . '.xlsx';
+
+    // Enviar el archivo al navegador para su descarga
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment; filename="' . $filename . '"');
+    header('Cache-Control: max-age=0');
+    $writer->save('php://output');
+    exit;
   }
 }

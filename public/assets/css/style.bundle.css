@@ -55096,3 +55096,25 @@ body {
 }
 
 /*Customizaciones*/
+.btn-custom {
+  background-color: #860ef7 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-custom:hover {
+  background-color: #6a0df7 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-active-primary:hover {
+  background-color: #6a0df7 !important;
+  color: #FFFFFF !important;
+}
+
+.link-primary {
+  color: #860ef7 !important;
+}
+
+.link-primary:hover {
+  color: #6a0df7 !important;
+}

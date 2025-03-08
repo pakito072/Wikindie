@@ -15,6 +15,7 @@
         "ext-mbstring": "*",
         "geeklabs/ci4-breadcrumbs": "^2.0",
         "laminas/laminas-escaper": "^2.14",
+        "phpoffice/phpspreadsheet": "^4.1",
         "psr/log": "^3.0"
     },
     "require-dev": {
