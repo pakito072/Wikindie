@@ -496,6 +496,11 @@ License: For each use you must have a valid license purchased only from above li
 
 											<form method="get" action="<?= base_url('manageUsers') ?>" id="paginationForm"
 												class="d-flex align-items-center">
+												<input type="hidden" name="column" value="<?= esc($column) ?>">
+												<input type="hidden" name="order" value="<?= esc($order) ?>">
+												<?php foreach ($filters as $key => $value): ?>
+													<input type="hidden" name="<?= esc($key) ?>" value="<?= esc($value) ?>">
+												<?php endforeach; ?>
 												<label for="perPage" class="fw-bold me-3 mb-0">Items per page:</label>
 												<select name="perPage" id="perPage" class="form-select form-select-sm form-select-solid w-75px"
 													onchange="document.getElementById('paginationForm').submit();">
