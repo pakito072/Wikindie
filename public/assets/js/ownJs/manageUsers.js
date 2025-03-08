@@ -15,3 +15,13 @@
             });
         });
     });
+
+    document.querySelector('[data-kt-user-table-filter="reset"]').addEventListener('click', function() {
+        document.querySelector('input[name="username"]').value = '';
+        document.querySelector('input[name="email"]').value = '';
+        document.querySelector('input[name="role_id"]').value = '';
+        document.querySelector('input[name="created_at"]').value = '';
+        document.querySelector('input[name="showDisabled"]').checked = false;
+        document.querySelector('form').submit();
+    });
+

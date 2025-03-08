@@ -42,25 +42,63 @@ class muController extends BaseController
   {
     helper('breadcrumbs');
     $segments = ['Manage Users'];
-    $data['breadcrumbs'] = generate_breadcrumbs($segments);
-    $data['view_name'] = 'Manage Users';
+    $title= 'Manage Users';
 
     $this->setPaginationData($data);
 
+    $username = $this->request->getGet('username');
+    $email = $this->request->getGet('email');
+    $roleId = $this->request->getGet('role_id');
+    $createdAt = $this->request->getGet('created_at');
+    $showDisabled = $this->request->getGet('showDisabled');
+
+    // Filtrar usuarios
+    $query = $this->userModel;
+
+    if (!empty($username)) {
+      $query = $query->like('username', $username);
+    }
+
+    if (!empty($email)) {
+      $query = $query->like('email', $email);
+    }
+
+    if (!empty($roleId)) {
+      $query = $query->where('role_id', $roleId);
+    }
+
+    if (!empty($createdAt)) {
+      $query = $query->where('created_at', $createdAt);
+    }
+
+    if ($showDisabled == '1') {
+      $query = $query->whereIn('is_disabled', [0, 1]);
+    } else {
+      $query = $query->where('is_disabled', 0);
+    }
+
     // Obtener usuarios
-    $data['users'] = $this->userModel
-      ->where('is_disabled', 0)
+    $data['users'] = $query
       ->orderBy($data['column'], $data['order'])
       ->paginate($data['perPage']);
 
 
     $data = [
+      'breadcrumbs' => generate_breadcrumbs($segments),
+      'view_name' => $title,
       'pager' => $this->userModel->pager,
       'users' => $data['users'],
       'perPage' => $data['perPage'],
       'column' => $data['column'],
       'order' => $data['order'],
-      'roles' => $this->roleModel->where('is_disabled', 0)->findAll()
+      'roles' => $this->roleModel->findAll(),
+      'filters' => [
+        'username' => $username,
+        'email' => $email,
+        'role_id' => $roleId,
+        'created_at' => $createdAt,
+        'showDisabled' => $showDisabled,
+      ]
     ];
 
     return view('pages/adminPage/manageUsers', $data);
@@ -97,37 +135,13 @@ class muController extends BaseController
     return redirect()->to(base_url('manageUsers'))->with('success', 'Usuario registrado correctamente.');
   }
 
-  public function edit($id = null)
-  {
-
-    $this->setPaginationData($data);
-
-    $user = $this->userModel->find($id);
-    if (!$user) {
-      return redirect()->to(base_url('manageUsers'))->with('error', 'User not found.');
-    }
-
-    $data['users'] = $this->userModel
-      ->where('is_disabled', 0)
-      ->orderBy($data['column'], $data['order'])
-      ->paginate($data['perPage']);
-
-    $data = [
-      'pager' => $this->userModel->pager,
-      'user' => $user,
-      'users' => $data['users'],
-      'roles' => $this->roleModel->where('is_disabled', 0)->findAll(),
-      'perPage' => $data['perPage'],
-      'column' => $data['column'],
-      'order' => $data['order'],
-    ];
-
-    return view('pages/adminPage/manageUsers', $data);
-  }
-
   public function update($id = null)
   {
 
+    $id = $this->request->getPost('id');
+    if (!$id) {
+      return redirect()->to(base_url('manageUsers'))->with('error', 'User not found.');
+    }
     $user = $this->userModel->find($id);
     if (!$user) {
       return redirect()->to(base_url('manageUsers'))->with('error', 'User not found.');
@@ -161,7 +175,6 @@ class muController extends BaseController
     return redirect()->to(base_url('manageUsers'))->with('success', 'User updated successfully.');
   }
 
-  // Deshabilitar usuario (soft delete)
   public function disable($id)
   {
     $user = $this->userModel->find($id);
@@ -171,5 +184,16 @@ class muController extends BaseController
 
     $this->userModel->update($id, ['is_disabled' => 1]);
     return redirect()->to(base_url('manageUsers'))->with('success', 'User disabled successfully.');
+  }
+
+  public function restore($id)
+  {
+    $user = $this->userModel->find($id);
+    if (!$user) {
+      return redirect()->to(base_url('manageUsers'))->with('error', 'User not found.');
+    }
+
+    $this->userModel->update($id, ['is_disabled' => 0]);
+    return redirect()->to(base_url('manageUsers'))->with('success', 'User restored successfully.');
   }
 }

@@ -49,10 +49,10 @@ $routes->group('', ['filter' => 'auth:1,2'], function ($routes) {
 //Rutas de admin (Nivel 1 de seguridad)
 $routes->group('', ['filter' => 'auth:1'], function ($routes) {
   $routes->get('manageUsers', 'adminController\muController::view');
-  $routes->get('manageUsers/edit/(:num)', 'adminController\muController::edit/$1');
   $routes->post('manageUsers', 'adminController\muController::create');
-  $routes->post('manageUsers/update/(:num)', 'adminController\muController::update/$1');
+  $routes->post('manageUsers/update', 'adminController\muController::update');
   $routes->get('manageUsers/disable/(:num)', 'adminController\muController::disable/$1');
+  $routes->get('manageUsers/restore/(:num)', 'adminController\muController::restore/$1');
 
 
   $routes->get('manageRoles', 'AdminController\mrController::index');

@@ -95,8 +95,8 @@ License: For each use you must have a valid license purchased only from above li
 															fill="black" />
 													</svg>
 												</span>
-												<!--end::Svg Icon-->Filter</button>
-											<!--begin::Menu 1-->
+												<!--end::Svg Icon-->Filter
+											</button>
 											<div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true">
 												<!--begin::Header-->
 												<div class="px-7 py-5">
@@ -108,168 +108,119 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Separator-->
 												<!--begin::Content-->
 												<div class="px-7 py-5" data-kt-user-table-filter="form">
-													<!--begin::Input group-->
-													<!--begin::Search-->
-													<div class="d-flex align-items-center position-relative my-1">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-														<span class="svg-icon svg-icon-1 position-absolute ms-6">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																fill="none">
-																<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
-																	transform="rotate(45 17.0365 15.1223)" fill="black" />
-																<path
-																	d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-																	fill="black" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-														<input type="text" data-kt-user-table-filter="search"
-															class="form-control form-control-solid w-250px ps-14" placeholder="Roles" />
-													</div>
-													<div class="d-flex align-items-center position-relative my-1">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-														<span class="svg-icon svg-icon-1 position-absolute ms-6">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																fill="none">
-																<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
-																	transform="rotate(45 17.0365 15.1223)" fill="black" />
-																<path
-																	d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-																	fill="black" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-														<input type="text" data-kt-user-table-filter="search"
-															class="form-control form-control-solid w-250px ps-14" placeholder="First Name" />
-													</div>
-													<div class="d-flex align-items-center position-relative my-1">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-														<span class="svg-icon svg-icon-1 position-absolute ms-6">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																fill="none">
-																<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
-																	transform="rotate(45 17.0365 15.1223)" fill="black" />
-																<path
-																	d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-																	fill="black" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-														<input type="text" data-kt-user-table-filter="search"
-															class="form-control form-control-solid w-250px ps-14" placeholder="Last name" />
-													</div>
-													<div class="d-flex align-items-center position-relative my-1">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-														<span class="svg-icon svg-icon-1 position-absolute ms-6">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																fill="none">
-																<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
-																	transform="rotate(45 17.0365 15.1223)" fill="black" />
-																<path
-																	d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-																	fill="black" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-														<input type="text" data-kt-user-table-filter="search"
-															class="form-control form-control-solid w-250px ps-14" placeholder="Email" />
-													</div>
-													<div class="d-flex align-items-center position-relative my-1">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-														<span class="svg-icon svg-icon-1 position-absolute ms-6">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																fill="none">
-																<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
-																	transform="rotate(45 17.0365 15.1223)" fill="black" />
-																<path
-																	d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-																	fill="black" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-														<input type="text" data-kt-user-table-filter="search"
-															class="form-control form-control-solid w-250px ps-14" placeholder="Phone number" />
-													</div>
-													<div class="d-flex align-items-center position-relative my-1">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-														<span class="svg-icon svg-icon-1 position-absolute ms-6">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																fill="none">
-																<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
-																	transform="rotate(45 17.0365 15.1223)" fill="black" />
-																<path
-																	d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-																	fill="black" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-														<input type="text" data-kt-user-table-filter="search"
-															class="form-control form-control-solid w-250px ps-14" placeholder="Created at" />
-													</div>
-													<div class="d-flex align-items-center position-relative my-1">
-														<!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-														<span class="svg-icon svg-icon-1 position-absolute ms-6">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-																fill="none">
-																<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
-																	transform="rotate(45 17.0365 15.1223)" fill="black" />
-																<path
-																	d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
-																	fill="black" />
-															</svg>
-														</span>
-														<!--end::Svg Icon-->
-														<input type="text" data-kt-user-table-filter="search"
-															class="form-control form-control-solid w-250px ps-14" placeholder="Updated at" />
-													</div>
-													<!--end::Search-->
-													<!--begin::Actions-->
-													<div class="d-flex justify-content-end mt-5">
-														<button type="reset" class="btn btn-light btn-active-light-primary fw-bold me-2 px-6"
-															data-kt-menu-dismiss="true" data-kt-user-table-filter="reset">Reset</button>
-														<button type="submit" class="btn btn-primary fw-bold px-6" data-kt-menu-dismiss="true"
-															data-kt-user-table-filter="filter">Apply</button>
-													</div>
-													<!--end::Actions-->
+													<form method="get" action="<?= base_url('manageUsers') ?>">
+														<!--begin::Input group-->
+														<!--begin::Search-->
+														<div class="d-flex align-items-center position-relative my-1">
+															<span class="svg-icon svg-icon-1 position-absolute ms-6">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+																	fill="none">
+																	<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
+																		transform="rotate(45 17.0365 15.1223)" fill="black" />
+																	<path
+																		d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+																		fill="black" />
+																</svg>
+															</span>
+															<input type="text" name="username" class="form-control form-control-solid w-250px ps-14"
+																placeholder="Username" value="<?= esc($filters['username']) ?>" />
+														</div>
+														<div class="d-flex align-items-center position-relative my-1">
+															<span class="svg-icon svg-icon-1 position-absolute ms-6">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+																	fill="none">
+																	<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
+																		transform="rotate(45 17.0365 15.1223)" fill="black" />
+																	<path
+																		d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+																		fill="black" />
+																</svg>
+															</span>
+															<input type="text" name="email" class="form-control form-control-solid w-250px ps-14"
+																placeholder="Email" value="<?= esc($filters['email']) ?>" />
+														</div>
+														<div class="d-flex align-items-center position-relative my-1">
+															<span class="svg-icon svg-icon-1 position-absolute ms-6">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+																	fill="none">
+																	<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
+																		transform="rotate(45 17.0365 15.1223)" fill="black" />
+																	<path
+																		d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+																		fill="black" />
+																</svg>
+															</span>
+															<input type="text" name="role_id" class="form-control form-control-solid w-250px ps-14"
+																placeholder="Role ID" value="<?= esc($filters['role_id']) ?>" />
+														</div>
+														<div class="d-flex align-items-center position-relative my-1">
+															<span class="svg-icon svg-icon-1 position-absolute ms-6">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+																	fill="none">
+																	<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1"
+																		transform="rotate(45 17.0365 15.1223)" fill="black" />
+																	<path
+																		d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+																		fill="black" />
+																</svg>
+															</span>
+															<input type="datetime-local" name="created_at"
+																class="form-control form-control-solid w-250px ps-14" placeholder="Created At"
+																value="<?= esc($filters['created_at']) ?>" />
+														</div>
+														<div class="d-flex align-items-center position-relative my-1">
+															<div class="form-check form-check-solid me-3">
+																<input class="form-check-input" type="checkbox" value="1" id="showDisabled"
+																	name="showDisabled" <?= isset($filters['showDisabled']) && $filters['showDisabled'] == '1' ? 'checked' : '' ?>>
+																<label class="form-check-label" for="showDisabled">
+																	Show Disabled
+																</label>
+															</div>
+														</div>
+														<div class="d-flex justify-content-end mt-5">
+															<button type="reset" class="btn btn-light btn-active-light-primary fw-bold me-2 px-6"
+																data-kt-menu-dismiss="true" data-kt-user-table-filter="reset">Reset</button>
+															<button type="submit" class="btn btn-primary fw-bold px-6" data-kt-menu-dismiss="true"
+																data-kt-user-table-filter="filter">Apply</button>
+														</div>
+													</form>
 												</div>
 												<!--end::Content-->
 											</div>
-											<!--end::Menu 1-->
+											<!--end::Menu-->
 											<!--end::Filter-->
-											<!--begin::Export-->
-											<button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal"
-												data-bs-target="#kt_modal_export_users">
-												<!--begin::Svg Icon | path: icons/duotune/arrows/arr078.svg-->
-												<span class="svg-icon svg-icon-2">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-														fill="none">
-														<rect opacity="0.3" x="12.75" y="4.25" width="12" height="2" rx="1"
-															transform="rotate(90 12.75 4.25)" fill="black" />
-														<path
-															d="M12.0573 6.11875L13.5203 7.87435C13.9121 8.34457 14.6232 8.37683 15.056 7.94401C15.4457 7.5543 15.4641 6.92836 15.0979 6.51643L12.4974 3.59084C12.0996 3.14332 11.4004 3.14332 11.0026 3.59084L8.40206 6.51643C8.0359 6.92836 8.0543 7.5543 8.44401 7.94401C8.87683 8.37683 9.58785 8.34458 9.9797 7.87435L11.4427 6.11875C11.6026 5.92684 11.8974 5.92684 12.0573 6.11875Z"
-															fill="black" />
-														<path
-															d="M18.75 8.25H17.75C17.1977 8.25 16.75 8.69772 16.75 9.25C16.75 9.80228 17.1977 10.25 17.75 10.25C18.3023 10.25 18.75 10.6977 18.75 11.25V18.25C18.75 18.8023 18.3023 19.25 17.75 19.25H5.75C5.19772 19.25 4.75 18.8023 4.75 18.25V11.25C4.75 10.6977 5.19771 10.25 5.75 10.25C6.30229 10.25 6.75 9.80228 6.75 9.25C6.75 8.69772 6.30229 8.25 5.75 8.25H4.75C3.64543 8.25 2.75 9.14543 2.75 10.25V19.25C2.75 20.3546 3.64543 21.25 4.75 21.25H18.75C19.8546 21.25 20.75 20.3546 20.75 19.25V10.25C20.75 9.14543 19.8546 8.25 18.75 8.25Z"
-															fill="#C4C4C4" />
-													</svg>
-												</span>
-												<!--end::Svg Icon-->Export</button>
-											<!--end::Export-->
-											<!--begin::Add user-->
-											<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-												data-bs-target="#kt_modal_add_user">
-												<!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
-												<span class="svg-icon svg-icon-2">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-														fill="none">
-														<rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1"
-															transform="rotate(-90 11.364 20.364)" fill="black" />
-														<rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
-													</svg>
-												</span>
-												<!--end::Svg Icon-->Add User</button>
-											<!--end::Add user-->
 										</div>
+										<!--begin::Export-->
+										<button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal"
+											data-bs-target="#kt_modal_export_users">
+											<!--begin::Svg Icon | path: icons/duotune/arrows/arr078.svg-->
+											<span class="svg-icon svg-icon-2">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+													<rect opacity="0.3" x="12.75" y="4.25" width="12" height="2" rx="1"
+														transform="rotate(90 12.75 4.25)" fill="black" />
+													<path
+														d="M12.0573 6.11875L13.5203 7.87435C13.9121 8.34457 14.6232 8.37683 15.056 7.94401C15.4457 7.5543 15.4641 6.92836 15.0979 6.51643L12.4974 3.59084C12.0996 3.14332 11.4004 3.14332 11.0026 3.59084L8.40206 6.51643C8.0359 6.92836 8.0543 7.5543 8.44401 7.94401C8.87683 8.37683 9.58785 8.34458 9.9797 7.87435L11.4427 6.11875C11.6026 5.92684 11.8974 5.92684 12.0573 6.11875Z"
+														fill="black" />
+													<path
+														d="M18.75 8.25H17.75C17.1977 8.25 16.75 8.69772 16.75 9.25C16.75 9.80228 17.1977 10.25 17.75 10.25C18.3023 10.25 18.75 10.6977 18.75 11.25V18.25C18.75 18.8023 18.3023 19.25 17.75 19.25H5.75C5.19772 19.25 4.75 18.8023 4.75 18.25V11.25C4.75 10.6977 5.19771 10.25 5.75 10.25C6.30229 10.25 6.75 9.80228 6.75 9.25C6.75 8.69772 6.30229 8.25 5.75 8.25H4.75C3.64543 8.25 2.75 9.14543 2.75 10.25V19.25C2.75 20.3546 3.64543 21.25 4.75 21.25H18.75C19.8546 21.25 20.75 20.3546 20.75 19.25V10.25C20.75 9.14543 19.8546 8.25 18.75 8.25Z"
+														fill="#C4C4C4" />
+												</svg>
+											</span>
+											<!--end::Svg Icon-->Export</button>
+										<!--end::Export-->
+										<!--begin::Add user-->
+										<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+											data-bs-target="#kt_modal_add_user">
+											<!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+											<span class="svg-icon svg-icon-2">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+													<rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1"
+														transform="rotate(-90 11.364 20.364)" fill="black" />
+													<rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
+												</svg>
+											</span>
+											<!--end::Svg Icon-->Add User</button>
+										<!--end::Add user-->
 										<!--end::Toolbar-->
 										<!--begin::Modal - Add task-->
 										<div class="modal fade" id="kt_modal_add_user" tabindex="-1" aria-hidden="true">
@@ -351,6 +302,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Modal dialog-->
 										</div>
 										<!--begin::Modal para Crear/Editar-->
+										<!-- filepath: c:\wamp64\www\Catigo\app\Views\pages\adminPage\manageUsers.php -->
 										<div class="modal fade" id="kt_modal_edit_user" tabindex="-1" aria-hidden="true">
 											<div class="modal-dialog modal-dialog-centered mw-650px">
 												<div class="modal-content">
@@ -359,24 +311,22 @@ License: For each use you must have a valid license purchased only from above li
 													</div>
 													<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
 														<form id="kt_modal_edit_user_form" class="form"
-															action="<?= isset($user) ? base_url('manageUsers/update/' . $user['id']) : '' ?>"
-															method="post">
+															action="<?= base_url('manageUsers/update') ?>" method="post">
 															<?= csrf_field() ?>
-															<input type="hidden" name="id" id="edit_user_id"
-																value="<?= isset($user) ? $user['id'] : '' ?>">
+															<input type="hidden" name="id" id="edit_user_id">
 
 															<div class="fv-row mb-7">
 																<label class="required fw-bold fs-6 mb-2">Username</label>
 																<input type="text" name="username" id="edit_username"
 																	class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Enter username"
-																	value="<?= isset($user) ? esc($user['username']) : '' ?>" required />
+																	required />
 															</div>
 
 															<div class="fv-row mb-7">
 																<label class="required fw-bold fs-6 mb-2">Email</label>
 																<input type="email" name="email" id="edit_email"
 																	class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Enter email"
-																	value="<?= isset($user) ? esc($user['email']) : '' ?>" required />
+																	required />
 															</div>
 
 															<div class="fv-row mb-7">
@@ -391,17 +341,14 @@ License: For each use you must have a valid license purchased only from above li
 																<select name="role_id" id="edit_role_id"
 																	class="form-control form-control-solid mb-3 mb-lg-0" required>
 																	<?php foreach ($roles as $role): ?>
-																		<option value="<?= $role['id'] ?>" <?= isset($user) && $role['id'] == $user['role_id'] ? 'selected' : '' ?>>
-																			<?= $role['name'] ?>
-																		</option>
+																		<option value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
 																	<?php endforeach; ?>
 																</select>
 															</div>
 
 															<div class="text-center pt-15">
-																<button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel"
-																	data-bs-dismiss="modal">Discard</button>
-																<button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
+																<button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Discard</button>
+																<button type="submit" class="btn btn-primary">
 																	<span class="indicator-label">Submit</span>
 																	<span class="indicator-progress">Please wait...
 																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -464,7 +411,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--end::Table head-->
 										<!--begin::Table body-->
 										<tbody class="text-gray-600 fw-bold">
-											<?php if (isset($users)): ?>
+											<?php if (isset($users) && count($users) > 0): ?>
 												<?php foreach ($users as $user): ?>
 													<!--begin::Table row-->
 													<tr>
@@ -518,13 +465,16 @@ License: For each use you must have a valid license purchased only from above li
 																class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
 																data-kt-menu="true">
 																<div class="menu-item px-3">
-																	<a href="<?= base_url('manageUsers/edit/' . $user['id']) ?>" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_edit_user" data-id="<?= $user['id'] ?>" data-username="<?= esc($user['username']) ?>" data-email="<?= esc($user['email']) ?>" data-role_id="<?= $user['role_id'] ?>">
+																	<a href="#" class="menu-link px-3" data-bs-toggle="modal"
+																		data-bs-target="#kt_modal_edit_user" data-id="<?= $user['id'] ?>"
+																		data-username="<?= esc($user['username']) ?>" data-email="<?= esc($user['email']) ?>"
+																		data-role_id="<?= $user['role_id'] ?>">
 																		Edit
 																	</a>
-
 																</div>
 																<div class="menu-item px-3">
-																	<a href="<?= base_url('cats/disable/' . $user['id']) ?>" class="menu-link px-3">Delete</a>
+																	<a href="<?= base_url('manageUsers/disable/' . $user['id']) ?>"
+																		class="menu-link px-3">Delete</a>
 																</div>
 															</div>
 														</td>
@@ -532,6 +482,10 @@ License: For each use you must have a valid license purchased only from above li
 													</tr>
 													<!--end::Table row-->
 												<?php endforeach; ?>
+											<?php else: ?>
+												<tr>
+													<td colspan="5" class="text-center">No records found</td>
+												</tr>
 											<?php endif; ?>
 										</tbody>
 										<!--end::Table body-->
@@ -600,7 +554,7 @@ License: For each use you must have a valid license purchased only from above li
 	<!--end::Global Javascript Bundle-->
 
 	<!--begin::Page Custom Javascript(used by this page)-->
-
+	<script src="<?= base_url('assets/js/ownJs/manageUsers.js') ?>"></script>
 	<!--end::Page Custom Javascript-->
 	<!--end::Javascript-->
 </body>
