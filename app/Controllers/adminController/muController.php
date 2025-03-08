@@ -104,6 +104,12 @@ class muController extends BaseController
     return view('pages/adminPage/manageUsers', $data);
   }
 
+  private function buildQueryString($additionalParams = [])
+  {
+    $queryParams = array_merge($this->request->getGet(), $additionalParams);
+    return http_build_query($queryParams);
+  }
+
   public function create()
   {
 
@@ -132,7 +138,7 @@ class muController extends BaseController
     $this->userModel->insert($data);
 
     // Redirigir con mensaje de éxito
-    return redirect()->to(base_url('manageUsers'))->with('success', 'Usuario registrado correctamente.');
+    return redirect()->to(base_url('manageUsers') . '?' . $this->buildQueryString($this->request->getGet()))->with('success', 'Usuario registrado correctamente.');
   }
 
   public function update($id = null)
@@ -140,11 +146,11 @@ class muController extends BaseController
 
     $id = $this->request->getPost('id');
     if (!$id) {
-      return redirect()->to(base_url('manageUsers'))->with('error', 'User not found.');
+      return redirect()->to(base_url('manageUsers') . '?' . $this->buildQueryString($this->request->getGet()))->with('error', 'User not found.');
     }
     $user = $this->userModel->find($id);
     if (!$user) {
-      return redirect()->to(base_url('manageUsers'))->with('error', 'User not found.');
+      return redirect()->to(base_url('manageUsers') . '?' . $this->buildQueryString($this->request->getGet()))->with('error', 'User not found.');
     }
 
     $validationRules = [
@@ -172,28 +178,28 @@ class muController extends BaseController
 
     $this->userModel->update($id, $data);
 
-    return redirect()->to(base_url('manageUsers'))->with('success', 'User updated successfully.');
+    return redirect()->to(base_url('manageUsers') . '?' . $this->buildQueryString($this->request->getGet()))->with('success', 'User updated successfully.');
   }
 
   public function disable($id)
   {
     $user = $this->userModel->find($id);
     if (!$user) {
-      return redirect()->to(base_url('manageUsers'))->with('error', 'User not found.');
+      return redirect()->to(base_url('manageUsers') . '?' . $this->buildQueryString($this->request->getGet()))->with('error', 'User not found.');
     }
 
     $this->userModel->update($id, ['is_disabled' => 1]);
-    return redirect()->to(base_url('manageUsers'))->with('success', 'User disabled successfully.');
+    return redirect()->to(base_url('manageUsers') . '?' . $this->buildQueryString($this->request->getGet()))->with('success', 'User disabled successfully.');
   }
 
   public function restore($id)
   {
     $user = $this->userModel->find($id);
     if (!$user) {
-      return redirect()->to(base_url('manageUsers'))->with('error', 'User not found.');
+      return redirect()->to(base_url('manageUsers') . '?' . $this->buildQueryString($this->request->getGet()))->with('error', 'User not found.');
     }
 
     $this->userModel->update($id, ['is_disabled' => 0]);
-    return redirect()->to(base_url('manageUsers'))->with('success', 'User restored successfully.');
+    return redirect()->to(base_url('manageUsers') . '?' . $this->buildQueryString($this->request->getGet()))->with('success', 'User restored successfully.');
   }
 }

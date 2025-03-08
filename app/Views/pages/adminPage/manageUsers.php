@@ -372,7 +372,7 @@ License: For each use you must have a valid license purchased only from above li
 											<th class="min-w-125px">
 												<a href="<?= base_url('manageUsers?column=username&order=' .
 													($column == 'username' && $order == 'asc' ? 'desc' : 'asc') .
-													'&perPage=' . $perPage) ?>">
+													'&perPage=' . $perPage . '&' . http_build_query($filters)) ?>">
 													Username <?= ($column == 'username') ? ($order == 'asc' ? '↑' : '↓') : '' ?>
 												</a>
 											</th>
@@ -381,7 +381,7 @@ License: For each use you must have a valid license purchased only from above li
 											<th class="min-w-150px">
 												<a href="<?= base_url('manageUsers?column=email&order=' .
 													($column == 'email' && $order == 'asc' ? 'desc' : 'asc') .
-													'&perPage=' . $perPage) ?>">
+													'&perPage=' . $perPage . '&' . http_build_query($filters)) ?>">
 													Email <?= ($column == 'email') ? ($order == 'asc' ? '↑' : '↓') : '' ?>
 												</a>
 											</th>
@@ -390,7 +390,7 @@ License: For each use you must have a valid license purchased only from above li
 											<th class="min-w-125px">
 												<a href="<?= base_url('manageUsers?column=role_id&order=' .
 													($column == 'role_id' && $order == 'asc' ? 'desc' : 'asc') .
-													'&perPage=' . $perPage) ?>">
+													'&perPage=' . $perPage . '&' . http_build_query($filters)) ?>">
 													Role <?= ($column == 'role_id') ? ($order == 'asc' ? '↑' : '↓') : '' ?>
 												</a>
 											</th>
@@ -399,7 +399,7 @@ License: For each use you must have a valid license purchased only from above li
 											<th class="min-w-125px">
 												<a href="<?= base_url('manageUsers?column=created_at&order=' .
 													($column == 'created_at' && $order == 'asc' ? 'desc' : 'asc') .
-													'&perPage=' . $perPage) ?>">
+													'&perPage=' . $perPage . '&' . http_build_query($filters)) ?>">
 													Created <?= ($column == 'created_at') ? ($order == 'asc' ? '↑' : '↓') : '' ?>
 												</a>
 											</th>
@@ -507,7 +507,7 @@ License: For each use you must have a valid license purchased only from above li
 											</form>
 
 											<div class="d-flex align-items-center py-3">
-												<?= $pager->links('default', 'myPagination') ?>
+												<?= $pager->links('default', 'myPagination', ['query' => $filters]) ?>
 											</div>
 										</div>
 									</div>

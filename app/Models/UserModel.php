@@ -32,11 +32,4 @@ class UserModel extends Model
   protected $createdField = 'created_at';
   protected $updatedField = 'updated_at';
 
-  public function getUserWithRole($userId)
-  {
-    return $this->select('users.*, roles.name as role_name')
-      ->join('roles', 'users.role_id = roles.id', 'left')
-      ->where('users.id', $userId)
-      ->first();
-  }
 }
