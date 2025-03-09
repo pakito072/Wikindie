@@ -164,9 +164,7 @@ License: For each use you must have a valid license purchased only from above li
 																		fill="black" />
 																</svg>
 															</span>
-															<input type="datetime-local" name="created_at"
-																class="form-control form-control-solid w-250px ps-14" placeholder="Created At"
-																value="<?= esc($filters['created_at']) ?>" />
+<input type="date" name="created_at" class="form-control form-control-solid w-250px ps-14" placeholder="Created At" value="<?= esc($filters['created_at']) ?>" />
 														</div>
 														<div class="d-flex align-items-center position-relative my-1">
 															<div class="form-check form-check-solid me-3">
@@ -197,13 +195,14 @@ License: For each use you must have a valid license purchased only from above li
 											<input type="hidden" name="role_id" value="<?= esc($filters['role_id']) ?>">
 											<input type="hidden" name="created_at" value="<?= esc($filters['created_at']) ?>">
 											<input type="hidden" name="showDisabled" value="<?= esc($filters['showDisabled']) ?>">
+											<input type="hidden" name="column" value="<?= esc($column) ?>">
+											<input type="hidden" name="order" value="<?= esc($order) ?>">
 											<button type="submit" class="btn btn-light-primary me-3">
 												<!--begin::Svg Icon | path: icons/duotune/arrows/arr078.svg-->
 												<span class="svg-icon svg-icon-2">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-														fill="none">
-														<rect opacity="0.3" x="12.75" y="4.25" width="12" height="2" rx="1"
-															transform="rotate(90 12.75 4.25)" fill="black" />
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+														<rect opacity="0.3" x="12.75" y="4.25" width="12" height="2" rx="1" transform="rotate(90 12.75 4.25)"
+															fill="black" />
 														<path
 															d="M12.0573 6.11875L13.5203 7.87435C13.9121 8.34457 14.6232 8.37683 15.056 7.94401C15.4457 7.5543 15.4641 6.92836 15.0979 6.51643L12.4974 3.59084C12.0996 3.14332 11.4004 3.14332 11.0026 3.59084L8.40206 6.51643C8.0359 6.92836 8.0543 7.5543 8.44401 7.94401C8.87683 8.37683 9.58785 8.34458 9.9797 7.87435L11.4427 6.11875C11.6026 5.92684 11.8974 5.92684 12.0573 6.11875Z"
 															fill="black" />
