@@ -6,7 +6,6 @@ use App\Controllers\BaseController;
 use App\Models\UserModel;
 use App\Models\RoleModel;
 
-
 class muController extends BaseController
 {
   protected $userModel;
@@ -17,7 +16,6 @@ class muController extends BaseController
     $this->userModel = new UserModel();
     $this->roleModel = new RoleModel();
   }
-
 
   private function setPaginationData(&$data)
   {
@@ -83,7 +81,6 @@ class muController extends BaseController
       ->orderBy($data['column'], $data['order'])
       ->paginate($data['perPage']);
 
-
     $data = [
       'breadcrumbs' => generate_breadcrumbs($segments),
       'view_name' => $title,
@@ -113,38 +110,36 @@ class muController extends BaseController
 
   public function create()
   {
-
     $validationRules = [
       'username' => 'required|min_length[3]|max_length[50]|is_unique[users.username]',
       'email' => 'required|valid_email|is_unique[users.email]',
-      'password' => 'required|min_length[8]',
+      'password' => 'required|min_length[8]|regex_match[/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/]',
       'role_id' => 'required|in_list[1,2,3]'
     ];
 
     if (!$this->validate($validationRules)) {
-      return redirect()->back()->withInput()->with('error', 'Validation failed. Please check the form.');
+      return redirect()->back()->withInput()->with('validation', $this->validator);
     }
 
-    // Datos para insertar en la base de datos
+    // Data to insert into the database
     $data = [
       'username' => $this->request->getPost('username'),
       'email' => $this->request->getPost('email'),
       'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
       'role_id' => $this->request->getPost('role_id'),
       'avatar' => $this->request->getPost('avatar') ?? base_url('assets/media/cats/avatars/default.jpg'),
-      'is_disabled' => 0 // Usuario activo por defecto
+      'is_disabled' => 0 // Active user by default
     ];
 
-    // Insertar el usuario en la base de datos
+    // Insert the user into the database
     $this->userModel->insert($data);
 
-    // Redirigir con mensaje de éxito
-    return redirect()->to(base_url('manageUsers') . '?' . $this->buildQueryString($this->request->getGet()))->with('success', 'Usuario registrado correctamente.');
+    // Redirect with success message
+    return redirect()->to(base_url('manageUsers') . '?' . $this->buildQueryString($this->request->getGet()))->with('success', 'User registered successfully.');
   }
 
   public function update($id = null)
   {
-
     $id = $this->request->getPost('id');
     if (!$id) {
       return redirect()->to(base_url('manageUsers') . '?' . $this->buildQueryString($this->request->getGet()))->with('error', 'User not found.');
@@ -161,19 +156,22 @@ class muController extends BaseController
     ];
 
     if (!$this->validate($validationRules)) {
-      return redirect()->back()->withInput()->with('error', 'Validation failed. Please check the form.');
+      return redirect()->back()->withInput()->with('validation', $this->validator);
     }
 
-    // Datos para actualizar
+    // Data to update
     $data = [
       'username' => $this->request->getPost('username'),
       'email' => $this->request->getPost('email'),
       'role_id' => $this->request->getPost('role_id'),
     ];
 
-    // Actualizar la contraseña solo si se proporciona
+    // Update the password only if provided
     $password = $this->request->getPost('password');
     if (!empty($password)) {
+      if (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/', $password)) {
+        return redirect()->back()->withInput()->with('validation', $this->validator);
+      }
       $data['password'] = password_hash($password, PASSWORD_DEFAULT);
     }
 

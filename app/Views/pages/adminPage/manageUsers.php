@@ -36,6 +36,7 @@ License: For each use you must have a valid license purchased only from above li
 	<!--begin::Page Vendors Stylesheets(used by this page)-->
 	<link href="<?= base_url('assets/plugins/custom/datatables/datatables.bundle.css'); ?>" rel="stylesheet"
 		type="text/css" />
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!--end::Page Vendors Stylesheets-->
 	<!--begin::Global Stylesheets Bundle(used by all pages)-->
 	<link href="<?= base_url('assets/plugins/global/plugins.bundle.css'); ?>" rel="stylesheet" type="text/css" />
@@ -309,7 +310,6 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Modal dialog-->
 										</div>
 										<!--begin::Modal para Crear/Editar-->
-										<!-- filepath: c:\wamp64\www\Catigo\app\Views\pages\adminPage\manageUsers.php -->
 										<div class="modal fade" id="kt_modal_edit_user" tabindex="-1" aria-hidden="true">
 											<div class="modal-dialog modal-dialog-centered mw-650px">
 												<div class="modal-content">
@@ -458,7 +458,7 @@ License: For each use you must have a valid license purchased only from above li
 														<td class="text-end">
 															<?php if ($user['is_disabled']): ?>
 																<a href="<?= base_url('manageUsers/restore/' . $user['id']) ?>"
-																	class="btn btn-danger btn-sm">Restore</a>
+																	class="btn btn-danger btn-sm restore-user">Restore</a>
 															<?php else: ?>
 																<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click"
 																	data-kt-menu-placement="bottom-end">Actions
@@ -485,7 +485,7 @@ License: For each use you must have a valid license purchased only from above li
 																	</div>
 																	<div class="menu-item px-3">
 																		<a href="<?= base_url('manageUsers/disable/' . $user['id']) ?>"
-																			class="menu-link px-3">Delete</a>
+																			class="menu-link px-3 disable-user">Delete</a>
 																	</div>
 																</div>
 															<?php endif; ?>
@@ -572,6 +572,17 @@ License: For each use you must have a valid license purchased only from above li
 
 	<!--begin::Page Custom Javascript(used by this page)-->
 	<script src="<?= base_url('assets/js/ownJs/manageUsers.js') ?>"></script>
+	<?php if (session()->getFlashdata('success')): ?>
+		<script>
+			toastr.success("<?= session()->getFlashdata('success') ?>", "Success");
+		</script>
+	<?php endif; ?>
+	
+	<?php if (session()->getFlashdata('error')): ?>
+		<script>
+			toastr.error("<?= session()->getFlashdata('error') ?>", "Error");
+		</script>
+	<?php endif; ?>
 	<!--end::Page Custom Javascript-->
 	<!--end::Javascript-->
 </body>

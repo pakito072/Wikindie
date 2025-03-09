@@ -1111,6 +1111,17 @@ License: For each use you must have a valid license purchased only from above li
 	<!--end::Page Vendors Javascript-->
 	<!--begin::Page Custom Javascript(used by this page)-->
 	<script src="<?= base_url('assets/js/custom/widgets.js') ?>"></script>
+		<?php if (session()->getFlashdata('success')): ?>
+			<script>
+				toastr.success("<?= session()->getFlashdata('success') ?>", "Success");
+			</script>
+		<?php endif; ?>
+		
+		<?php if (session()->getFlashdata('error')): ?>
+			<script>
+				toastr.error("<?= session()->getFlashdata('error') ?>", "Error");
+			</script>
+		<?php endif; ?>
 	<!--end::Page Custom Javascript-->
 	<!--end::Javascript-->
 </body>

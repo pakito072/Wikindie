@@ -71,9 +71,13 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Link-->
 							</div>
 							<!--end::Heading-->
-							<?php if (isset($validation)): ?>
-								<div class="alert alert-danger"><?= $validation->listErrors() ?></div>
-							<?php endif; ?>
+							  <?php if (session()->getFlashdata('validation')): ?>
+									<div class="alert alert-danger">
+										<?php foreach (session()->getFlashdata('validation')->getErrors() as $error): ?>
+											<p><?= $error ?></p>
+										<?php endforeach; ?>
+									</div>
+								<?php endif; ?>
 
 							<!--begin::Separator-->
 							<div class="d-flex align-items-center mb-10">
@@ -125,7 +129,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::Wrapper-->
 								<!--begin::Hint-->
-								<div class="text-muted">Use 8 or more characters with a mix of letters, numbers &amp; symbols.</div>
+								<div class="text-muted">Use 8 or more characters.</div>
 								<!--end::Hint-->
 							</div>
 							<!--end::Input group=-->
@@ -184,6 +188,17 @@ License: For each use you must have a valid license purchased only from above li
 	<script src="<?= base_url('assets/js/scripts.bundle.js') ?>"></script>
 	<!--end::Global Javascript Bundle-->
 	<!--begin::Page Custom Javascript(used by this page)-->
+		<?php if (session()->getFlashdata('success')): ?>
+			<script>
+				toastr.success("<?= session()->getFlashdata('success') ?>", "Success");
+			</script>
+		<?php endif; ?>
+		
+		<?php if (session()->getFlashdata('error')): ?>
+			<script>
+				toastr.error("<?= session()->getFlashdata('error') ?>", "Error");
+			</script>
+		<?php endif; ?>
 	<!--end::Page Custom Javascript-->
 	<!--end::Javascript-->
 </body>

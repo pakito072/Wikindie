@@ -17,6 +17,17 @@ class AuthController extends BaseController
   public function processSignUp()
   {
 
+    $validationRules = [
+      'username' => 'required|min_length[3]|max_length[50]|is_unique[users.username]',
+      'email' => 'required|valid_email|is_unique[users.email]',
+      'password' => 'required|min_length[8]',
+      'confirm_password' => 'require|matches[password]',
+    ];
+
+    if (!$this->validate($validationRules)) {
+      return redirect()->back()->withInput()->with('validation', $this->validator);
+    }
+
     $userModel = new UserModel();
 
     $defaultAvatar = base_url('assets/media/cats/avatars/default.jpg');
@@ -31,7 +42,7 @@ class AuthController extends BaseController
 
     $userModel->insert($data);
 
-    return redirect()->to(base_url('signIn'))->with('success', 'Usuario registrado correctamente.');
+    return redirect()->to(base_url('signIn'))->with('success', 'User registered successfully.');
   }
   public function signIn()
   {
@@ -50,7 +61,7 @@ class AuthController extends BaseController
     $user = $userModel->where('email', $email)->first();
 
     if (!$user || !password_verify($password, $user['password'])) {
-      return redirect()->to(base_url('signIn'))->with('error', 'Correo o contraseña incorrectos.');
+      return redirect()->to(base_url('signIn'))->with('error', 'Email or password incorrect.');
     }
 
     $role = $roleModel->find($user['role_id']);
@@ -66,13 +77,13 @@ class AuthController extends BaseController
       'is_logged_in' => true
     ]);
 
-    return redirect()->to(base_url('/'))->with('success', 'Bienvenido de nuevo.');
+    return redirect()->to(base_url('/'))->with('success', 'Welcome back, ' . $user['username'] . '!');
   }
 
   public function signOut()
   {
     // Cerrar sesión
     session()->destroy();
-    return redirect()->to(base_url('signIn'));
+    return redirect()->to(base_url('signIn'))->with('success', 'You have been logged out.');
   }
 }

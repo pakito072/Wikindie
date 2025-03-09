@@ -147,6 +147,17 @@ License: For each use you must have a valid license purchased only from above li
 	<script src="<?= base_url('assets/js/scripts.bundle.js') ?>"></script>
 	<!--end::Global Javascript Bundle-->
 	<!--begin::Page Custom Javascript(used by this page)-->
+		<?php if (session()->getFlashdata('success')): ?>
+			<script>
+				toastr.success("<?= session()->getFlashdata('success') ?>", "Success");
+			</script>
+		<?php endif; ?>
+		
+		<?php if (session()->getFlashdata('error')): ?>
+			<script>
+				toastr.error("<?= session()->getFlashdata('error') ?>", "Error");
+			</script>
+		<?php endif; ?>
 	<!--end::Page Custom Javascript-->
 	<!--end::Javascript-->
 </body>

@@ -28,3 +28,41 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector("form").submit();
     });
 });
+
+$(document).ready(function () {
+  $(".disable-user").on("click", function (e) {
+    e.preventDefault();
+    var url = $(this).attr("href");
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, disable it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = url;
+      }
+    });
+  });
+
+  $(".restore-user").on("click", function (e) {
+    e.preventDefault();
+    var url = $(this).attr("href");
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You want to restore this record!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, restore it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = url;
+      }
+    });
+  });
+});
