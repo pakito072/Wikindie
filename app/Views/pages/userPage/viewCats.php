@@ -309,8 +309,9 @@ License: For each use you must have a valid license purchased only from above li
 																<!--begin::Input group-->
 																<div class="fv-row mb-7">
 																	<label class="required fw-bold fs-6 mb-2">cat_type_id</label>
-																	<input type="text" name="cat_type_id" class="form-control form-control-solid mb-3 mb-lg-0"
-																		placeholder="cat_type_id" required />
+																	<input type="text" name="cat_type_id"
+																		class="form-control form-control-solid mb-3 mb-lg-0" placeholder="cat_type_id"
+																		required />
 																</div>
 																<!--end::Input group-->
 																<!--begin::Input group-->
@@ -439,7 +440,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin::Tags-->
 													<td>
 														<div>
-															<?= esc($cat['cat_type_id']); ?>
+															<?= esc($cat['cat_type_name']); ?>
 														</div>
 													</td>
 													<!--end::Tags-->
@@ -524,7 +525,7 @@ License: For each use you must have a valid license purchased only from above li
 											</form>
 
 											<div class="d-flex align-items-center py-3">
-												<?= $pager->links('default','myPagination') ?>
+												<?= $pager->links('default', 'myPagination') ?>
 											</div>
 										</div>
 									</div>

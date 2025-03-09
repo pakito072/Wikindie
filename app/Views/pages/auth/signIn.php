@@ -58,7 +58,8 @@ License: For each use you must have a valid license purchased only from above li
 					<!--begin::Wrapper-->
 					<div class="w-lg-500px p-10 p-lg-15 mx-auto">
 						<!--begin::Form-->
-						<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" method="post" action="<?= base_url('signIn') ?>">
+						<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" method="post"
+							action="<?= base_url('signIn') ?>">
 							<!--begin::Heading-->
 							<div class="text-center mb-10">
 								<!--begin::Title-->
@@ -78,11 +79,11 @@ License: For each use you must have a valid license purchased only from above li
 							<!--begin::Input group-->
 							<div class="fv-row mb-10">
 								<!--begin::Label-->
-								<label class="form-label fs-6 fw-bolder text-dark">Email</label>
+								<label class="form-label fs-6 fw-bolder text-dark">Email <span class="text-danger">*</span></label>
 								<!--end::Label-->
 								<!--begin::Input-->
 								<input class="form-control form-control-lg form-control-solid" type="text" name="email"
-									autocomplete="off" />
+									placeholder="Enter your email" autocomplete="off" />
 								<!--end::Input-->
 							</div>
 							<!--end::Input group-->
@@ -91,17 +92,16 @@ License: For each use you must have a valid license purchased only from above li
 								<!--begin::Wrapper-->
 								<div class="d-flex flex-stack mb-2">
 									<!--begin::Label-->
-									<label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
+									<label class="form-label fw-bolder text-dark fs-6 mb-0">Password <span
+											class="text-danger">*</span></label>
 									<!--end::Label-->
 									<!--begin::Link-->
-									<a href="<?= base_url('forgotPassword') ?>" class="link-primary fs-6 fw-bolder ">Forgot
-										Password ?</a>
 									<!--end::Link-->
 								</div>
 								<!--end::Wrapper-->
 								<!--begin::Input-->
 								<input class="form-control form-control-lg form-control-solid" type="password" name="password"
-									autocomplete="off" />
+									placeholder="Enter your password" autocomplete="off" />
 								<!--end::Input-->
 							</div>
 							<!--end::Input group-->
@@ -147,17 +147,17 @@ License: For each use you must have a valid license purchased only from above li
 	<script src="<?= base_url('assets/js/scripts.bundle.js') ?>"></script>
 	<!--end::Global Javascript Bundle-->
 	<!--begin::Page Custom Javascript(used by this page)-->
-		<?php if (session()->getFlashdata('success')): ?>
-			<script>
-				toastr.success("<?= session()->getFlashdata('success') ?>", "Success");
-			</script>
-		<?php endif; ?>
-		
-		<?php if (session()->getFlashdata('error')): ?>
-			<script>
-				toastr.error("<?= session()->getFlashdata('error') ?>", "Error");
-			</script>
-		<?php endif; ?>
+	<?php if (session()->getFlashdata('success')): ?>
+		<script>
+			toastr.success("<?= session()->getFlashdata('success') ?>", "Success");
+		</script>
+	<?php endif; ?>
+
+	<?php if (session()->getFlashdata('error')): ?>
+		<script>
+			toastr.error("<?= session()->getFlashdata('error') ?>", "Error");
+		</script>
+	<?php endif; ?>
 	<!--end::Page Custom Javascript-->
 	<!--end::Javascript-->
 </body>

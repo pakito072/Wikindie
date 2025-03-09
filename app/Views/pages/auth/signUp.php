@@ -87,17 +87,17 @@ License: For each use you must have a valid license purchased only from above li
 							</div>
 							<!--end::Separator-->
 							<!--begin::Input group-->
-							<div class="row fv-row mb-7">
-								<label class="form-label fw-bolder text-dark fs-6">Username</label>
-								<input class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="username"
-								autocomplete="off" value="<?= set_value('username', isset($user) ? $user['username'] : '') ?>" />
+<div class="row fv-row mb-7">
+    <label class="form-label fw-bolder text-dark fs-6">Username <span class="text-danger">*</span></label>
+    <input class="form-control form-control-lg form-control-solid" type="text" placeholder="Enter your username" name="username"
+    autocomplete="off" value="<?= set_value('username', isset($user) ? $user['username'] : '') ?>" />
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
 							<div class="fv-row mb-7">
-								<label class="form-label fw-bolder text-dark fs-6">Email</label>
-								<input class="form-control form-control-lg form-control-solid" type="email" placeholder="" name="email"
-									autocomplete="off" value="<?= set_value('email', isset($user) ? $user['email'] : '') ?>" />
+								<label class="form-label fw-bolder text-dark fs-6">Email <span class="text-danger">*</span></label>
+								<input class="form-control form-control-lg form-control-solid" type="email" placeholder="Enter your email"
+									name="email" autocomplete="off" value="<?= set_value('email', isset($user) ? $user['email'] : '') ?>" />
 							</div>
 							<!--end::Input group-->
 							<!--begin::Input group-->
@@ -105,12 +105,12 @@ License: For each use you must have a valid license purchased only from above li
 								<!--begin::Wrapper-->
 								<div class="mb-1">
 									<!--begin::Label-->
-									<label class="form-label fw-bolder text-dark fs-6">Password</label>
+									<label class="form-label fw-bolder text-dark fs-6">Password <span class="text-danger">*</span></label>
 									<!--end::Label-->
 									<!--begin::Input wrapper-->
 									<div class="position-relative mb-3">
-										<input class="form-control form-control-lg form-control-solid" type="password" placeholder=""
-											name="password" autocomplete="off" />
+										<input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="password"
+											autocomplete="off" />
 										<span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2"
 											data-kt-password-meter-control="visibility">
 											<i class="bi bi-eye-slash fs-2"></i>
@@ -135,8 +135,8 @@ License: For each use you must have a valid license purchased only from above li
 							<!--end::Input group=-->
 							<!--begin::Input group-->
 							<div class="fv-row mb-5">
-								<label class="form-label fw-bolder text-dark fs-6">Confirm Password</label>
-								<input class="form-control form-control-lg form-control-solid" type="password" placeholder=""
+								<label class="form-label fw-bolder text-dark fs-6">Confirm Password <span class="text-danger">*</span></label>
+								<input class="form-control form-control-lg form-control-solid" type="password" placeholder="Confirm your password"
 									name="confirm_password" autocomplete="off" />
 							</div>
 							<!--end::Input group-->

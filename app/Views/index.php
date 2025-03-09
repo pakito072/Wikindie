@@ -77,7 +77,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="card card-xxl-stretch">
 										<!--begin::Header-->
 										<div class="card-header border-0 bg-danger py-5">
-											<h3 class="card-title fw-bolder text-white">Sales Statistics</h3>
+											<h3 class="card-title fw-bolder text-white">Adoption Statistics</h3>
 											<div class="card-toolbar">
 												<!--begin::Menu-->
 												<button type="button"
@@ -203,7 +203,7 @@ License: For each use you must have a valid license purchased only from above li
 															</svg>
 														</span>
 														<!--end::Svg Icon-->
-														<a href="#" class="text-warning fw-bold fs-6">Weekly Sales</a>
+														<a href="#" class="text-warning fw-bold fs-6">Weekly Adoptions</a>
 													</div>
 													<!--end::Col-->
 													<!--begin::Col-->
@@ -221,7 +221,7 @@ License: For each use you must have a valid license purchased only from above li
 															</svg>
 														</span>
 														<!--end::Svg Icon-->
-														<a href="#" class="text-primary fw-bold fs-6">New Projects</a>
+														<a href="#" class="text-primary fw-bold fs-6">New Adoptions</a>
 													</div>
 													<!--end::Col-->
 												</div>
@@ -243,7 +243,7 @@ License: For each use you must have a valid license purchased only from above li
 															</svg>
 														</span>
 														<!--end::Svg Icon-->
-														<a href="#" class="text-danger fw-bold fs-6 mt-2">Item Orders</a>
+														<a href="#" class="text-danger fw-bold fs-6 mt-2">Adoptions Done</a>
 													</div>
 													<!--end::Col-->
 													<!--begin::Col-->

@@ -5,63 +5,62 @@ namespace App\Controllers\userController;
 use App\Controllers\BaseController;
 use App\Models\CatsModel;
 use App\Models\CatTypesModel;
-use App\Config\Pager;
 
 class vcController extends BaseController
 {
-  protected $catsModel;
-  protected $catTypesModel;
+    protected $catsModel;
+    protected $catTypesModel;
 
-  public function __construct()
-  {
-    $this->catsModel = new CatsModel();
-    $this->catTypesModel = new CatTypesModel;
-  }
-
-
-  public function view()
-  {
-    helper('breadcrumbs');
-    $segments = ['View Cats'];
-    $title = 'View Cats';
-
-
-    $perPage = $this->request->getGet('perPage') ?? 5;
-    $perPage = in_array($perPage, [5, 10, 15, 20]) ? $perPage : 10;
-
-
-    $column = $this->request->getGet('column') ?? 'id';
-    $order = $this->request->getGet('order') ?? 'asc';
-
-    // Validar que la columna sea válida para evitar SQL Injection
-    $allowedColumns = ['id', 'name', 'age', 'cat_type_id', 'gender', 'color', 'status'];
-    if (!in_array($column, $allowedColumns)) {
-      $column = 'id';
+    public function __construct()
+    {
+        $this->catsModel = new CatsModel();
+        $this->catTypesModel = new CatTypesModel();
     }
 
+    public function view()
+    {
+        helper('breadcrumbs');
+        $segments = ['View Cats'];
+        $title = 'View Cats';
 
-    $order = ($order === 'desc') ? 'desc' : 'asc';
+        $perPage = $this->request->getGet('perPage') ?? 5;
+        $perPage = in_array($perPage, [5, 10, 15, 20]) ? $perPage : 10;
 
+        $column = $this->request->getGet('column') ?? 'id';
+        $order = $this->request->getGet('order') ?? 'asc';
 
-    $cats = $this->catsModel->where('is_disabled', 0)
-      ->orderBy($column, $order)
-      ->paginate($perPage);
+        // Validar que la columna sea válida para evitar SQL Injection
+        $allowedColumns = ['id', 'name', 'age', 'cat_type_id', 'gender', 'color', 'status'];
+        if (!in_array($column, $allowedColumns)) {
+            $column = 'id';
+        }
 
-    $pager = $this->catsModel->pager;
+        $order = ($order === 'desc') ? 'desc' : 'asc';
 
+        // Obtener los gatos con el nombre del tipo de gato
+        $cats = $this->catsModel
+            ->select('cats.*, cat_types.name as cat_type_name')
+            ->join('cat_types', 'cats.cat_type_id = cat_types.id')
+            ->where('cats.is_disabled', 0)
+            ->orderBy($column, $order)
+            ->paginate($perPage);
 
-    $data = [
-      'breadcrumbs' => generate_breadcrumbs($segments),
-      'view_name' => $title,
-      'cats' => $cats,
-      'pager' => $pager,
-      'column' => $column,
-      'order' => $order,
-      'perPage' => $perPage,
-    ];
+        $pager = $this->catsModel->pager;
 
-    return view('pages/userPage/viewCats', $data);
-  }
+        $data = [
+            'breadcrumbs' => generate_breadcrumbs($segments),
+            'view_name' => $title,
+            'cats' => $cats,
+            'pager' => $pager,
+            'column' => $column,
+            'order' => $order,
+            'perPage' => $perPage,
+        ];
+
+        return view('pages/userPage/viewCats', $data);
+    }
+
+    // Otros métodos...
 
 
   public function create()
