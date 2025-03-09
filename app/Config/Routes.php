@@ -56,5 +56,10 @@ $routes->group('', ['filter' => 'auth:1'], function ($routes) {
   $routes->get('manageUsers/export', 'adminController\muController::export');
 
 
-  $routes->get('manageRoles', 'AdminController\mrController::index');
+  $routes->get('manageRoles', 'adminController\mrController::view');
+  $routes->post('manageRoles', 'adminController\mrController::create');
+  $routes->post('manageRoles', 'adminController\mrController::update');
+  $routes->get('manageRoles/disable/(:num)', 'adminController\mrController::disable/$1');
+  $routes->get('manageRoles/restore/(:num)', 'adminController\mrController::restore/$1');
+  $routes->get('manageRoles/export', 'adminController\mrController::export');
 });

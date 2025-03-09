@@ -3,11 +3,16 @@
 namespace App\Controllers;
 
 use App\Models\EventModel;
+use CodeIgniter\Validation\Exceptions\ValidationException;
 
 class EventController extends BaseController
 {
   public function fetchEvents()
   {
+    helper('breadcrumbs');
+    $segments = ['Manage Roles'];
+    $title = 'Manage Roles';
+
     $eventModel = new EventModel();
     $eventsData = $eventModel->where('DELETION_DATE', null)->findAll();
 
@@ -24,11 +29,29 @@ class EventController extends BaseController
       ];
     }
 
-    return view('pages/calendar', ['events' => $events]);
+    return view('pages/calendar', [
+      'events' => $events,
+      'segments' => $segments,
+      'title' => $title
+    ]);
   }
 
   public function addEvent()
   {
+    $validation = \Config\Services::validation();
+
+    $validation->setRules([
+      'TITLE' => 'required|min_length[3]|max_length[255]',
+      'DESCRIPTION_ES' => 'required',
+      'DESCRIPTION_ENG' => 'required',
+      'START_DATE' => 'required|valid_date',
+      'END_DATE' => 'required|valid_date'
+    ]);
+
+    if (!$validation->withRequest($this->request)->run()) {
+      return $this->response->setJSON(['errors' => $validation->getErrors()]);
+    }
+
     $eventModel = new EventModel();
 
     $id = $this->request->getPost('PK_ID_EVENT');
@@ -42,11 +65,9 @@ class EventController extends BaseController
     ];
 
     if ($id) {
-
       $eventModel->update($id, $data);
       $insertedID = $id;
     } else {
-
       $insertedID = $eventModel->insert($data);
     }
 
@@ -55,7 +76,6 @@ class EventController extends BaseController
 
   public function deleteEvent($id)
   {
-
     $eventModel = new EventModel();
     $eventModel->update($id, ['DELETION_DATE' => date('Y-m-d H:i:s')]);
 

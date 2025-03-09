@@ -21,7 +21,7 @@ class AuthController extends BaseController
       'username' => 'required|min_length[3]|max_length[50]|is_unique[users.username]',
       'email' => 'required|valid_email|is_unique[users.email]',
       'password' => 'required|min_length[8]',
-      'confirm_password' => 'require|matches[password]',
+      'confirm_password' => 'required|matches[password]',
     ];
 
     if (!$this->validate($validationRules)) {
